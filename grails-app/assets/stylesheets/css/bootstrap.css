@@ -4229,8 +4229,7 @@ input[type="button"].btn-block {
 
 .navbar-toggler:hover, .navbar-toggler:focus {
   text-decoration: none;
-  border-color: deeppink;
-  border-radius: 0.25rem;
+  border: 1px solid deeppink;
 }
 
 .navbar-toggler-icon {

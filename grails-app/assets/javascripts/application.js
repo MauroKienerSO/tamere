@@ -6,8 +6,6 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.2.0.min
-//= require bootstrap.bundle
-//= require_tree .
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
@@ -23,14 +21,16 @@ if (typeof jQuery !== 'undefined') {
 $(document).ready(function(){
 
     $( '#myHeader .navbar-nav a' ).on( 'click', function () {
+
         $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
         $(this).parent( 'li' ).addClass( 'active' );
 
         var that = $(this);
         var url = that.data('url');
-        var target = that.data('target');
 
-        var divElement = $('#'+target);
+        var navbarSupportedContent = $('#navbarSupportedContent');
+        navbarSupportedContent.collapse('hide');
+
 
         $.ajax({
             url: url,
@@ -39,6 +39,10 @@ $(document).ready(function(){
                 $('#myTemplate').html(data);
             }
         });
+
+    });
+
+    $( '#myHeader .navbar-nav a' ).on( 'hover', function () {
 
     });
 

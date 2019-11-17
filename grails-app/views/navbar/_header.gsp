@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-custom bg-custom" id="myHeader">
+<nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
     <a class="navbar-brand" href="/tamere" style="width: 20vw;">
         <asset:image src="Logo2.jpg" id="headerlogo" width="100" class="d-inline-block align-top" alt="Ta Mère Logo"/>
     </a>
