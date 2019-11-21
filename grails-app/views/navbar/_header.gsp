@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
+<nav class="navbar navbar-expand-lg navbar-custom bg-transparent" id="myHeader">
     <a class="navbar-brand" href="/tamere" style="width: 20vw;">
-        <asset:image src="Logo2.jpg" id="headerlogo" width="100" class="d-inline-block align-top" alt="Ta Mère Logo"/>
+        <asset:image src="header2TM.svg" id="headerlogo" width="100" class="d-none" alt="Ta Mère Logo"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,9 +34,5 @@
                 </a>
             </li>
         </ul>
-%{--        <form class="form-inline my-2 my-lg-0">--}%
-%{--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}%
-%{--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--}%
-%{--        </form>--}%
     </div>
 </nav>

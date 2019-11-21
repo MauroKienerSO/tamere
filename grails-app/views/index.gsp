@@ -6,6 +6,7 @@
 </head>
 <body>
 
-<div id="myTemplate" class="myTemplate"> Here </div>
+<div id="myTemplate" class="myTemplate">
+</div>
 </body>
 </html>

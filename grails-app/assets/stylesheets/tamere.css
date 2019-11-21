@@ -1,16 +1,17 @@
 .navbar-custom {
     width: 100vw;
     margin: 0;
-    min-height: 5vw;
-    opacity: 0.5;
+    min-height: 7vw;
+    position: fixed;
+    top: 0;
 }
 
 .navbar-custom:hover {
-    opacity: 1;
+    opacity: 0.7;
 }
 
 .navbar-custom .navbar-brand {
-    color: #fff;
+    color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
 }
@@ -20,7 +21,8 @@
 }
 
 .navbar-custom .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgb(244, 236, 235);
+    min-height: 30px;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
     -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
@@ -30,9 +32,9 @@
 }
 
 .navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link:focus {
-    color: yellow;
-    border-top: 1px solid deeppink;
-    border-bottom: 1px solid deeppink;
+    color: rgb(208, 190, 0);
+    border-top: 1px solid #fa007f;
+    border-bottom: 1px solid #fa007f;
 }
 
 .navbar-custom .navbar-nav .nav-link.disabled {
@@ -43,9 +45,9 @@
 .navbar-custom .navbar-nav .active > .nav-link,
 .navbar-custom .navbar-nav .nav-link.show,
 .navbar-custom .navbar-nav .nav-link.active {
-    color: yellow;
-    border-top: 1px solid deeppink;
-    border-bottom: 1px solid deeppink;
+    color: rgb(208, 190, 0);
+    border-top: 1px solid #fa007f;
+    border-bottom: 1px solid #fa007f;
 }
 
 .navbar-custom .navbar-toggler-icon {
@@ -63,7 +65,7 @@
 }
 
 .navbar-custom .navbar-text a:hover, .navbar-custom .navbar-text a:focus {
-    color: yellow;
+    color: rgb(208, 190, 0);
 }
 
 .navbar-custom .nav-link {
@@ -76,6 +78,7 @@
 .navbar-custom a {
     text-align: center;
     text-transform: uppercase;
+    font-weight: bold;
     letter-spacing: 2px;
 }
 
@@ -87,29 +90,175 @@
     }
 }
 
+.bg-transparent {
+    background-color: transparent !important;
+    -o-transition: background-color 0.4s ease-in;
+    -ms-transition: background-color 0.4s ease-in;
+    -moz-transition: background-color 0.4s ease-in;
+    -webkit-transition: background-color 0.4s ease-in;
+}
+
 .bg-custom {
     background-color: black !important;
+    opacity: 0.5;
+    -o-transition: background-color 0.4s ease-in;
+    -ms-transition: background-color 0.4s ease-in;
+    -moz-transition: background-color 0.4s ease-in;
+    -webkit-transition: background-color 0.4s ease-in;
+}
+
+.bg-custom:hover {
+    opacity: 1;
 }
 
 .custom-jumbo {
-    opacity: 0.5;
-    background-color: black;
+    background-color: transparent;
+    padding-top: 2vw;
     text-color: white;
+    max-height: 283.67px;
+    margin-bottom: 0;
+    padding-bottom: 3vw;
 }
 
 .custom-jumbo .display-4 {
-    color: rgb(255, 255, 255) !important;
+    color: rgb(208, 190, 0); !important;
     letter-spacing: 3px;
     text-transform: uppercase;
+    font-stretch: extra-condensed;
 }
 
 .custom-jumbo p, .custom-jumbo .my-4 {
     color: rgb(208, 208, 208) !important;
 }
 
-/*.myTemplate {*/
-/*}*/
+.custom-carousel {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    max-height: inherit;
+}
 
-/*.title {*/
-/*    color: lightpink;*/
-/*}*/
+.myTemplate {
+    /* under navbar */
+    padding-top: 7vw;
+}
+
+/*
+TABLE FOR LIVE SHOW
+ */
+
+.bg-table{
+    background-color: rgba(0, 0, 0, 0.75); !important;
+}
+/*
+table should take entire space
+ */
+.table-custom {
+    display: block;
+    border-collapse: collapse;
+}
+
+/*
+table head should take entire space
+ */
+.container-table-head {
+    display: block;
+    border-top: 1px solid rgba(157, 157, 157, 0.6);
+    border-bottom: 1px solid rgba(157, 157, 157, 0.6);
+    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+}
+
+.container-table-head:hover {
+    border-top: 1px solid #fa007f;
+    border-bottom: 1px solid #fa007f;
+}
+
+/*
+table row should be displayed flec with a min height of 6vw
+ */
+.table-row-custom {
+    display: flex;
+    min-height: 6vw;
+    color: white;
+}
+
+/*
+change colors on hover
+ */
+.table-row-custom:hover {
+    color: rgb(208, 190, 0);
+}
+
+/*
+flex-grow: 1 -> every element takes equally the same space
+ */
+.table-custom thead th{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table-custom thead th.date{
+    max-width: 10vw;
+    color: white;
+    text-align: right;
+    margin-right: 3vw;
+}
+.table-custom thead th.venue{
+}
+.table-custom thead th.city{
+    text-align: right;
+    margin-right: 3vw;
+}
+
+.table-custom thead th.tickets{
+    max-width: 12vw;
+    margin-right: 3vw;
+    color: white;
+    align-content: center;
+}
+
+.btn-custom {
+    border-color: white;
+    border-radius: 0;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-custom:hover {
+    color: rgb(208, 190, 0);
+    border-color: #fa007f;
+}
+
+@media (max-width: 575.98px){
+    .table-row-custom {
+        flex-direction: column;
+    }
+
+    .table-custom thead th.city, .table-custom thead th.date, .table-custom thead th.tickets {
+        text-align: left;
+        max-width: initial;
+        margin-right: initial;
+    }
+
+    .table-custom thead th.city, .table-custom thead th.venue {
+        color: rgb(208, 190, 0);
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .table-custom thead th{
+        margin-bottom: 1vw;
+        margin-top: 1vw;
+    }
+
+    .container-table-head {
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid #fa007f;
+    }
+}
