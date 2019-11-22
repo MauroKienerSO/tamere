@@ -22,10 +22,18 @@
                     <td class="tickets"><button class="btn btn-custom">Tickets</button></td>
                 </tr>
                 <tr class="table-row-custom d-none" id="inputRow-${liveShowCounter}">
-                    <td class="date">Date </td>
-                    <td class="venue">Venue</td>
-                    <td class="city">City</td>
-                    <td class="tickets"><button class="btn btn-custom">Tickets</button></td>
+                    <td class="date">
+                        <input type="date" name="date"/>
+                    </td>
+                    <td class="venue">
+                        <input type="text" name="venue" placeholder="Venue"/>
+                    </td>
+                    <td class="city">
+                        <input type="text" name="city" placeholder="City"/>
+                    </td>
+                    <td class="tickets">
+                        <input type="text" name="tickets" placeholder="Ticket-Url"/>
+                    </td>
                 </tr>
             </g:each>
             </tbody>
@@ -35,7 +43,7 @@
     <div class="container container-button">
             <button data-url="${g.createLink(controller: 'liveShow', action: 'addShow')}"
                id="addTableRow"
-               onclick="jQuery(addRow($(this)));" class="btn btn-custom btn-create" data-counter="${liveShowCounter}" data-target="#inputRow-${liveShowCounter}">
+               onclick="jQuery(addRow($(this)));" class="btn btn-custom btn-create" data-counter="${liveShowCounter}" data-target="${liveShowCounter}">
                 <g:message code="liveShow.create.label"/>
             </button>
     </div>

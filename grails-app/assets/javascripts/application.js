@@ -78,20 +78,15 @@ function addRow(element){
 
   var table = $('#liveShowTable');
 
-  var rowToDisplay = $(target);
-  var newRow = rowToDisplay.clone()
+  var rowToDisplay = $('#inputRow-'+target);
+  var newRow = rowToDisplay.clone();
   table.append(newRow);
   newRow.attr('id','inputRow-'+counter);
-
-  console.log('inputRow-'+counter);
-  console.log(tableBody.html());
-  console.log(target);
 
   link.data('counter', counter);
   link.data('target', counter);
 
   rowToDisplay.removeClass('d-none');
-
 
 };
 
