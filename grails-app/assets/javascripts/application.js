@@ -70,11 +70,36 @@ $(document).ready(function(){
 
 });
 
-function createDomain(element){
-  var link = $('#createDomainInstance');
-  var url = link.data('url');
+function addRow(element){
+  var link = $('#addTableRow');
+  var target = link.data('target');
+  var counter = link.data('counter');
+  counter++;
 
-  console.log("creating domain Instance");
+  var table = $('#liveShowTable');
+
+  var rowToDisplay = $(target);
+  var newRow = rowToDisplay.clone()
+  table.append(newRow);
+  newRow.attr('id','inputRow-'+counter);
+
+  console.log('inputRow-'+counter);
+  console.log(tableBody.html());
+  console.log(target);
+
+  link.data('counter', counter);
+  link.data('target', counter);
+
+  rowToDisplay.removeClass('d-none');
+
+
+};
+
+function createDomain(element){
+    var link = $('#createDomainInstance');
+    var url = link.data('url');
+
+    console.log("creating domain Instance");
     $.ajax({
         url: url,
         success: function(data, result){

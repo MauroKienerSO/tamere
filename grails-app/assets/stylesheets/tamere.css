@@ -164,17 +164,10 @@ table head should take entire space
  */
 .container-table-head {
     display: block;
-    border-top: 1px solid rgba(157, 157, 157, 0.6);
-    border-bottom: 1px solid rgba(157, 157, 157, 0.6);
     -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-}
-
-.container-table-head:hover {
-    border-top: 1px solid #fa007f;
-    border-bottom: 1px solid #fa007f;
 }
 
 /*
@@ -184,6 +177,12 @@ table row should be displayed flec with a min height of 6vw
     display: flex;
     min-height: 6vw;
     color: white;
+    border-top: 1px solid rgba(157, 157, 157, 0.6);
+    border-bottom: 1px solid rgba(157, 157, 157, 0.6);
+    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
 }
 
 /*
@@ -191,32 +190,34 @@ change colors on hover
  */
 .table-row-custom:hover {
     color: rgb(208, 190, 0);
+    border-top: 1px solid #fa007f;
+    border-bottom: 1px solid #fa007f;
 }
 
 /*
 flex-grow: 1 -> every element takes equally the same space
  */
-.table-custom thead th{
+.table-custom tbody td{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.table-custom thead th.date{
+.table-custom tbody td.date{
     max-width: 10vw;
     color: white;
     text-align: right;
     margin-right: 3vw;
 }
-.table-custom thead th.venue{
+.table-custom tbody td.venue{
 }
-.table-custom thead th.city{
+.table-custom tbody td.city{
     text-align: right;
     margin-right: 3vw;
 }
 
-.table-custom thead th.tickets{
+.table-custom tbody td.tickets{
     max-width: 12vw;
     margin-right: 3vw;
     color: white;
@@ -235,26 +236,43 @@ flex-grow: 1 -> every element takes equally the same space
     border-color: #fa007f;
 }
 
+.container-table {
+    margin-top: 3vw;
+    margin-bottom:3vw;
+}
+
+.container-button {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.btn-create {
+    margin-right: 3vw;
+    max-width: initial;
+}
+
 @media (max-width: 575.98px){
     .table-row-custom {
         flex-direction: column;
     }
 
-    .table-custom thead th.city, .table-custom thead th.date, .table-custom thead th.tickets {
+    .table-custom tbody td.city, .table-custom tbody td.date, .table-custom tbody td.tickets {
         text-align: left;
         max-width: initial;
         margin-right: initial;
     }
 
-    .table-custom thead th.city, .table-custom thead th.venue {
+    .table-custom tbody td.city, .table-custom tbody td.venue {
         color: rgb(208, 190, 0);
         margin-bottom: 0;
         margin-top: 0;
     }
 
-    .table-custom thead th{
+    .table-custom tbody td{
         margin-bottom: 1vw;
         margin-top: 1vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
     }
 
     .container-table-head {
