@@ -22,18 +22,20 @@
                     <td class="tickets"><button class="btn btn-custom">Tickets</button></td>
                 </tr>
                 <tr class="table-row-custom d-none" id="inputRow-${liveShowCounter}">
-                    <td class="date">
-                        <input type="date" name="date"/>
-                    </td>
-                    <td class="venue">
-                        <input type="text" name="venue" placeholder="Venue"/>
-                    </td>
-                    <td class="city">
-                        <input type="text" name="city" placeholder="City"/>
-                    </td>
-                    <td class="tickets">
-                        <input type="text" name="tickets" placeholder="Ticket-Url"/>
-                    </td>
+                    <g:form controller="liveShow" action="create">
+                        <td class="date">
+                            <input class="custom-liveShow-input custom-date" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                        </td>
+                        <td class="venue">
+                            <input type="text" name="venue" placeholder="Venue" class="custom-liveShow-input"/>
+                        </td>
+                        <td class="city">
+                            <input type="text" name="city" placeholder="City" class="custom-liveShow-input right-align"/>
+                        </td>
+                        <td class="tickets">
+                            <input type="text" name="tickets" placeholder="Ticket-Url" class="custom-liveShow-input"/>
+                        </td>
+                    </g:form>
                 </tr>
             </g:each>
             </tbody>
@@ -47,5 +49,7 @@
                 <g:message code="liveShow.create.label"/>
             </button>
     </div>
-
 </div>
+<script type="text/javascript">
+    initDatePicker();
+</script>

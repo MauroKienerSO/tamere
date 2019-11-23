@@ -9,6 +9,7 @@
 *
 *= require css/bootstrap
 *= require mobile
+*= require datepicker
 *= require tamere
 *= require_self
 */

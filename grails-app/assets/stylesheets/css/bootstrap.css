@@ -4230,6 +4230,7 @@ input[type="button"].btn-block {
 .navbar-toggler:hover, .navbar-toggler:focus {
   text-decoration: none;
   border: 1px solid deeppink;
+  outline:none;
 }
 
 .navbar-toggler-icon {

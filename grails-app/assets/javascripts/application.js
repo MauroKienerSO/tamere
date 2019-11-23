@@ -5,7 +5,7 @@
 // You're free to add application-wide JavaScript to this file, but it's generally better
 // to create separate JavaScript files as needed.
 //
-//= require jquery-2.2.0.min
+//= require bootstrap-datepicker
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
@@ -22,51 +22,48 @@ var lastScrollTop = 0;
 
 $(document).ready(function(){
 
-    $( '#myHeader .navbar-nav a' ).on( 'click', function () {
+        $( '#myHeader .navbar-nav a' ).on( 'click', function () {
 
-        $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-        $(this).parent( 'li' ).addClass( 'active' );
+            $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+            $(this).parent( 'li' ).addClass( 'active' );
 
-        var that = $(this);
-        var url = that.data('url');
+            var that = $(this);
+            var url = that.data('url');
 
-        var navbarSupportedContent = $('#navbarSupportedContent');
-        navbarSupportedContent.collapse('hide');
+            var navbarSupportedContent = $('#navbarSupportedContent');
+            navbarSupportedContent.collapse('hide');
 
 
-        $.ajax({
-            url: url,
-            success: function(data, result){
+            $.ajax({
+                url: url,
+                success: function(data, result){
 
-                $('#myTemplate').html(data);
-                $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
+                    $('#myTemplate').html(data);
+                    $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
+                }
+            });
+
+        });
+
+        $(window).scroll(function () {
+
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                $('#myHeader').addClass('d-none');
+            } else {
+                $('#myHeader').removeClass('d-none');
+            }
+            lastScrollTop = st;
+
+            if ($(this).scrollTop() == 0) {
+                $('#myHeader').removeClass('bg-custom');
+                $('#myHeader').addClass('bg-transparent');
+            } else {
+                $('#myHeader').removeClass('bg-transparent');
+                $('#myHeader').addClass('bg-custom');
             }
         });
 
-    });
-
-    $(window).scroll(function () {
-
-        var st = $(this).scrollTop();
-        if (st > lastScrollTop){
-            $('#myHeader').addClass('d-none');
-        } else {
-            $('#myHeader').removeClass('d-none');
-        }
-        lastScrollTop = st;
-
-        if ($(this).scrollTop() == 0) {
-            $('#myHeader').removeClass('bg-custom');
-            $('#myHeader').addClass('bg-transparent');
-        } else {
-            $('#myHeader').removeClass('bg-transparent');
-            $('#myHeader').addClass('bg-custom');
-        }
-    });
-
-    $( '#myHeader .navbar-nav a' ).on( 'hover', function () {
-
-    });
 
 });
 
@@ -88,6 +85,8 @@ function addRow(element){
 
   rowToDisplay.removeClass('d-none');
 
+  initDatePicker();
+
 };
 
 function createDomain(element){
@@ -103,4 +102,14 @@ function createDomain(element){
         }
     });
 
+};
+
+function initDatePicker(){
+    console.log("executing");
+    $('input[name="date"]').datepicker({
+        format: 'mm/dd/yyyy',
+        orientation: "bottom right",
+        todayHighlight: true,
+        autoclose: true
+    });
 };

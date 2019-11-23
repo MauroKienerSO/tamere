@@ -251,6 +251,33 @@ flex-grow: 1 -> every element takes equally the same space
     max-width: initial;
 }
 
+/*
+INPUT FIELDS TABLE
+ */
+.custom-liveShow-input {
+    background-color: transparent;
+    border: 2px solid #b3b3b3;
+    color: white;
+    max-width: 18vw;
+    /*margin: 3px;*/
+    padding: 5px;
+}
+
+.custom-liveShow-input.custom-date {
+    text-align: right;
+}
+
+.custom-liveShow-input.right-align {
+    margin-left: 5px;
+    float: right;
+}
+
+.custom-liveShow-input:focus, .custom-liveShow-input.custom-date:focus {
+    border: 2px solid white;
+    outline: none;
+    /*padding: 0 2px 0 2px;*/
+}
+
 @media (max-width: 575.98px){
     .table-row-custom {
         flex-direction: column;
