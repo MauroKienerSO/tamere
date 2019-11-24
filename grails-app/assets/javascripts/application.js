@@ -68,23 +68,31 @@ $(document).ready(function(){
 });
 
 function addRow(element){
-  var link = $('#addTableRow');
-  var target = link.data('target');
-  var counter = link.data('counter');
-  counter++;
 
+    // Link Button
+  var link = $('#addTableRow');
+  // Counts how many liveShows are displayed
+  var counter = link.data('counter');
+
+  // get the table
   var table = $('#liveShowTable');
 
-  var rowToDisplay = $('#inputRow-'+target);
+  // get the hidden input row
+  var rowToDisplay = $('#inputRow-'+counter);
+
+  // icrease counter and add new hidden table row
+  counter++;
   var newRow = rowToDisplay.clone();
   table.append(newRow);
   newRow.attr('id','inputRow-'+counter);
 
+  // override Counter
   link.data('counter', counter);
-  link.data('target', counter);
 
+  // display hidden table row
   rowToDisplay.removeClass('d-none');
 
+  // reinit datepicker
   initDatePicker();
 
 };
@@ -96,6 +104,9 @@ function createDomain(element){
     console.log("creating domain Instance");
     $.ajax({
         url: url,
+        data: {
+
+        },
         success: function(data, result){
 
             $('#myTemplate').html(data);
@@ -104,11 +115,43 @@ function createDomain(element){
 
 };
 
+function addLiveShow(element){
+    var that = $(element);
+    var target = that.data('target');
+    var url = that.data('url');
+    var inputTags = $(target).find('input');
+    var invalidInputs = 0;
+
+    inputTags.each(function(){
+
+        if($(this).attr('name') != 'tickets'){
+           if($(this).prop('value') == ""){
+                    $(this).addClass('invalid');
+                    invalidInputs++;
+                }
+       };
+    });
+
+    if(invalidInputs != 0){
+
+    }else {
+        $.ajax({
+            url: url,
+            data: inputTags,
+            success: function(data, result){
+
+                // $('#myTemplate').html(data);
+            }
+        });
+    }
+};
+
 function initDatePicker(){
-    console.log("executing");
     $('input[name="date"]').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd.mm.yyyy',
         orientation: "bottom right",
+        // not working
+        buttonImage: '../images/icons/calendar.svg',
         todayHighlight: true,
         autoclose: true
     });

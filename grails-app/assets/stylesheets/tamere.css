@@ -231,9 +231,20 @@ flex-grow: 1 -> every element takes equally the same space
     color: white;
 }
 
-.btn-custom:hover {
+.btn-custom.btn-save {
+    background-color: rgba(59,250,39,0.56);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-custom:hover, .btn-custom:focus {
     color: rgb(208, 190, 0);
     border-color: #fa007f;
+}
+
+.btn-custom.btn-save:hover, .btn-custom.btn-save:focus {
+    color: black;
+    border-color: white;
 }
 
 .container-table {
@@ -246,6 +257,9 @@ flex-grow: 1 -> every element takes equally the same space
     flex-direction: row-reverse;
 }
 
+/*
+add live show button
+ */
 .btn-create {
     margin-right: 3vw;
     max-width: initial;
@@ -258,25 +272,24 @@ INPUT FIELDS TABLE
     background-color: transparent;
     border: 2px solid #b3b3b3;
     color: white;
-    max-width: 18vw;
-    /*margin: 3px;*/
     padding: 5px;
 }
 
-.custom-liveShow-input.custom-date {
-    text-align: right;
+.custom-liveShow-input.invalid {
+    border: 2px solid red;
 }
 
-.custom-liveShow-input.right-align {
-    margin-left: 5px;
-    float: right;
-}
-
-.custom-liveShow-input:focus, .custom-liveShow-input.custom-date:focus {
+.custom-liveShow-input:focus {
     border: 2px solid white;
     outline: none;
     /*padding: 0 2px 0 2px;*/
 }
+
+/*.custom-liveShow-input.custom-date::after{*/
+/*    content: url('../images/icons/calendar.svg');*/
+/*    margin: 5vw;*/
+/*    display: inline-block;*/
+/*}*/
 
 @media (max-width: 575.98px){
     .table-row-custom {

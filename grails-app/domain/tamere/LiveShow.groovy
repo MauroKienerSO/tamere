@@ -5,6 +5,7 @@ class LiveShow {
     Date date
     String venue
     String city
+    String tickets
 
     Date dateCreated
     Date lastUpdated
@@ -13,5 +14,6 @@ class LiveShow {
         date    nullable: false
         venue   nulleble: true
         city    nullable: false
+        tickets nullable: true, url: true
     }
 }

@@ -1,6 +1,9 @@
 package tamere
 
 import grails.validation.ValidationException
+
+import java.text.SimpleDateFormat
+
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
 import tamere.LiveShowService
@@ -10,12 +13,24 @@ class LiveShowController {
 
     LiveShowService liveShowService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", createShow: "GET"]
 
     def body(){
         log.debug "$actionName -> $params"
 
         render template: 'liveShowTemplate'
+    }
+
+    def createShow(){
+        log.debug "$actionName -> $params"
+
+        LiveShow newLiveShow = new LiveShow()
+        bindData(newLiveShow, params, ['exclude': ['date']])
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Date liveShowDate = sdf.parse(params.date);
+
+        render template: 'liveShowTable'
     }
 
 
