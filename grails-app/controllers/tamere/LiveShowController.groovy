@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat
 
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
-import tamere.LiveShowService
 
 @Secured('permitAll')
 class LiveShowController {
@@ -21,18 +20,10 @@ class LiveShowController {
         render template: 'liveShowTemplate'
     }
 
-    def createShow(){
+    def create(){
         log.debug "$actionName -> $params"
-
-        LiveShow newLiveShow = new LiveShow()
-        bindData(newLiveShow, params, ['exclude': ['date']])
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date liveShowDate = sdf.parse(params.date);
-
-        render template: 'liveShowTable'
+        render template: 'create', model: [show: new LiveShow()]
     }
-
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -49,22 +40,33 @@ class LiveShowController {
     }
 
     def save(LiveShow liveShow) {
+        log.debug "$actionName -> $params"
+
         if (liveShow == null) {
             notFound()
             return
         }
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Date liveShowDate = sdf.parse(params.date);
+
+        bindData(liveShow, params, ['exclude': ['date']])
+
+        liveShow.date = liveShowDate
+
         try {
             liveShowService.save(liveShow)
         } catch (ValidationException e) {
-            respond liveShow.errors, view:'_create'
+            log.debug "validation -> ${e.message}"
+            respond liveShow.errors, view:'_create', model: [show: liveShow]
             return
         }
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'liveShow.label', default: 'LiveShow'), liveShow.id])
-                redirect liveShow
+                render template: 'liveShowEntry', model: [show: liveShow, i: LiveShow.count()+1]
+                return
             }
             '*' { respond liveShow, [status: CREATED] }
         }

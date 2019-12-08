@@ -22,130 +22,94 @@ var lastScrollTop = 0;
 
 $(document).ready(function(){
 
-        $( '#myHeader .navbar-nav a' ).on( 'click', function () {
+    /**
+     * opens the new template (liveShow, band, music etc.)
+     */
+    $('#myHeader .navbar-nav a' ).on( 'click', function () {
 
-            $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-            $(this).parent( 'li' ).addClass( 'active' );
+        $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+        $(this).parent( 'li' ).addClass( 'active' );
 
-            var that = $(this);
-            var url = that.data('url');
+        var that = $(this);
+        var url = that.data('url');
 
-            var navbarSupportedContent = $('#navbarSupportedContent');
-            navbarSupportedContent.collapse('hide');
+        var navbarSupportedContent = $('#navbarSupportedContent');
+        navbarSupportedContent.collapse('hide');
 
+        $.ajax({
+            url: url,
+            success: function(data, result){
 
-            $.ajax({
-                url: url,
-                success: function(data, result){
-
-                    $('#myTemplate').html(data);
-                    $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
-                }
-            });
-
-        });
-
-        $(window).scroll(function () {
-
-            var st = $(this).scrollTop();
-            if (st > lastScrollTop){
-                $('#myHeader').addClass('d-none');
-            } else {
-                $('#myHeader').removeClass('d-none');
-            }
-            lastScrollTop = st;
-
-            if ($(this).scrollTop() == 0) {
-                $('#myHeader').removeClass('bg-custom');
-                $('#myHeader').addClass('bg-transparent');
-            } else {
-                $('#myHeader').removeClass('bg-transparent');
-                $('#myHeader').addClass('bg-custom');
+                $('#myTemplate').html(data);
+                $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
             }
         });
 
+    });
+
+    /**
+     * hides / shows navbar on scroll
+     */
+    $(window).scroll(function () {
+        var st = $(this).scrollTop();
+        if (st > lastScrollTop){
+            $('#myHeader').addClass('d-none');
+        } else {
+            $('#myHeader').removeClass('d-none');
+        }
+        lastScrollTop = st;
+
+    });
+
+    /**
+     * hides datepicker on click
+     */
+    $(document).on('changeDate', '#date', function(ev){
+        $(this).datepicker('hide');
+    });
+
+    /**
+     * adds input row for live show
+     */
+    $(document).on('click', '.addLiveShow', function(){
+       var that = $(this);
+       var url = that.data('url');
+       var target = that.data('target');
+       console.log(url);
+
+        $.ajax({
+            url: url,
+            success: function(data, result){
+                $(data).hide().appendTo(target).fadeIn(1000);
+            }
+        });
+    });
+
+    /**
+     * deletes a show and removes it from the row
+     */
+    $(document).on('click', '.deleteShow', function(){
+        var that = $(this);
+        var url = that.data('url');
+        var target = that.data('target');
+
+        console.log('delete');
+
+        $.ajax({
+            method: 'DELETE',
+            url: url,
+            success: function(data, result){
+                $(target).fadeOut(1000);
+            }
+        });
+
+    });
 
 });
 
-function addRow(element){
-
-    // Link Button
-  var link = $('#addTableRow');
-  // Counts how many liveShows are displayed
-  var counter = link.data('counter');
-
-  // get the table
-  var table = $('#liveShowTable');
-
-  // get the hidden input row
-  var rowToDisplay = $('#inputRow-'+counter);
-
-  // icrease counter and add new hidden table row
-  counter++;
-  var newRow = rowToDisplay.clone();
-  table.append(newRow);
-  newRow.attr('id','inputRow-'+counter);
-
-  // override Counter
-  link.data('counter', counter);
-
-  // display hidden table row
-  rowToDisplay.removeClass('d-none');
-
-  // reinit datepicker
-  initDatePicker();
-
-};
-
-function createDomain(element){
-    var link = $('#createDomainInstance');
-    var url = link.data('url');
-
-    console.log("creating domain Instance");
-    $.ajax({
-        url: url,
-        data: {
-
-        },
-        success: function(data, result){
-
-            $('#myTemplate').html(data);
-        }
-    });
-
-};
-
-function addLiveShow(element){
-    var that = $(element);
-    var target = that.data('target');
-    var url = that.data('url');
-    var inputTags = $(target).find('input');
-    var invalidInputs = 0;
-
-    inputTags.each(function(){
-
-        if($(this).attr('name') != 'tickets'){
-           if($(this).prop('value') == ""){
-                    $(this).addClass('invalid');
-                    invalidInputs++;
-                }
-       };
-    });
-
-    if(invalidInputs != 0){
-
-    }else {
-        $.ajax({
-            url: url,
-            data: inputTags,
-            success: function(data, result){
-
-                // $('#myTemplate').html(data);
-            }
-        });
-    }
-};
-
+/**
+ * initializes Datepicker
+ */
 function initDatePicker(){
     $('input[name="date"]').datepicker({
         format: 'dd.mm.yyyy',

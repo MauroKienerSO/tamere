@@ -1,3 +1,21 @@
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    color: white;/* Footer height */
+    background-color: black;
+}
+
 .navbar-custom {
     width: 100vw;
     margin: 0;
@@ -100,7 +118,6 @@
 
 .bg-custom {
     background-color: black !important;
-    opacity: 0.5;
     -o-transition: background-color 0.4s ease-in;
     -ms-transition: background-color 0.4s ease-in;
     -moz-transition: background-color 0.4s ease-in;
@@ -142,6 +159,7 @@
 .myTemplate {
     /* under navbar */
     padding-top: 7vw;
+    padding-bottom: 10vw;
 }
 
 /*
@@ -285,12 +303,6 @@ INPUT FIELDS TABLE
     /*padding: 0 2px 0 2px;*/
 }
 
-/*.custom-liveShow-input.custom-date::after{*/
-/*    content: url('../images/icons/calendar.svg');*/
-/*    margin: 5vw;*/
-/*    display: inline-block;*/
-/*}*/
-
 @media (max-width: 575.98px){
     .table-row-custom {
         flex-direction: column;
@@ -320,3 +332,5 @@ INPUT FIELDS TABLE
         border-bottom: 1px solid #fa007f;
     }
 }
+
+.container.title {padding: 10vw 0 5vw; color: white; font-weight: bold; text-transform: uppercase;}
