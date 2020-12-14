@@ -40,25 +40,29 @@ $(document).ready(function(){
             url: url,
             success: function(data, result){
 
-                $('#myTemplate').html(data);
-                $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
+                $('#myTemplate').fadeOut(700,function(){
+                    $('#myTemplate').html(data);
+                    $('#myTemplate').fadeIn(700);
+                });
+
+                // $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
             }
         });
 
     });
 
-    /**
-     * hides / shows navbar on scroll
-     */
-    $(window).scroll(function () {
-        var st = $(this).scrollTop();
-        if (st > lastScrollTop){
-            $('#myHeader').addClass('d-none');
-        } else {
-            $('#myHeader').removeClass('d-none');
-        }
-        lastScrollTop = st;
+        window.addEventListener('scroll',function(){
+            //document.body.scrollTop would be the windows scroll position.
 
+            console.log($(this).scrollTop())    ;
+
+            if(document.body.scrollTop > 600){
+
+                document.body.style.backgroundAttachment = "static";
+            }
+            else{
+                $('#templateBody').style.backgroundAttachment='fixed';
+            }
     });
 
     /**

@@ -14,12 +14,19 @@ class LiveShowController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", createShow: "GET"]
 
+    /**
+     * renders liveShow Template (Start Page of LiveShows)
+     * @return
+     */
     def body(){
         log.debug "$actionName -> $params"
-
         render template: 'liveShowTemplate'
     }
 
+    /**
+     * when ou want to create a new liveShow -> form to enter data
+     * @return
+     */
     def create(){
         log.debug "$actionName -> $params"
         render template: 'create', model: [show: new LiveShow()]
@@ -34,11 +41,6 @@ class LiveShowController {
         respond liveShowService.get(id)
     }
 
-    def addShow() {
-        log.debug "$actionName -> $params"
-        render template: 'create', model: [liveShow: new LiveShow(params)]
-    }
-
     def save(LiveShow liveShow) {
         log.debug "$actionName -> $params"
 
@@ -47,11 +49,11 @@ class LiveShowController {
             return
         }
 
+        // Date parser
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date liveShowDate = sdf.parse(params.date);
 
         bindData(liveShow, params, ['exclude': ['date']])
-
         liveShow.date = liveShowDate
 
         try {

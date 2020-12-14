@@ -78,6 +78,11 @@ grails{
     }
 }
 
+spotify {
+    clientId = 'f9a6a037ba9b43ed8fe4a05fb1d58401'
+    clientSecret = '8547190fb7f241878203d3de23912a38'
+}
+
 hibernate{
     cache{
         queries = false

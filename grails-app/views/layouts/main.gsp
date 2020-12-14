@@ -19,7 +19,7 @@
         <g:layoutTitle default="Ta Mère"/>
     </title>
 </head>
-<body>
+<body id="templateBody">
 <div id="page-container">
     <div id="content-wrap">
             <g:render template="/navbar/header" />

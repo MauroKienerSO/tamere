@@ -12,7 +12,7 @@
 
 <div class="container" id="liveShowContainer" style="color:white;">
     <g:each var="show" in="${liveShows}" status="i">
-        <g:render template="liveShowEntry" model="[show: show, i: i]"/>
+        <g:render template="/liveShow/liveShowEntry" model="[show: show, i: i]"/>
     </g:each>
 </div>
 %{--New Live Show come into this container--}%
