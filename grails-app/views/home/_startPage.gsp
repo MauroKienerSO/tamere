@@ -1,5 +1,5 @@
 <div id="teaser">
-    Plexian Out Now!
+    <g:render template="/plexian/albumTeaser"></g:render>
 </div>
 
 <div id="news">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader" style="position: relative;">
+<nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
     <a class="ml-5" href="/tamere" style="position: absolute; left: 0;">
         <asset:image src="default_weiss.png" title="Logo Band Ta Mère" alt="Logo der Band Ta Mère" width="75"/>
     </a>
