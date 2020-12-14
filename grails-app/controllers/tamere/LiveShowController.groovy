@@ -59,7 +59,7 @@ class LiveShowController {
         try {
             liveShowService.save(liveShow)
         } catch (ValidationException e) {
-            log.debug "validation -> ${e.message}"
+            log.debug "validation Exception -> ${e.message}"
             respond liveShow.errors, view:'_create', model: [show: liveShow]
             return
         }

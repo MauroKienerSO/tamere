@@ -12,7 +12,6 @@
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <asset:stylesheet src="application.css"/>
-%{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>--}%
     <g:layoutHead/>
 
     <title>
@@ -20,23 +19,17 @@
     </title>
 </head>
 <body id="templateBody">
-<div id="page-container">
-    <div id="content-wrap">
-            <g:render template="/navbar/header" />
 
-            <g:layoutBody/>
-
-            <g:render template="/footer/footer"/>
+    <g:render template="/navbar/header" />
+    <div class="container page-content-container">
+        <g:layoutBody/>
     </div>
-</div>
-
+    <g:render template="/footer/footer"/>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-<asset:javascript src="jquery-2.2.0.min.js"/>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<asset:javascript src="application.js"/>
-%{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>--}%
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <asset:javascript src="application.js"/>
 
 </body>
 </html>

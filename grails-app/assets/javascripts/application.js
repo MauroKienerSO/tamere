@@ -25,16 +25,17 @@ $(document).ready(function(){
     /**
      * opens the new template (liveShow, band, music etc.)
      */
-    $('#myHeader .navbar-nav a' ).on( 'click', function () {
-
-        $( '#myHeader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-        $(this).parent( 'li' ).addClass( 'active' );
+    $('#myHeader .navbar-nav a.clickableHeader' ).on( 'click', function (e) {
+        e.preventDefault();
 
         var that = $(this);
         var url = that.data('url');
+        if(url == undefined){
+            return;
+        }
 
-        var navbarSupportedContent = $('#navbarSupportedContent');
-        navbarSupportedContent.collapse('hide');
+        $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
+        that.parent( '.nav-item').addClass( 'active' );
 
         $.ajax({
             url: url,
@@ -45,24 +46,19 @@ $(document).ready(function(){
                     $('#myTemplate').fadeIn(700);
                 });
 
-                // $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
+                $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
             }
         });
-
     });
 
-        window.addEventListener('scroll',function(){
-            //document.body.scrollTop would be the windows scroll position.
+    window.addEventListener('scroll',function(){
 
-            console.log($(this).scrollTop())    ;
-
-            if(document.body.scrollTop > 600){
-
-                document.body.style.backgroundAttachment = "static";
-            }
-            else{
-                $('#templateBody').style.backgroundAttachment='fixed';
-            }
+        if(document.body.scrollTop > 600){
+            document.body.style.backgroundAttachment = "static";
+        }
+        else{
+            $('#templateBody').style.backgroundAttachment='fixed';
+        }
     });
 
     /**
@@ -97,8 +93,6 @@ $(document).ready(function(){
         var url = that.data('url');
         var target = that.data('target');
 
-        console.log('delete');
-
         $.ajax({
             method: 'DELETE',
             url: url,
@@ -108,7 +102,6 @@ $(document).ready(function(){
         });
 
     });
-
 });
 
 /**

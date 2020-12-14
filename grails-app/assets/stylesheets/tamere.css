@@ -1,21 +1,14 @@
-#page-container {
-    position: relative;
-    min-height: 100vh;
-}
-
-#content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
-}
-
+/* Footer */
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;
+    height: 5rem;
     color: white;/* Footer height */
     background-color: black;
 }
 
+/* NAVBAR */
 .navbar-custom {
     width: 100vw;
     margin: 0;
@@ -25,100 +18,45 @@
     z-index: 1035;
 }
 
-.navbar-custom:hover {
-    opacity: 0.7;
-}
-
-.navbar-custom .navbar-brand {
-    color: rgb(255, 255, 255);
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus {
-    color: #fff;
+.navbar-custom .navbar-nav {
+    width: 100%;
 }
 
 .navbar-custom .navbar-nav .nav-link {
     color: rgb(244, 236, 235);
     min-height: 30px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent; /* for hovering of nav-links*/
+    border-bottom: 1px solid transparent; /* for hovering of nav-links */
     -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
     -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
 }
 
-.navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link:focus {
-    color: rgb(208, 190, 0);
-    border-top: 1px solid #fa007f;
-    border-bottom: 1px solid #fa007f;
+.navbar-custom .navbar-nav  .nav-link {
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 4px;
+    cursor: pointer;
 }
 
-.navbar-custom .navbar-nav .nav-link.disabled {
-    color: #fff;
+.navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link:focus {
+    color: rgb(96, 166, 120);
+    border-top: 1px solid rgb(198, 127, 175);
+    border-bottom: 1px solid rgb(198, 127, 175);
 }
 
 .navbar-custom .navbar-nav .show > .nav-link,
 .navbar-custom .navbar-nav .active > .nav-link,
 .navbar-custom .navbar-nav .nav-link.show,
 .navbar-custom .navbar-nav .nav-link.active {
-    color: rgb(208, 190, 0);
-    border-top: 1px solid #fa007f;
-    border-bottom: 1px solid #fa007f;
-}
-
-.navbar-custom .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-custom .navbar-text {
-    color: #fff;
-}
-
-.navbar-custom .navbar-text a,
-.navbar-custom .navbar-text form
-{
-    color: #fff;
-}
-
-.navbar-custom .navbar-text a:hover, .navbar-custom .navbar-text a:focus {
-    color: rgb(208, 190, 0);
-}
-
-.navbar-custom .nav-link {
-    min-width: 12vw;
-    margin: 0;
-    padding: 0;
-    height: inherit;
-}
-
-.navbar-custom a {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.nav-link {
-    cursor: pointer;
-}
-
-@media (max-width: 767px){
-    .navbar-custom a {
-        text-align: right;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-}
-
-.bg-transparent {
-    background-color: transparent !important;
-    -o-transition: background-color 0.4s ease-in;
-    -ms-transition: background-color 0.4s ease-in;
-    -moz-transition: background-color 0.4s ease-in;
-    -webkit-transition: background-color 0.4s ease-in;
+    color: rgb(96, 166, 120);
+    border-top: 1px solid rgb(198, 127, 175);
+    border-bottom: 1px solid rgb(198, 127, 175);
 }
 
 .bg-custom {
@@ -129,213 +67,8 @@
     -webkit-transition: background-color 0.4s ease-in;
 }
 
-.bg-custom:hover {
-    opacity: 1;
+.page-content-container {
+    background-color: rgb(198, 127, 175);
+    margin-top: 20vh
 }
 
-.custom-jumbo {
-    background-color: transparent;
-    padding-top: 2vw;
-    text-color: white;
-    max-height: 283.67px;
-    margin-bottom: 0;
-    padding-bottom: 3vw;
-}
-
-.custom-jumbo .display-4 {
-    color: rgb(208, 190, 0); !important;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-stretch: extra-condensed;
-}
-
-.custom-jumbo p, .custom-jumbo .my-4 {
-    color: rgb(208, 208, 208) !important;
-}
-
-.custom-carousel {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    max-height: inherit;
-}
-
-.myTemplate {
-    /* under navbar */
-    padding-top: 7vw;
-    padding-bottom: 10vw;
-}
-
-/*
-TABLE FOR LIVE SHOW
- */
-
-.bg-table{
-    background-color: rgba(0, 0, 0, 0.75); !important;
-}
-/*
-table should take entire space
- */
-.table-custom {
-    display: block;
-    border-collapse: collapse;
-}
-
-/*
-table head should take entire space
- */
-.container-table-head {
-    display: block;
-    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-}
-
-/*
-table row should be displayed flec with a min height of 6vw
- */
-.table-row-custom {
-    display: flex;
-    min-height: 6vw;
-    color: white;
-    border-top: 1px solid rgba(157, 157, 157, 0.6);
-    border-bottom: 1px solid rgba(157, 157, 157, 0.6);
-    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-}
-
-/*
-change colors on hover
- */
-.table-row-custom:hover {
-    color: rgb(208, 190, 0);
-    border-top: 1px solid #fa007f;
-    border-bottom: 1px solid #fa007f;
-}
-
-/*
-flex-grow: 1 -> every element takes equally the same space
- */
-.table-custom tbody td{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.table-custom tbody td.date{
-    max-width: 10vw;
-    color: white;
-    text-align: right;
-    margin-right: 3vw;
-}
-.table-custom tbody td.venue{
-}
-.table-custom tbody td.city{
-    text-align: right;
-    margin-right: 3vw;
-}
-
-.table-custom tbody td.tickets{
-    max-width: 12vw;
-    margin-right: 3vw;
-    color: white;
-    align-content: center;
-}
-
-.btn-custom {
-    border-color: white;
-    border-radius: 0;
-    font-weight: bold;
-    color: white;
-}
-
-.btn-custom.btn-save {
-    background-color: rgba(59,250,39,0.56);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.btn-custom:hover, .btn-custom:focus {
-    color: rgb(208, 190, 0);
-    border-color: #fa007f;
-}
-
-.btn-custom.btn-save:hover, .btn-custom.btn-save:focus {
-    color: black;
-    border-color: white;
-}
-
-.container-table {
-    margin-top: 3vw;
-    margin-bottom:3vw;
-}
-
-.container-button {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-/*
-add live show button
- */
-.btn-create {
-    margin-right: 3vw;
-    max-width: initial;
-}
-
-/*
-INPUT FIELDS TABLE
- */
-.custom-liveShow-input {
-    background-color: transparent;
-    border: 2px solid #b3b3b3;
-    color: white;
-    padding: 5px;
-}
-
-.custom-liveShow-input.invalid {
-    border: 2px solid red;
-}
-
-.custom-liveShow-input:focus {
-    border: 2px solid white;
-    outline: none;
-    /*padding: 0 2px 0 2px;*/
-}
-
-@media (max-width: 575.98px){
-    .table-row-custom {
-        flex-direction: column;
-    }
-
-    .table-custom tbody td.city, .table-custom tbody td.date, .table-custom tbody td.tickets {
-        text-align: left;
-        max-width: initial;
-        margin-right: initial;
-    }
-
-    .table-custom tbody td.city, .table-custom tbody td.venue {
-        color: rgb(208, 190, 0);
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-
-    .table-custom tbody td{
-        margin-bottom: 1vw;
-        margin-top: 1vw;
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
-
-    .container-table-head {
-        border-top: 1px solid transparent;
-        border-bottom: 1px solid #fa007f;
-    }
-}
-
-.container.title {padding: 10vw 0 5vw; color: white; font-weight: bold; text-transform: uppercase;}

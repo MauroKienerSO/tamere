@@ -1,5 +1,5 @@
 <div id="show_${show.id}">
-    <div class="row ${(i % 2).equals(0)? 'bg-success': 'bg-warning'} mb-3">
+    <div class="row mb-3">
         <div class="col"><div class="float-right"><g:formatDate date="${show.date}" format="dd.MM.yyyy"/></div> </div>
         <div class="col">${show.venue}</div>
         <div class="col"><div class="float-right">${show.city}</div></div>

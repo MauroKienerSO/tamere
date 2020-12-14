@@ -1,12 +1,8 @@
 <%@ page import="tamere.*" %>
 
-<div class="container title">
-    <div class="row">
-        <div class="col">
-            <h1 class="display-1 align-self-center text-center" id="titleID">Live</h1>
-        </div>
-    </div>
-</div>
+<h1 class="title">
+    Live
+</h1>
 
 <g:set var="liveShows" value="${tamere.LiveShow.list()}"/>
 
