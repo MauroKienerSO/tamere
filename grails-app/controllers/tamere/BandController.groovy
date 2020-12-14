@@ -9,7 +9,6 @@ class BandController {
 
     def body() {
         log.debug "$actionName -> $params"
-
         render template: 'bandTemplate'
     }
 }

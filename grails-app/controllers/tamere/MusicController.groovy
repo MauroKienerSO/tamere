@@ -9,7 +9,6 @@ class MusicController {
 
     def body(){
         log.debug "$actionName -> $params"
-
         render template: 'musicTemplate'
     }
 }

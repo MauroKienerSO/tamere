@@ -26,27 +26,21 @@ $(document).ready(function(){
      * opens the new template (liveShow, band, music etc.)
      */
     $('#myHeader .navbar-nav a.clickableHeader' ).on( 'click', function (e) {
-        e.preventDefault();
 
         var that = $(this);
         var url = that.data('url');
-        if(url == undefined){
-            return;
-        }
-
-        $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
-        that.parent( '.nav-item').addClass( 'active' );
 
         $.ajax({
             url: url,
             success: function(data, result){
 
-                $('#myTemplate').fadeOut(700,function(){
-                    $('#myTemplate').html(data);
-                    $('#myTemplate').fadeIn(700);
-                });
+                $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
+                that.parent( '.nav-item').addClass( 'active' );
 
-                $("html, body").animate({scrollTop: $('#titleID').offset().top }, 2000);
+                $('#page-container').fadeOut(700,function(){
+                    $('#page-container').html(data);
+                    $('#page-container').fadeIn(700);
+                });
             }
         });
     });
@@ -75,7 +69,6 @@ $(document).ready(function(){
        var that = $(this);
        var url = that.data('url');
        var target = that.data('target');
-       console.log(url);
 
         $.ajax({
             url: url,

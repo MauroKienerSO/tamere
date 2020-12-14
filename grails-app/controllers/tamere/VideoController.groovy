@@ -9,7 +9,6 @@ class VideoController {
 
     def body(){
         log.debug "$actionName -> $params"
-
         render template: 'videoTemplate'
     }
 }

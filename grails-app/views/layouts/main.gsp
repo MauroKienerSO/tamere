@@ -18,10 +18,10 @@
         <g:layoutTitle default="Ta Mère"/>
     </title>
 </head>
-<body id="templateBody">
+<body>
 
     <g:render template="/navbar/header" />
-    <div class="container page-content-container">
+    <div class="container">
         <g:layoutBody/>
     </div>
     <g:render template="/footer/footer"/>

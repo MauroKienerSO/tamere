@@ -9,7 +9,6 @@ class ContactController {
 
     def body(){
         log.debug "$actionName -> $params"
-
         render template: 'contactTemplate'
     }
 }

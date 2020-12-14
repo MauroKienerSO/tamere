@@ -5,11 +5,8 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('permitAll')
 class ShopController {
 
-    def index() {
+    def body() {
         log.debug "$actionName -> $params"
-
-        String contentTarget = 'shop'
-
-        [contentTarget: contentTarget]
+        render template: 'shopTemplate'
     }
 }
