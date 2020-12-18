@@ -6,9 +6,6 @@
 </head>
 <body>
 
-    <div class="headerPlaceholder">
-
-    </div>
     <div id="page-container">
         <g:render template="/home/startPage"></g:render>
     </div>

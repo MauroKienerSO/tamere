@@ -25,7 +25,7 @@ $(document).ready(function(){
     /**
      * opens the new template (liveShow, band, music etc.)
      */
-    $('#myHeader .navbar-nav a.clickableHeader' ).on( 'click', function (e) {
+    $('a.clickableHeader' ).on( 'click', function (e) {
 
         var that = $(this);
         var url = that.data('url');

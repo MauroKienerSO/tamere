@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
-    <a class="ml-5" href="/tamere" style="position: absolute; left: 0;">
-        <asset:image src="default_weiss.png" title="Logo Band Ta Mère" alt="Logo der Band Ta Mère" width="75"/>
+    <a data-url="${g.createLink(controller: 'welcome', action: 'body')}" class="ml-5 home-image clickableHeader" title="Home">
+        <asset:image src="default_weiss.png" title="Homepage Ta Mère" alt="Logo der Band Ta Mère" width="75"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
