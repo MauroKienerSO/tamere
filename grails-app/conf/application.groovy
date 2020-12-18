@@ -90,13 +90,24 @@ hibernate{
         use_query_cache = false
     }
 }
+grails {
+    mail {
+        host = "smtp.live.com"
+        port = 587
+        username = "tamereband@hotmail.com"
+        password = "Plexian2020?"
+        props = ["mail.smtp.starttls.enable":"true",
+                 "mail.smtp.port":"587"]
+    }
+}
+grails.mail.default.from = "tamereband@hotmail.com"
+grails.mail.default.to = "tamereband@hotmail.com"
 
 dataSource {
     pooled = true
     jmxExport = true
     driverClassName = "com.mysql.jdbc.Driver"
     dbCreate = "update"
-//    dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
     username = "tamere"
     password = "solothurn"
 }
