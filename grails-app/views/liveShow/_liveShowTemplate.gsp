@@ -1,12 +1,12 @@
 <%@ page import="tamere.*" %>
 
-<h1 class="title">
+<h1 class="title inside-page-container">
     Live
 </h1>
 
 <g:set var="liveShows" value="${tamere.LiveShow.list()}"/>
 
-<div class="container" id="liveShowContainer" style="color:white;">
+<div class="container inside-page-container" id="liveShowContainer" style="color:white;">
     <g:each var="show" in="${liveShows}" status="i">
         <g:render template="/liveShow/liveShowEntry" model="[show: show, i: i]"/>
     </g:each>

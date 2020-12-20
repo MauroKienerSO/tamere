@@ -19,6 +19,8 @@ body {
 #page-container {
     background-color: black;
     margin-top: 10rem;
+    /*box-shadow: 2px 2px rgb(198, 127, 175); */
+    box-shadow: 2px 2px 3px rgb(198, 127, 175), -2px -2px 5px rgb(94, 132, 155);
 }
 
 .inside-page-container {
@@ -30,7 +32,8 @@ body {
     width: 100%;
     height: 5rem;/* Footer height */
     color: black;
-    background-color: #c9c9c9;
+    /*background-color: #c9c9c9;*/
+    background-color: black;
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -127,6 +130,10 @@ body {
 .headerPlaceholder {
     min-height: 15vh;
 }
+
+.title {
+     color: rgb(94, 132, 155);
+ }
 
 /* Default Form Values*/
 #contactForm div.form-group label {
