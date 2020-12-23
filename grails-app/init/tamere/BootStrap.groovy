@@ -7,6 +7,8 @@ class BootStrap {
         initRoles()
 
         initAdminUser()
+
+        initSizes()
     }
 
     void initRoles(){
@@ -32,6 +34,28 @@ class BootStrap {
                 }
             }
             UserRole.create(tamereAdmin, admin)
+        }
+    }
+
+    void initSizes(){
+        log.debug "init Sizes"
+
+        List<Size> sizes = Size.list()
+
+        if(!sizes){
+
+            ['S', 'M', 'L', 'XL'].each { sizeValue ->
+                Size sizeDomain = new Size()
+                sizeDomain.size = sizeValue
+
+                if (!sizeDomain.save(flush: true)) {
+                    log.error "Could not create size $sizeDomain"
+                    sizeDomain.errors.allErrors.each {
+                        log.error it.toString()
+                    }
+                }
+
+            }
         }
     }
 

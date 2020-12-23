@@ -5,10 +5,6 @@
     <title>tamere</title>
 </head>
 <body>
-
-    <div id="page-container">
-        <g:render template="/home/startPage"></g:render>
-    </div>
-
+    <g:render template="/home/startPage"></g:render>
 </body>
 </html>

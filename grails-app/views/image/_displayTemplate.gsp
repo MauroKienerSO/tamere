@@ -1,0 +1,1 @@
+<img src="${createLink(controller: 'imageDisplay', action: 'displayImage', params: [id: image.id])}" class="img-fluid" alt="${image.alt}" title="${image.title}" width="${width}" height="${height}">

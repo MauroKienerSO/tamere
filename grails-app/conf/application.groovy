@@ -103,6 +103,10 @@ grails {
 grails.mail.default.from = "tamereband@hotmail.com"
 grails.mail.default.to = "tamereband@hotmail.com"
 
+grails.image.default.width=300
+grails.image.default.height=250
+grails.image.allowed.content.types = ['image/jpeg', 'image/png']
+
 dataSource {
     pooled = true
     jmxExport = true
@@ -121,6 +125,7 @@ environments{
             password = "solothurn"
         }
         server.contextPath = "/tamere"
+        grails.image.basepath = "C:/dev/workspace/tamere-data"
     }
     test{
         dataSource{

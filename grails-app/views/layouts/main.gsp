@@ -30,7 +30,9 @@
 
         %{--Page Content--}%
         <div class="container content-wrapper">
-            <g:layoutBody/>
+            <div id="page-container">
+                <g:layoutBody/>
+            </div>
         </div>
 
         %{--Footer--}%
