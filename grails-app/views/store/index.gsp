@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="tamere.*" %>
 <html>
 <head>
     <meta name="layout" content="main" />
@@ -10,6 +10,12 @@
     <h1 class="title inside-page-container">
         <g:message code="default.store.label"/>
     </h1>
+
+    <div class="inside-page-container">
+        <g:each in="${Article.list()}" var="article">
+            <g:render template="/article/articleEntry"/>
+        </g:each>
+    </div>
 
 </body>
 </html>
