@@ -35,4 +35,9 @@ class ContactController {
 
         render template: 'contactTemplate', model: [messageSent: messageSent]
     }
+
+    @Secured(Role.ROLE_ADMIN)
+    def index(){
+
+    }
 }

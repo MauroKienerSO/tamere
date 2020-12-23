@@ -175,3 +175,17 @@ body {
     background-color: rgba(201, 201, 201, 0.3) !important;
     box-shadow: none !important;
 }
+
+/* Links */
+a {
+    color: white;
+}
+a:hover {
+    color: rgb(198, 127, 175);
+    text-decoration: underline;
+}
+.admin-link {
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 10px;
+}
