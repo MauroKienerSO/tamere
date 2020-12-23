@@ -184,8 +184,3 @@ a:hover {
     color: rgb(198, 127, 175);
     text-decoration: underline;
 }
-.admin-link {
-    border: 1px solid white;
-    padding: 1rem;
-    margin: 10px;
-}

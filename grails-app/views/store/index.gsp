@@ -17,5 +17,11 @@
         </g:each>
     </div>
 
+    <div class="inside-page-container">
+        <g:link controller="store" action="createArticle" class="btn btn-primary">
+            <g:message code="article.create.label"/>
+        </g:link>
+    </div>
+
 </body>
 </html>

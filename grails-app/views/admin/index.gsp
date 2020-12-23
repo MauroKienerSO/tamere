@@ -11,13 +11,13 @@
 </h1>
 
 <div class="inside-page-container d-flex">
-    <g:link controller="store" action="index" class="admin-link">
+    <g:link controller="store" action="index" class="btn btn-primary">
         <g:message code="default.store.label"/>
     </g:link>
-    <g:link controller="order" action="index" class="admin-link">
+    <g:link controller="order" action="index" class="btn btn-primary">
         <g:message code="default.orders.label"/>
     </g:link>
-    <g:link controller="contact" action="messages" class="admin-link">
+    <g:link controller="contact" action="messages" class="btn btn-primary">
         <g:message code="default.contactMessages.label"/>
     </g:link>
 </div>
