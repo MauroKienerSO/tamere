@@ -31,6 +31,7 @@
         %{--Page Content--}%
         <div class="container content-wrapper">
             <div id="page-container">
+                <input id="pushState" class="d-none hidden" value="${headerActive}">
                 <g:layoutBody/>
             </div>
         </div>

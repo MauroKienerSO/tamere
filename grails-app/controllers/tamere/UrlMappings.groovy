@@ -9,8 +9,16 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: 'welcome', action:"index")
+        "/"(controller: 'home', action:"index")
+        "/home"(controller: 'home', action:"index")
         "500"(view:'/error')
         "404"(view:'/notFound')
+
+        "/live"(controller: 'liveShow', action: 'index')
+        "/band"(controller: 'band', action: 'index')
+        "/music"(controller: 'music', action: 'index')
+        "/videos"(controller: 'video', action: 'index')
+        "/shop"(controller: 'shop', action: 'index')
+        "/contact"(controller: 'contact', action: 'index')
     }
 }

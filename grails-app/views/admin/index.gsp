@@ -17,7 +17,7 @@
     <g:link controller="order" action="index" class="admin-link">
         <g:message code="default.orders.label"/>
     </g:link>
-    <g:link controller="contact" action="index" class="admin-link">
+    <g:link controller="contact" action="messages" class="admin-link">
         <g:message code="default.contactMessages.label"/>
     </g:link>
 </div>

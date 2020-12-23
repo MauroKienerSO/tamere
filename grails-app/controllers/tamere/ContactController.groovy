@@ -10,8 +10,6 @@ class ContactController {
     MailService mailService
     GrailsApplication grailsApplication
 
-    static scaffold = Contact
-
     def body(){
         log.debug "$actionName -> $params"
         render template: 'contactTemplate'
@@ -36,8 +34,12 @@ class ContactController {
         render template: 'contactTemplate', model: [messageSent: messageSent]
     }
 
-    @Secured(Role.ROLE_ADMIN)
-    def index(){
+    def index() {
+        log.debug "$actionName -> $params"
+        render view: '/home/index', model: [templateLocation: '/contact/contactTemplate', headerActive: 'contact']
+    }
 
+    def messages(){
+        log.debug "$actionName -> $params"
     }
 }

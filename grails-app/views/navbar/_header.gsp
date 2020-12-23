@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
-    <a data-url="${g.createLink(controller: 'welcome', action: 'body')}" class="ml-5 home-image clickableHeader" title="Home">
+    <a data-url="${g.createLink(controller: 'home', action: 'body')}" data-pushstate="home" class="ml-5 home-image clickableHeader" title="Home">
         <asset:image src="default_weiss.png" title="Homepage Ta Mère" alt="Logo der Band Ta Mère" width="75"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,33 +9,33 @@
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav justify-content-between">
-                <div class="nav-item">
-                    <a data-url="${g.createLink(controller: 'liveShow', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'live'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'liveShow', action: 'body')}" data-pushstate="live" class="nav-link clickableHeader">
                             <g:message code="liveShowController.label"/>
                     </a>
                 </div>
-                <div class="nav-item">
-                    <a data-url="${g.createLink(controller: 'band', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'band'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'band', action: 'body')}" data-pushstate="band" class="nav-link clickableHeader">
                             <g:message code="band.label"/>
                     </a>
                 </div>
-                <div class="nav-item">
-                    <a data-url="${g.createLink(controller: 'music', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'music'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'music', action: 'body')}" data-pushstate="music" class="nav-link clickableHeader">
                         <g:message code="music.label"/>
                     </a>
                 </div>
-                <div class="nav-item">
-                    <a data-url="${g.createLink(controller: 'video', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'video'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'video', action: 'body')}" data-pushstate="videos" class="nav-link clickableHeader">
                         <g:message code="video.label"/>
                     </a>
                 </div>
-                <div class="nav-item ${contentTarget == 'shop'?'active':''}">
-                    <a data-url="${g.createLink(controller: 'shop', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'shop'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'shop', action: 'body')}" data-pushstate="shop" class="nav-link clickableHeader">
                         <g:message code="shop.label"/>
                     </a>
                 </div>
-                <div class="nav-item">
-                    <a data-url="${g.createLink(controller: 'contact', action: 'body')}" class="nav-link clickableHeader">
+                <div class="nav-item ${headerActive == 'contact'?'active':''}">
+                    <a data-url="${g.createLink(controller: 'contact', action: 'body')}" data-pushstate="contact" class="nav-link clickableHeader">
                         <g:message code="contact.label"/>
                     </a>
                 </div>

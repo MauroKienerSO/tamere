@@ -5,6 +5,6 @@
     <title>tamere</title>
 </head>
 <body>
-    <g:render template="/home/startPage"></g:render>
+    <g:render template="${templateLocation}"></g:render>
 </body>
 </html>

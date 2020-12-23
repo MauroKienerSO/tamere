@@ -14,6 +14,11 @@ class LiveShowController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", createShow: "GET"]
 
+    def index() {
+        log.debug "$actionName -> $params"
+        render view: '/home/index', model: [templateLocation: '/liveShow/liveShowTemplate', headerActive: 'live']
+    }
+
     /**
      * renders liveShow Template (Start Page of LiveShows)
      * @return
@@ -30,11 +35,6 @@ class LiveShowController {
     def create(){
         log.debug "$actionName -> $params"
         render template: 'create', model: [show: new LiveShow()]
-    }
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond liveShowService.list(params), model:[liveShowCount: liveShowService.count()]
     }
 
     def show(Long id) {
