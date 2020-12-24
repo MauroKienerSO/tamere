@@ -13,4 +13,8 @@ class StoreController {
         log.debug "$actionName -> $params"
         [article: new Article()]
     }
+
+    def saveArticle(){
+        log.debug "$actionName -> $params"
+    }
 }
