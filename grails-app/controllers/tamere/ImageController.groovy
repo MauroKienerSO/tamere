@@ -48,8 +48,6 @@ class ImageController {
             return
         }
 
-        log.debug "here"
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'image.label', default: 'Image'), image.id])

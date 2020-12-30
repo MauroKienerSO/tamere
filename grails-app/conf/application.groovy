@@ -7,6 +7,7 @@ endpoints{
 }
 
 grails{
+    web.disable.multipart=true //https://en.it1352.com/article/599f08dbdf2c4a28b4f9ce13fc2cf339.html
     profile = 'web'
     codegen{
         defaultPackage = 'tamere'

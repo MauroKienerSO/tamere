@@ -5,6 +5,8 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(Role.ROLE_ADMIN)
 class StoreController {
 
+    def fileService
+
     def index() {
         log.debug "$actionName -> $params"
     }
@@ -40,7 +42,23 @@ class StoreController {
         render template: '/article/articleImages', model: [article: article]
     }
 
-    def addImages(){
+    @Secured(Role.ROLE_ADMIN)
+    def addImage(){
         log.debug "$actionName -> $params"
+
+        Article article = Article.get(params.long('id'))
+
+        request.getFiles("image[]").each { file ->
+            Image image = new Image(title: params.title, alt: params.alt)
+
+            // Save the image on the file System
+            Map result = fileService.saveImage(file, image)
+            image = result['image']
+            article.addToImages(image)
+        }
+
+        article.save(flush: true)
+
+        [article: article]
     }
 }
