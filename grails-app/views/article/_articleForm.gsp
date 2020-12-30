@@ -1,4 +1,4 @@
-<form id="articleForm" name="articleForm" action="${createLink(controller: 'store', action: 'saveArticle')}" method="post">
-    <f:all bean="article"/>
+<g:formRemote id="articleForm" name="articleForm" url="[controller: 'store', action: 'saveArticle']" update="createArticleContainer" method="post">
+    <f:all bean="article" except="images"/>
     <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</g:formRemote>

@@ -1,6 +1,5 @@
 <div class="form-group d-flex ${invalid ? 'has-error' : ''}">
     <label for="${property}">${label} ${required ? '*' : ''}</label>
-
     <f:widget property="${property}"/>
 </div>
 <g:if test="${errors}">

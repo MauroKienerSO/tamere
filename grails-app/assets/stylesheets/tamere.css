@@ -256,3 +256,10 @@ a:hover {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+#sizesContainer, #imagesContainer {
+    display: inline;
+}
+#sizesContainer div, #imagesContainer div {
+    min-width: 150px;
+}

@@ -1,0 +1,1 @@
+Now let's add thos images to article with id ${article.id}
