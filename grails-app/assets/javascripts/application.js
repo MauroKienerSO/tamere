@@ -6,7 +6,6 @@
 // to create separate JavaScript files as needed.
 //
 //= require bootstrap-datepicker
-//= require dropzone
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
