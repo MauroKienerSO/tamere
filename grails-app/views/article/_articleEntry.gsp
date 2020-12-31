@@ -28,7 +28,9 @@
         <p>${article.description}</p>
         <div>${article.price}</div>
 
-        <g:link controller="store" action="editArticle" params="[id: article.id]">Edit Article</g:link>
-        <g:link controller="store" action="deleteArticle" params="[id: article.id]">Delete Article</g:link>
+        <sec:ifLoggedIn>
+            <g:link controller="store" action="editArticle" params="[id: article.id]">Edit Article</g:link>
+            <g:link controller="store" action="deleteArticle" params="[id: article.id]">Delete Article</g:link>
+        </sec:ifLoggedIn>
     </div>
 </div>
