@@ -16,7 +16,10 @@ class TamereTagLib {
         def width = attrs.width?:grailsApplication.config.grails.image.default.width
         def height = attrs.height?:grailsApplication.config.grails.image.default.height
 
-        out << render(template: "/tagLib/displayTemplate", model: [image: attrs.image, width: width, height: height])
+        String title = attrs.title?:"Ta Mère Band Bild"
+        String alt = attrs.alt?:"Ta Mère Band Solothurn Bild"
+
+        out << render(template: "/tagLib/displayTemplate", model: [image: attrs.image, width: width, height: height, title: title, alt: alt])
     }
 
     def checkboxDisplay = { attrs, body ->

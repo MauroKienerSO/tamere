@@ -21,8 +21,6 @@
             </g:if>
 
             <g:form resource="${this.image}" method="POST" enctype="multipart/form-data">
-                <input type="text" name="title" placeholder="title">
-                <input type="text" name="alt"  placeholder="alt">
                 <input type="file" name="image">
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

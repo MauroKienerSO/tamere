@@ -50,6 +50,39 @@ $(document).ready(function(){
         }
     });
 
+    /**
+     * for file input type
+     */
+    $('#fileInput').on('change', function () {
+        var selectedFiles =  this.files;
+
+        var url = $(this).data('url');
+
+        // which dom element should be updated
+        var update = $(this).data('update');
+
+        // collect all the files
+        var formData = new FormData();
+        $.each(selectedFiles, function(i, file) {
+            formData.append('file', file);
+        });
+
+        $.ajax({
+            url: url,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data : formData,
+            type: 'POST',
+            success: function(data, result){
+                $(update).html(data);
+            }
+        });
+    });
+
+    /**
+     * scroll event listener for header
+     */
     window.addEventListener('scroll',function(){
 
         if(document.body.scrollTop > 600){
@@ -143,4 +176,26 @@ function changePage(jQueryElement, popState){
             });
         }
     });
+}
+
+/**
+ * deletes an image from an article
+ */
+function deleteImage(element) {
+
+    var that = $(element);
+
+    var url = that.data('url');
+
+    // which state should be pushed
+    var remove = that.data('remove');
+
+    $.ajax({
+        url: url,
+        success: function(data, result){
+
+            $(remove).fadeOut(200,function(){});
+        }
+    });
+
 }

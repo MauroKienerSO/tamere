@@ -51,6 +51,7 @@ class FileService {
         try {
             imageService.save(image)
         } catch (ValidationException e) {
+            log.error "Error storing image"
             result['message'] = image.errors
             return result
         }
@@ -59,6 +60,24 @@ class FileService {
         result['image'] = image
 
         return result
+    }
+
+    /**
+     * saves a list of images on the filesSystem and inside the database
+     */
+    def saveImages(def fileList){
+
+        List<Image> images = []
+
+        fileList.each { file ->
+            Image image = new Image()
+
+            // Save the image on the file System
+            Map result = saveImage(file, image)
+            images.push(result['image'])
+        }
+
+        return images
     }
 
     /**

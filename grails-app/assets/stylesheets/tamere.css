@@ -257,9 +257,32 @@ a:hover {
     transform: rotate(45deg);
 }
 
-#sizesContainer, #imagesContainer {
+#sizesContainer {
     display: inline;
 }
-#sizesContainer div, #imagesContainer div {
+#sizesContainer div{
     min-width: 150px;
+}
+.article-entry {
+    margin: 4rem;
+}
+.article-carousel {
+    flex-basis: 40%;
+}
+#imagesContainer .image-display-field {
+    margin: 2rem 2rem;
+    max-width: 250px;
+}
+#imagesContainer {
+    flex-basis: 80%;
+}
+
+.remove-link:focus, .remove-link:hover {
+    cursor: pointer;
+    color: rgb(198, 127, 175) !important;
+    text-decoration: underline !important;
+}
+
+.article-data {
+    margin: 3rem;
 }

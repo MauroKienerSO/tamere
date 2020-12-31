@@ -13,7 +13,7 @@
 
     <div class="inside-page-container">
         <g:each in="${Article.list()}" var="article">
-            <g:render template="/article/articleEntry"/>
+            <g:render template="/article/articleEntry" model="[article: article]"/>
         </g:each>
     </div>
 

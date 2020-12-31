@@ -24,7 +24,7 @@ class ImageController {
     }
 
     def create() {
-        respond new Image(params)
+        respond new Image()
     }
 
     def save(Image image) {
