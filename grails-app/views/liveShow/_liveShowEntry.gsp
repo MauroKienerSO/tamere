@@ -11,9 +11,11 @@
                 No tickets available
             </g:else>
         </div>
-        <div class="col">
-            <button class="btn btn-danger deleteShow" data-url="${createLink(controller: 'liveShow', action: 'delete', params: [id: show.id])}" data-target="#show_${show.id}" type="submit">Delete</button>
-        </div>
+        <sec:ifLoggedIn>
+            <div class="col">
+                <button class="btn btn-danger deleteShow" data-url="${createLink(controller: 'liveShow', action: 'delete', params: [id: show.id])}" data-target="#show_${show.id}" type="submit">Delete</button>
+            </div>
+        </sec:ifLoggedIn>
     </div>
 
     <g:if test="${flash.message}">

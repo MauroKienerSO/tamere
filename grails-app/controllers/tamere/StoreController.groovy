@@ -38,9 +38,11 @@ class StoreController {
             }
         }.findAll()
 
-        List<Size> sizes = Size.findAllByIdInList(sizesToAdd)
-        sizes.each { sizeDomain ->
-            article.addToSizes(sizeDomain)
+        if(sizesToAdd){
+            List<Size> sizes = Size.findAllByIdInList(sizesToAdd)
+            sizes.each { sizeDomain ->
+                article.addToSizes(sizeDomain)
+            }
         }
 
         // Add article to the images
@@ -50,9 +52,11 @@ class StoreController {
             }
         }.findAll()
 
-        List<Image> images = Image.findAllByIdInList(imagesToAdd)
-        images.each { imageDomain ->
-            article.addToImages(imageDomain)
+        if(imagesToAdd){
+            List<Image> images = Image.findAllByIdInList(imagesToAdd)
+            images.each { imageDomain ->
+                article.addToImages(imageDomain)
+            }
         }
 
         if(!article.save(flush: true)){
@@ -96,9 +100,11 @@ class StoreController {
             }
         }.findAll()
 
-        List<Size> sizes = Size.findAllByIdInList(sizesToAdd)
-        sizes.each { sizeDomain ->
-            article.addToSizes(sizeDomain)
+        if(sizesToAdd){
+            List<Size> sizes = Size.findAllByIdInList(sizesToAdd)
+            sizes.each { sizeDomain ->
+                article.addToSizes(sizeDomain)
+            }
         }
 
         // Add article to the images
@@ -108,9 +114,11 @@ class StoreController {
             }
         }.findAll()
 
-        List<Image> images = Image.findAllByIdInList(imagesToAdd)
-        images.each { imageDomain ->
-            article.addToImages(imageDomain)
+        if(imagesToAdd){
+            List<Image> images = Image.findAllByIdInList(imagesToAdd)
+            images.each { imageDomain ->
+                article.addToImages(imageDomain)
+            }
         }
 
         if(!article.save(flush: true)){
