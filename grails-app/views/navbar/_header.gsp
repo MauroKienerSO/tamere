@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav justify-content-between">
+            <div class="navbar-nav justify-content-end">
                 <div class="nav-item ${headerActive == 'live'?'active':''}">
                     <a data-url="${g.createLink(controller: 'liveShow', action: 'body')}" data-pushstate="live" class="nav-link clickableHeader">
                             <g:message code="liveShowController.label"/>

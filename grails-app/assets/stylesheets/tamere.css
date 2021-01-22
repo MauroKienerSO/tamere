@@ -19,8 +19,7 @@ body {
 #page-container {
     background-color: black;
     margin-top: 10rem;
-    /*box-shadow: 2px 2px rgb(198, 127, 175); */
-    box-shadow: 2px 2px 3px rgb(198, 127, 175), -2px -2px 5px rgb(94, 132, 155);
+    box-shadow: 2px 2px 3px white, -2px -2px 5px white;
 }
 
 .inside-page-container {
@@ -83,10 +82,10 @@ body {
     min-height: 30px;
     border-top: 1px solid transparent; /* for hovering of nav-links*/
     border-bottom: 1px solid transparent; /* for hovering of nav-links */
-    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
-    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in;
+    -o-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in, font-style 0.2s ease-in;
+    -ms-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in, font-style 0.2s ease-in;
+    -moz-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in, font-style 0.2s ease-in;
+    -webkit-transition: border-top 0.2s ease-in, border-bottom 0.2s ease-in, color 0.2s ease-in, background-color 0.2s ease-in, font-style 0.2s ease-in;
 }
 
 .navbar-custom .navbar-nav  .nav-link {
@@ -98,25 +97,30 @@ body {
     font-weight: bold;
     letter-spacing: 4px;
     cursor: pointer;
+    min-width: 125px;
+    max-width: 125px;
 }
 
 .navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link:focus {
     color: rgb(94, 132, 155);
-    border-top: 1px solid rgb(198, 127, 175);
-    border-bottom: 1px solid rgb(198, 127, 175);
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: black;
+    font-style: italic;
 }
 
 .navbar-custom .navbar-nav .show > .nav-link,
 .navbar-custom .navbar-nav .active > .nav-link,
 .navbar-custom .navbar-nav .nav-link.show,
 .navbar-custom .navbar-nav .nav-link.active {
-    color: rgb(94, 132, 155);
-    border-top: 1px solid rgb(198, 127, 175);
-    border-bottom: 1px solid rgb(198, 127, 175);
+    color: rgb(198, 127, 175);
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: black;
 }
 
 .bg-custom {
-    background-color: black !important;
+    /*background-color: black !important;*/
     -o-transition: background-color 0.4s ease-in;
     -ms-transition: background-color 0.4s ease-in;
     -moz-transition: background-color 0.4s ease-in;
@@ -132,7 +136,13 @@ body {
 }
 
 .title {
-     color: rgb(94, 132, 155);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-style: italic;
  }
 
 /* Default Form Values*/
@@ -285,4 +295,16 @@ a:hover {
 
 .article-data {
     margin: 3rem;
+}
+
+@media (max-width: 1400px) {
+    .navbar-custom {
+        height: 6vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navbar-custom {
+        height: 8vw;
+    }
 }
