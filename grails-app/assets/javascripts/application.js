@@ -167,12 +167,12 @@ function changePage(jQueryElement, popState){
             $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
             jQueryElement.parent( '.nav-item').addClass( 'active' );
 
-            $('#page-container').fadeOut(700,function(){
+            $('#page-container').fadeOut(400,function(){
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, pushState);
                 }
-                $('#page-container').fadeIn(700);
+                $('#page-container').fadeIn(400);
             });
         }
     });

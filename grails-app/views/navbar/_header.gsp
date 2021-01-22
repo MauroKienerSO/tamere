@@ -14,11 +14,11 @@
                             <g:message code="liveShowController.label"/>
                     </a>
                 </div>
-                <div class="nav-item ${headerActive == 'band'?'active':''}">
-                    <a data-url="${g.createLink(controller: 'band', action: 'body')}" data-pushstate="band" class="nav-link clickableHeader">
-                            <g:message code="band.label"/>
-                    </a>
-                </div>
+%{--                <div class="nav-item ${headerActive == 'band'?'active':''}">--}%
+%{--                    <a data-url="${g.createLink(controller: 'band', action: 'body')}" data-pushstate="band" class="nav-link clickableHeader">--}%
+%{--                            <g:message code="band.label"/>--}%
+%{--                    </a>--}%
+%{--                </div>--}%
                 <div class="nav-item ${headerActive == 'music'?'active':''}">
                     <a data-url="${g.createLink(controller: 'music', action: 'body')}" data-pushstate="music" class="nav-link clickableHeader">
                         <g:message code="music.label"/>
