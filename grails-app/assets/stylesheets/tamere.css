@@ -60,7 +60,7 @@ body {
 .navbar-custom {
     width: 100vw;
     margin: 0;
-    height: 5vw;
+    height: 70px;
     position: fixed;
     top: 0;
     z-index: 1035;
@@ -71,6 +71,10 @@ body {
     position: absolute;
     left: 0;
     cursor: pointer;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: 25px;
 }
 
 .navbar-custom .navbar-nav {
@@ -120,11 +124,16 @@ body {
 }
 
 .bg-custom {
-    /*background-color: black !important;*/
-    -o-transition: background-color 0.4s ease-in;
-    -ms-transition: background-color 0.4s ease-in;
-    -moz-transition: background-color 0.4s ease-in;
-    -webkit-transition: background-color 0.4s ease-in;
+    background-color: rgba(169, 44, 125, 0) !important;
+    -o-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+}
+
+.opacity-and-background {
+    background-color: rgba(169, 44, 125, 1) !important;
+    box-shadow: 2px 2px 5px white;
 }
 
 #teaser {
@@ -135,7 +144,7 @@ body {
     min-height: 15vh;
 }
 
-.title {
+.title, .fheader {
     color: white;
     display: flex;
     align-items: center;
@@ -143,7 +152,18 @@ body {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-style: italic;
+    box-shadow: 2px 2px 5px white;
  }
+
+.inner, .fheader {
+    background-color: black !important;
+    color: white !important;
+}
+
+.inner {
+    margin: 0 !important;
+    width: 100% !important;
+}
 
 /* Default Form Values*/
 #contactForm div.form-group label {
@@ -276,9 +296,9 @@ a:hover {
 .article-entry {
     margin: 4rem;
 }
-.article-carousel {
-    flex-basis: 40%;
-}
+/*.article-carousel {*/
+/*    flex-basis: 40%;*/
+/*}*/
 #imagesContainer .image-display-field {
     margin: 2rem 2rem;
     max-width: 250px;
@@ -292,9 +312,24 @@ a:hover {
     color: rgb(198, 127, 175) !important;
     text-decoration: underline !important;
 }
+.article-list .article-entry{
+    flex-basis: 33%;
+}
+.article-title{
+    margin-top: 15px;
+    margin-bottom: 0 !important;
+}
+.article-description {
+    font-style: italic;
+}
+.article-price {
+    font-weight: bold;
+}
 
-.article-data {
-    margin: 3rem;
+.page-info {
+    letter-spacing: 4px;
+    font-style: italic;
+    font-weight: bold;
 }
 
 @media (max-width: 1400px) {

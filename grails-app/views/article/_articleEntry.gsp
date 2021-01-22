@@ -1,4 +1,4 @@
-<div class="d-flex article-entry">
+<div class="d-flex article-entry flex-column">
     <div id="article-carousel-${article.id}" class="carousel slide article-carousel" data-ride="carousel">
         <g:if test="${article.images}">
             <ol class="carousel-indicators">
@@ -6,7 +6,7 @@
                     <li data-target="#article-carousel-${article.id}" data-slide-to="${index}" class="${index == 0? 'active':''}"></li>
                 </g:each>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="max-height: 200px;">
                 <g:each in="${article.images}" var="image" status="index">
                     <div class="carousel-item ${index == 0? 'active':''}">
                         <g:imageDisplay image="${image}" width="100%"></g:imageDisplay>
@@ -24,9 +24,9 @@
         </g:if>
     </div>
     <div class="article-data">
-        <h3>${article.title}</h3>
-        <p>${article.description}</p>
-        <div>${article.price}</div>
+        <h6 class="article-title">${article.title}</h6>
+        <p class="article-description">${article.description}</p>
+        <div class="article-price"><g:formatNumber number="${article.price}" format="##.##"/> CHF</div>
 
         <sec:ifLoggedIn>
             <g:link controller="store" action="editArticle" params="[id: article.id]">Edit Article</g:link>

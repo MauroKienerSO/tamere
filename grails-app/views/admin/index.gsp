@@ -20,6 +20,12 @@
     <g:link controller="contact" action="messages" class="btn btn-primary">
         <g:message code="default.contactMessages.label"/>
     </g:link>
+    <g:link controller="video" action="videos" class="btn btn-primary">
+        <g:message code="video.label"/>
+    </g:link>
+    <g:link controller="liveShow" action="show" class="btn btn-primary">
+        Shows
+    </g:link>
 </div>
 
 </body>

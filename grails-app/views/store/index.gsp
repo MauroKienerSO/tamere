@@ -12,9 +12,11 @@
     </h1>
 
     <div class="inside-page-container">
-        <g:each in="${Article.list()}" var="article">
-            <g:render template="/article/articleEntry" model="[article: article]"/>
-        </g:each>
+        <div class="d-flex article-list">
+            <g:each in="${Article.list()}" var="article">
+                <g:render template="/article/articleEntry" model="[article: article]"/>
+            </g:each>
+        </div>
     </div>
 
     <div class="inside-page-container">
