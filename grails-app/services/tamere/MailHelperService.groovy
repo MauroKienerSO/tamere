@@ -21,7 +21,8 @@ class MailHelperService {
                 contact: contact
         ]
 
-        sendMailTemplate(contact.email, contact.title, htmlTemplate, textTemplate, model)
+        String subject = "Message received confirmation"
+        sendMailTemplate(contact.email, subject, htmlTemplate, textTemplate, model)
 
         sendContactMailAdmin(contact)
     }

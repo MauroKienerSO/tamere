@@ -5,7 +5,9 @@
     You received a message from a user ${contact.email} on your you webpage:
 </div>
 <div style="margin: 20px; font-style: italic;">
-    ${contact.message}
+    Subject: ${contact.title} <br>
+    <br>
+    Message: {contact.message}
 </div>
 <div style="margin: 20px 0;">
     Best regards, <br>
