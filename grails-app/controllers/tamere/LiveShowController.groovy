@@ -16,7 +16,9 @@ class LiveShowController {
 
     def index() {
         log.debug "$actionName -> $params"
-        render view: '/home/index', model: [templateLocation: '/liveShow/liveShowTemplate', headerActive: 'live']
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
+        render view: '/home/index', model: [templateLocation: '/liveShow/liveShowTemplate', headerActive: 'live', futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
     }
 
     /**
@@ -25,105 +27,43 @@ class LiveShowController {
      */
     def body(){
         log.debug "$actionName -> $params"
-        render template: 'liveShowTemplate'
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
+        render template: 'liveShowTemplate', model: [futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
     }
 
-    /**
-     * when ou want to create a new liveShow -> form to enter data
-     * @return
-     */
-    def create(){
+    @Secured(Role.ROLE_ADMIN)
+    def liveShows() {
         log.debug "$actionName -> $params"
-        render template: 'create', model: [show: new LiveShow()]
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
+        [futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
     }
 
-    def show(Long id) {
-        respond liveShowService.get(id)
+    @Secured(Role.ROLE_ADMIN)
+    def createLiveShow(){
+        log.debug "$actionName -> $params"
+        [liveShow: new LiveShow()]
     }
 
-    def save(LiveShow liveShow) {
+    @Secured(Role.ROLE_ADMIN)
+    def saveLiveShow(LiveShow liveShow){
         log.debug "$actionName -> $params"
 
-        if (liveShow == null) {
-            notFound()
+        if(!liveShow){
+            log.error "No found liveShow"
+            redirect action: 'liveShows'
             return
         }
 
-        // Date parser
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date liveShowDate = sdf.parse(params.date);
-
-        bindData(liveShow, params, ['exclude': ['date']])
-        liveShow.date = liveShowDate
-
-        try {
-            liveShowService.save(liveShow)
-        } catch (ValidationException e) {
-            log.debug "validation Exception -> ${e.message}"
-            respond liveShow.errors, view:'_create', model: [show: liveShow]
+        if(!liveShow.save(flush: true)){
+            log.error "Couldn't save liveShows"
+            redirect action: 'liveShows'
             return
         }
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'liveShow.label', default: 'LiveShow'), liveShow.id])
-                render template: 'liveShowEntry', model: [show: liveShow, i: LiveShow.count()+1]
-                return
-            }
-            '*' { respond liveShow, [status: CREATED] }
-        }
+        redirect action: 'liveShows'
     }
 
-    def edit(Long id) {
-        respond liveShowService.get(id)
-    }
 
-    def update(LiveShow liveShow) {
-        if (liveShow == null) {
-            notFound()
-            return
-        }
-
-        try {
-            liveShowService.save(liveShow)
-        } catch (ValidationException e) {
-            respond liveShow.errors, view:'edit'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'liveShow.label', default: 'LiveShow'), liveShow.id])
-                redirect liveShow
-            }
-            '*'{ respond liveShow, [status: OK] }
-        }
-    }
-
-    def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
-
-        liveShowService.delete(id)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'liveShow.label', default: 'LiveShow'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'liveShow.label', default: 'LiveShow'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
 }

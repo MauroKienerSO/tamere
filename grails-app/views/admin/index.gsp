@@ -23,7 +23,7 @@
     <g:link controller="video" action="videos" class="btn btn-primary">
         <g:message code="video.label"/>
     </g:link>
-    <g:link controller="liveShow" action="show" class="btn btn-primary">
+    <g:link controller="liveShow" action="liveShows" class="btn btn-primary">
         Shows
     </g:link>
 </div>

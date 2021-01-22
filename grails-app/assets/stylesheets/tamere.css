@@ -10,6 +10,25 @@ body {
     min-height: 100vh;
 }
 
+.loading-spinner {
+    opacity: 0.5 !important;
+    filter: blur(1px) !important;
+}
+
+.spinner {
+    position: absolute;
+    padding: 4rem;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    margin-left: -4.5rem;
+    margin-top: -4.5rem;
+    box-shadow: 2px 2px 3px white, -2px -2px 5px white;
+}
+.spinner img {
+    max-width: 5rem;
+}
+
 /* Wrapper around content should have flex-grow 1*/
 .content-wrapper {
     flex-grow: 1;
@@ -125,10 +144,10 @@ body {
 
 .bg-custom {
     background-color: rgba(169, 44, 125, 0) !important;
-    -o-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
-    -ms-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
-    -moz-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
-    -webkit-transition: background-color 0.2s ease-in, box-shadow 0.2s ease-in;
+    -o-transition: background-color 0.8s ease-in, box-shadow 0.8s ease-in;
+    -ms-transition: background-color 0.8s ease-in, box-shadow 0.8s ease-in;
+    -moz-transition: background-color 0.8s ease-in, box-shadow 0.8s ease-in;
+    -webkit-transition: background-color 0.8s ease-in, box-shadow 0.8s ease-in;
 }
 
 .opacity-and-background {
@@ -296,6 +315,39 @@ a:hover {
 .article-entry {
     margin: 4rem;
 }
+
+.subtitle {
+    font-weight: bold;
+    font-style: oblique;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: rgba(236, 155, 208, 1);
+}
+
+.liveShow-date {
+    float: right;
+    min-width: 180px;
+    padding: 0 2rem;
+}
+.liveShow-venue {
+    padding: 0 2rem;
+    border-right: 0.5px solid rgba(236, 155, 208, 1);
+    border-left: 0.5px solid rgba(236, 155, 208, 1);
+}
+.liveShow-city {
+    /*flex-basis: 40%;*/
+    min-width: 200px;
+    padding: 0 2rem;
+}
+.liveShowEntry {
+    padding: 1rem 0;
+}
+.liveShowEntry.borderClass {
+    border-top: 0.5px solid rgba(236, 236, 236, 0.57);
+    border-bottom: 0.5px solid rgba(236, 236, 236, 0.57);
+}
 /*.article-carousel {*/
 /*    flex-basis: 40%;*/
 /*}*/
@@ -330,6 +382,10 @@ a:hover {
     letter-spacing: 4px;
     font-style: italic;
     font-weight: bold;
+}
+
+.response {
+    font-size: 1rem !important;
 }
 
 @media (max-width: 1400px) {

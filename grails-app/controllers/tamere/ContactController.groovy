@@ -2,32 +2,35 @@ package tamere
 
 import grails.core.GrailsApplication
 import grails.plugin.springsecurity.annotation.Secured
-import grails.plugins.mail.MailService
 
 @Secured('permitAll')
 class ContactController {
 
-    MailService mailService
-    GrailsApplication grailsApplication
+    MailHelperService mailHelperService
 
     def body(){
         log.debug "$actionName -> $params"
-        render template: 'contactTemplate'
+        Contact contact = new Contact()
+        render template: 'contactTemplate', model: [contact: contact]
     }
 
     def sendMessage(){
         log.debug "$actionName -> $params"
 
-        String fromEmail = grailsApplication.config.grails.mail.default.from
+        Contact contact = new Contact()
+        bindData(contact, params)
 
-        // DOC: http://gpc.github.io/grails-mail/guide/3.%20Sending%20Email.html
-        mailService.sendMail {
-            multipart true
-            from fromEmail
-            subject "Hello Ta Mère"
-            html view: "/emails/contactMessage"
-            text view: "/emails/plain/contactMessage"
+        if(!contact.save(flush: true)){
+            log.debug "Couldn't save Contact"
+            log.debug "${contact.errors}"
+            String errorMessage = "We could not send the email, did you provide a valid email-adress and a Message?"
+            render template: 'contactTemplate', model: [contact: contact, errorMessage: errorMessage]
+            return
         }
+
+        log.debug "contact has been saved"
+
+        mailHelperService.sendContactConfirmationMailToUser(contact)
 
         Boolean messageSent = true
 
@@ -36,7 +39,8 @@ class ContactController {
 
     def index() {
         log.debug "$actionName -> $params"
-        render view: '/home/index', model: [templateLocation: '/contact/contactTemplate', headerActive: 'contact']
+        Contact contact = new Contact()
+        render view: '/home/index', model: [templateLocation: '/contact/contactTemplate', headerActive: 'contact', contact: contact]
     }
 
     def messages(){

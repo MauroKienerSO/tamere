@@ -4,22 +4,22 @@
     Live
 </h1>
 
-<g:set var="liveShows" value="${tamere.LiveShow.list()}"/>
-
-<div class="container inside-page-container" id="liveShowContainer" style="color:white;">
-    <g:each var="show" in="${liveShows}" status="i">
-        <g:render template="/liveShow/liveShowEntry" model="[show: show, i: i]"/>
-    </g:each>
-</div>
-%{--New Live Show come into this container--}%
-<div class="container" id="newLiveShows"></div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <button class="float-right btn btn-custom btn-create addLiveShow" data-url="${createLink(controller: 'liveShow', action: 'create')}" data-target="#newLiveShows">
-                Add Live Show
-            </button>
+<div class="inside-page-container">
+    <div class="d-flex justify-content-center align-items-center subtitle">Upcoming</div>
+    <g:each in="${futureLiveShows}" var="liveShow" status="index">
+        <div class="d-flex justify-content-center align-items-center liveShowEntry ${index % 2 == 0? 'borderClass':''}">
+            <div class="liveShow-date"><g:formatDate date="${liveShow.date}" format="dd.MMMM.yyyy"/></div>
+            <div class="liveShow-venue">${liveShow.venue}</div>
+            <div class="liveShow-city">${liveShow.city}</div>
         </div>
-    </div>
+    </g:each>
+
+    <div class="d-flex justify-content-center align-items-center subtitle">Past</div>
+    <g:each in="${pastLiveShows}" var="liveShow" status="index">
+        <div class="d-flex justify-content-center align-items-center liveShowEntry ${index % 2 == 0? 'borderClass':''}">
+            <div class="liveShow-date"><g:formatDate date="${liveShow.date}" format="dd.MMMM.yyyy"/></div>
+            <div class="liveShow-venue">${liveShow.venue}</div>
+            <div class="liveShow-city">${liveShow.city}</div>
+        </div>
+    </g:each>
 </div>

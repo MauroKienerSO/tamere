@@ -145,40 +145,6 @@ $(document).ready(function(){
     $(document).on('changeDate', '#date', function(ev){
         $(this).datepicker('hide');
     });
-
-    /**
-     * adds input row for live show
-     */
-    $(document).on('click', '.addLiveShow', function(){
-       var that = $(this);
-       var url = that.data('url');
-       var target = that.data('target');
-
-        $.ajax({
-            url: url,
-            success: function(data, result){
-                $(data).hide().appendTo(target).fadeIn(1000);
-            }
-        });
-    });
-
-    /**
-     * deletes a show and removes it from the row
-     */
-    $(document).on('click', '.deleteShow', function(){
-        var that = $(this);
-        var url = that.data('url');
-        var target = that.data('target');
-
-        $.ajax({
-            method: 'DELETE',
-            url: url,
-            success: function(data, result){
-                $(target).fadeOut(1000);
-            }
-        });
-
-    });
 });
 
 /**
@@ -214,6 +180,7 @@ function changePage(jQueryElement, popState){
             jQueryElement.parent( '.nav-item').addClass( 'active' );
 
             $('#page-container').fadeOut(400,function(){
+                window.scrollTo(0, 0);
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, pushState);
@@ -243,5 +210,13 @@ function deleteImage(element) {
             $(remove).fadeOut(200,function(){});
         }
     });
+}
 
+function showSpinner(){
+    $('#page-content-wrapper').addClass('loading-spinner');
+    $('.spinner').removeClass('d-none');
+}
+function hideSpinner(){
+    $('.spinner').addClass('d-none');
+    $('#page-content-wrapper').removeClass('loading-spinner');
 }
