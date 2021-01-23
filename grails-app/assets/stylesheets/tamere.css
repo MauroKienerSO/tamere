@@ -39,6 +39,7 @@
     margin: 1.25rem 0;
     font-size: 25px;
     letter-spacing: 15px;
+    text-align: center;
 }
 .spinner img {
     max-width: 5rem;
@@ -301,7 +302,7 @@ a:hover {
 
 /* On mouse-over, add a grey background color */
 .container-checkbox:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: rgb(232,232,232);
 }
 
 /* When the checkbox is checked, add a blue background */
@@ -348,10 +349,18 @@ a:hover {
     font-weight: bold;
     font-style: oblique;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 8px;
     font-size: 1.5rem;
     margin: 1rem 0;
     color: rgba(236, 155, 208, 1);
+}
+.subtitle-2 {
+    font-style: oblique;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    color: rgb(232,232,232);
 }
 
 .liveShow-date {
@@ -373,12 +382,9 @@ a:hover {
     padding: 1rem 0;
 }
 .liveShowEntry.borderClass {
-    border-top: 0.5px solid rgba(236, 236, 236, 0.57);
-    border-bottom: 0.5px solid rgba(236, 236, 236, 0.57);
+    border-top: 0.5px solid rgb(232,232,232);
+    border-bottom: 0.5px solid rgb(232,232,232);
 }
-/*.article-carousel {*/
-/*    flex-basis: 40%;*/
-/*}*/
 #imagesContainer .image-display-field {
     margin: 2rem 2rem;
     max-width: 250px;
@@ -422,6 +428,29 @@ a:hover {
     margin: 2rem;
     font-size: 20px;
     letter-spacing: 6px !important;
+}
+
+.card {
+    background-color: black;
+    border: 0px;
+    border-bottom: 1px solid rgba(236, 155, 208, 1);
+    border-top: 1.5px solid rgba(236, 155, 208, 1);
+    border-radius: 0px !important;
+}
+.btn-link-custom {
+    color: rgb(232,232,232);
+    font-size: 1.1rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    -o-transition: font-style 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: font-style 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: font-style 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: font-style 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+}
+.btn-link-custom:focus, .btn-link-custom:hover {
+    box-shadow: 0px 0px 0px !important;
+    color: rgba(236, 155, 208, 1);
+    font-style: italic;
 }
 
 @media (max-width: 1400px) {

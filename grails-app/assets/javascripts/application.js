@@ -145,6 +145,14 @@ $(document).ready(function(){
     $(document).on('changeDate', '#date', function(ev){
         $(this).datepicker('hide');
     });
+
+    $('#plexianAccordian').on('click', function (event) {
+        window.removeEventListener('scroll',checkScroll);
+    });
+
+    $('#plexianAccordian').on('mouseout', function (event) {
+        window.addEventListener('scroll',checkScroll);
+    });
 });
 
 /**
