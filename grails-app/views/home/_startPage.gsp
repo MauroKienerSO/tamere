@@ -1,11 +1,19 @@
-<div id="teaser" class="inside-page-container">
-    <g:render template="/plexian/albumTeaser"></g:render>
-</div>
-
-<div id="news" class="inside-page-container">
-    Plexian - Debut Album tamere!
-</div>
-
-<div id="live">
-    <g:render template="/liveShow/liveShowTemplate"></g:render>
+<div class="inside-page-container">
+    <div class="d-flex">
+        <asset:image src="tamere/AlbumCover.png" class="album-cover" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère" width="300"/>
+        <div class="album-teaser-content d-flex flex-column align-items-center flex-grow-1">
+            <h2 class="album-teaser-title">Plexian</h2>
+            <p class="grand-paragraph">
+                New album out now
+            </p>
+            <div class="d-flex">
+                <button class="btn btn-primary album-button">
+                    Buy
+                </button>
+                <button class="btn btn-primary album-button">
+                    Listen
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -21,6 +21,25 @@
     margin-top: -4.5rem;
     box-shadow: 2px 2px 5px rgb(232,232,232), -2px -2px 5px rgb(232,232,232);
 }
+
+.album-cover {
+    box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232);
+}
+.album-teaser-content {
+    margin: 2rem;
+}
+.album-teaser-title {
+    font-family: Consolas;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    font-size: 3rem;
+}
+.grand-paragraph {
+    margin: 1.25rem 0;
+    font-size: 25px;
+    letter-spacing: 15px;
+}
 .spinner img {
     max-width: 5rem;
 }
@@ -221,7 +240,7 @@ div.form-group label:not(.container-checkbox) {
 .btn-primary {
     border: 2px solid rgb(198, 127, 175) !important;
     background-color: transparent !important;
-    color: rgb(94, 132, 155) !important;
+    color: rgb(198, 127, 175) !important;
     font-weight: bold;
     text-transform: uppercase;
     -o-transition: background-color 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
@@ -231,9 +250,10 @@ div.form-group label:not(.container-checkbox) {
 }
 .btn-primary:hover, .btn-primary:focus {
     border: 2px solid rgb(94, 132, 155) !important;
-    color: rgb(198, 127, 175) !important;
+    color: rgb(94, 132, 155) !important;
     background-color: rgba(201, 201, 201, 0.3) !important;
     box-shadow: none !important;
+    font-style: italic;
 }
 
 /* Links */
@@ -394,6 +414,14 @@ a:hover {
 
 .response {
     font-size: 1rem !important;
+}
+
+.album-button {
+    min-width: 150px;
+    max-width: 150px;
+    margin: 2rem;
+    font-size: 20px;
+    letter-spacing: 6px !important;
 }
 
 @media (max-width: 1400px) {
