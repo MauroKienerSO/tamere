@@ -369,6 +369,7 @@ a:hover {
     width: calc(100% * (1/3));
 }
 .liveShow-venue {
+    text-align: center;
     padding: 0 1rem;
     border-right: 0.5px solid rgba(236, 155, 208, 1);
     border-left: 0.5px solid rgba(236, 155, 208, 1);
@@ -500,7 +501,7 @@ a:hover {
         margin: 1.5rem !important;
         width: calc(50% - 3rem) !important;
     }
-    .liveShow-date{
+    .liveShow-date, .liveShow-venue {
         text-align: unset !important;
     }
 }
