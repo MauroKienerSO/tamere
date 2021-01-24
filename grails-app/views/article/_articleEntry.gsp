@@ -1,4 +1,4 @@
-<div class="d-flex article-entry flex-column">
+<div class="d-flex article-entry flex-column align-items-center align-items-sm-stretch">
     <div id="article-carousel-${article.id}" class="carousel slide article-carousel" data-ride="carousel">
         <g:if test="${article.images}">
             <ol class="carousel-indicators">
@@ -6,10 +6,10 @@
                     <li data-target="#article-carousel-${article.id}" data-slide-to="${index}" class="${index == 0? 'active':''}"></li>
                 </g:each>
             </ol>
-            <div class="carousel-inner" style="max-height: 200px;">
+            <div class="carousel-inner album-cover">
                 <g:each in="${article.images}" var="image" status="index">
-                    <div class="carousel-item ${index == 0? 'active':''}">
-                        <g:imageDisplay image="${image}" width="100%"></g:imageDisplay>
+                    <div class="carousel-item height-equal-to-width ${index == 0? 'active':''}">
+                        <g:imageDisplay image="${image}" class="shop-image" width="100%"></g:imageDisplay>
                     </div>
                 </g:each>
             </div>

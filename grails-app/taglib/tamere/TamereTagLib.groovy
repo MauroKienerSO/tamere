@@ -19,7 +19,7 @@ class TamereTagLib {
         String title = attrs.title?:"Ta Mère Band Bild"
         String alt = attrs.alt?:"Ta Mère Band Solothurn Bild"
 
-        out << render(template: "/tagLib/displayTemplate", model: [image: attrs.image, width: width, height: height, title: title, alt: alt])
+        out << render(template: "/tagLib/displayTemplate", model: [image: attrs.image, width: width, height: height, title: title, alt: alt, classlist: attrs.class])
     }
 
     def checkboxDisplay = { attrs, body ->

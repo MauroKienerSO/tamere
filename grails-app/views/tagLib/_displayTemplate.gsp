@@ -1,1 +1,1 @@
-<img src="${createLink(controller: 'imageDisplay', action: 'displayImage', params: [id: image.id])}" class="img-fluid" title="${title}" width="${width}" height="${height}">
+<img src="${createLink(controller: 'imageDisplay', action: 'displayImage', params: [id: image.id])}" class="img-fluid ${classlist}" title="${title}" width="${width}">

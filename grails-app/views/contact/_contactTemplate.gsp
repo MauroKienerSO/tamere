@@ -16,11 +16,11 @@
 
 <div class="inside-page-container">
     <g:formRemote id="contactForm" name="contactForm" url="[controller: 'contact', action: 'sendMessage']" update="page-container" onLoading="showSpinner()" onComplete="hideSpinner()">
-        <div class="form-group d-flex">
+        <div class="form-group d-flex align-items-stretch flex-column flex-md-row">
             <label for="name">Your Name</label>
             <input type="text" class="form-control smaller-width" id="name" name="name" placeholder="Your Name" value="${contact?.name}" autocomplete="off">
         </div>
-        <div class="form-group d-flex">
+        <div class="form-group d-flex align-items-stretch flex-column flex-md-row">
             <label for="email">Email address</label>
             <input type="email" class="form-control smaller-width" id="email" name="email" placeholder="name@example.com" value="${contact?.email}"  autocomplete="off" required>
         </div>
