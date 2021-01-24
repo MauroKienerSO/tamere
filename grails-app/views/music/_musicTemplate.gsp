@@ -3,15 +3,15 @@
 </div>
 
 <div class="inside-page-container">
-    <div class="d-flex">
-        <asset:image src="tamere/AlbumCover.png" class="album-cover" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère" width="300"/>
+    <div class="d-flex flex-column flex-lg-row align-items-center">
+        <asset:image src="tamere/AlbumCover.png" class="album-cover album-artwork" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère"/>
         <div class="album-teaser-content d-flex flex-column align-items-center flex-grow-1">
             <h2 class="album-teaser-title">Plexian</h2>
             <p class="grand-paragraph">
                 New album out now
             </p>
-            <div class="d-flex">
-                <button class="btn btn-primary album-button">
+            <div class="d-flex album-buttons">
+                <button class="btn btn-primary album-button album-button-first">
                     Buy
                 </button>
                 <button class="btn btn-primary album-button">
@@ -39,7 +39,9 @@
             </div>
 
             <div id="contentSpacecity" class="collapse" aria-labelledby="headingSpacecity" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/spacecity.PNG" class="album-cover song-artwork" title="Spacecity 2 Song Artwork Ta Mère" alt="Spacecity 2 Song Artwork Ta Mère"/>
+                    <p class="song-lyrics">
                     Left alone <br>
                     Found a new home <br>
                     Neon lights <br>
@@ -90,7 +92,7 @@
                     walking through spacecity <br>
                     walking through spacecity <br>
                     I'm walking through spacecity
-
+                    </p>
                 </div>
             </div>
         </div>
@@ -106,7 +108,9 @@
             </div>
 
             <div id="contentCircus" class="collapse" aria-labelledby="headingCircus" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/circus.PNG" class="album-cover song-artwork " title="Circus Song Artwork Ta Mère" alt="Circus Song Artwork Ta Mère" />
+                    <p class="song-lyrics">
                     Stacks of checks on my desk <br>
                     Heartbeat beating through my chest <br>
                     Suits feel kinda impractical <br>
@@ -132,6 +136,7 @@
                     <br>
                     Click click i'm loading my gun <br>
                     the whole office on the run
+                    </p>
                 </div>
             </div>
         </div>
@@ -147,7 +152,9 @@
             </div>
 
             <div id="contentLights" class="collapse" aria-labelledby="headingLights" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/lights.PNG" class="album-cover song-artwork " title="Lights Song Artwork Ta Mère" alt="Lights Song Artwork Ta Mère" />
+                    <p class="song-lyrics">
                     They see me dancing on planet disco (planet disco) <br>
                     the moon so bright it makes the world glow (makes the world glow) <br>
                     <br>
@@ -187,6 +194,7 @@
                     Do you see the light? <br>
                     Do you see the light? <br>
                     Do you see the light?
+                    </p>
                 </div>
             </div>
         </div>
@@ -202,7 +210,9 @@
             </div>
 
             <div id="contentLove" class="collapse" aria-labelledby="headingLove" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/love.PNG" class="album-cover song-artwork" title="Love Song Artwork Ta Mère" alt="Love Song Artwork Ta Mère" />
+                    <p class="song-lyrics">
                     We got our shirts from Hawaii <br>
                     destination suits my style <br>
                     effusive love baby <br>
@@ -238,6 +248,7 @@
                     <br>
                     there's nothing wrong <br>
                     this place is where i belong
+                    </p>
                 </div>
             </div>
         </div>
@@ -253,7 +264,9 @@
             </div>
 
             <div id="contentStars" class="collapse" aria-labelledby="headingStars" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/stars.PNG" class="album-cover song-artwork " title="Stars Song Artwork Ta Mère" alt="Stars Song Artwork Ta Mère" />
+                    <p class="song-lyrics">
                     We are blessed we have it all <br>
                     van gogh pictures on the wall <br>
                     famous people in hall <br>
@@ -294,6 +307,7 @@
                     'till we fall <br>
                     Stars fly high <br>
                     'till they die
+                    </p>
                 </div>
             </div>
         </div>
@@ -309,7 +323,9 @@
             </div>
 
             <div id="contentHigher" class="collapse" aria-labelledby="headingHigher" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/higher.PNG" class="album-cover song-artwork " title="Higher Song Artwork Ta Mère" alt="Higher Song Artwork Ta Mère" />
+                    <p class="song-lyrics">
                     Expose myself, escape reality <br>
                     hiding failures of my history<br>
                     yeah<br>
@@ -349,6 +365,7 @@
                     hiding failures of my history | liar<br>
                     the prodigy of my family | higher<br>
                     tickets sold, millions in fron of me | liar
+                    </p>
                 </div>
             </div>
         </div>
@@ -364,7 +381,9 @@
             </div>
 
             <div id="contentAlone" class="collapse" aria-labelledby="headingAlone" data-parent="#plexianAccordian">
-                <div class="card-body">
+                <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
+                    <asset:image src="tamere/alone.PNG" class="album-cover song-artwork " title="Alone Song Artwork Ta Mère" alt="Alone Song Artwork Ta Mère"/>
+                    <p class="song-lyrics">
                     They seek to become lost <br>
                     striving after pathless woods <br>
                     no thoughts wasted, no souls crossed <br>
@@ -410,6 +429,7 @@
                     <br>
                     you are alone <br>
                     you're not alone
+                    </p>
                 </div>
             </div>
         </div>

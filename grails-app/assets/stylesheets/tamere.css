@@ -437,6 +437,12 @@ a:hover {
     border-top: 1.5px solid rgba(236, 155, 208, 1);
     border-radius: 0px !important;
 }
+.song-artwork, .album-artwork {
+    max-width: 300px;
+}
+.song-lyrics {
+    /* TODO  */
+}
 .btn-link-custom {
     color: rgb(232,232,232);
     font-size: 1.1rem;
@@ -453,14 +459,79 @@ a:hover {
     font-style: italic;
 }
 
-@media (max-width: 1400px) {
+/*xl*/
+@media (max-width: 1399px) {
     .navbar-custom {
         height: 6vw;
     }
 }
-
-@media (max-width: 1200px) {
+/*lg*/
+@media (max-width: 1199px) {
     .navbar-custom {
         height: 8vw;
+    }
+}
+/*md*/
+@media (max-width: 991px) {
+    .song-artwork {
+        max-width: 220px;
+    }
+}
+/*sm*/
+@media (max-width: 767px) {
+    .song-lyrics {
+        align-self: start !important;
+        padding: 1.5rem 0 0 0;
+    }
+
+}
+/*xs*/
+@media (max-width: 575px) {
+    .album-teaser-content, .album-teaser-content p, .album-teaser-content div, .album-teaser-content h2 {
+        max-width: 100%;
+    }
+    .album-button {
+        margin: 0.5rem;
+        max-width: 125px;
+        min-width: 125px;
+    }
+    .inside-page-container {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .album-button-first {
+        margin-right: 1rem !important;
+    }
+    .album-artwork {
+        max-width: 65vw;
+    }
+    .album-button {
+        margin: 0;
+    }
+}
+
+@media (max-width: 410px) {
+    .song-artwork {
+        max-width: 50vw;
+    }
+    .album-teaser-title {
+        font-size: 2.5rem;
+        letter-spacing: 12px;
+    }
+    .album-buttons {
+        flex-direction: column;
+    }
+    .album-button {
+        margin: 0.5rem;
+        max-width: 125px;
+        min-width: 125px;
+    }
+}
+
+@media (max-width: 360px) {
+    .album-teaser-title {
+        letter-spacing: 4px;
     }
 }
