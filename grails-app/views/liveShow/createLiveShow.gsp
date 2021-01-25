@@ -12,6 +12,15 @@
 </h1>
 
 <div class="inside-page-container">
+    <div class="d-flex mb-5">
+        <g:link controller="admin" action="index" class="d-flex align-items-center btn btn-primary">
+            <span class="material-icons">
+                keyboard_backspace
+            </span>
+            Admin
+        </g:link>
+    </div>
+
     <g:form id="liveShowForm" name="liveShowForm" url="[controller: 'liveShow', action: 'saveLiveShow']" method="post">
         <f:all bean="liveShow"/>
         <button type="submit" class="btn btn-primary">Submit</button>

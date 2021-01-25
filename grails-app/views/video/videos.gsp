@@ -11,6 +11,15 @@
 </h1>
 
 <div class="inside-page-container">
+    <div class="d-flex mb-5">
+        <g:link controller="admin" action="index" class="d-flex align-items-center btn btn-primary">
+            <span class="material-icons">
+                keyboard_backspace
+            </span>
+            Admin
+        </g:link>
+    </div>
+
     <g:each in="${videos}" var="video">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.youtubeVideoCode}"
                 frameborder="0"
