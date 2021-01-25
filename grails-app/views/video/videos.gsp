@@ -29,8 +29,9 @@
                         allowfullscreen>
                 </iframe>
             </div>
-            <div class="ml-0 ml-md-5 mt-3 mb-3">
+            <div class="ml-0 ml-md-5 mt-3 mb-3 video-description">
                 <p>${video.title}</p>
+                <p class="font-italic">${video.description}</p>
                 <p>${video.youtubeVideoCode}</p>
                 <div class="d-flex flex-row">
                     <g:link controller="video" action="editVideo" params="[id: video.id]" title="edit">

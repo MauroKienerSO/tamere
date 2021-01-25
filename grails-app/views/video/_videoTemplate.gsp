@@ -3,25 +3,26 @@
 </h1>
 
 <div class="inside-page-container">
-    <div class="d-flex align-items-center justify-content-center mb-5">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videos.first().youtubeVideoCode}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+
+    <div class="d-flex flex-column justify-content-start align-items-start mb-4">
+        <div class="subtitle">Videos</div>
+        <div class="video-subinfo">For the latest videos subscribe to our Youtube channel</div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-center page-info">
-        Follow us on Youtube
-    </div>
 
-    <div class="d-flex mt-5 justify-content-between">
-        <g:each in="${videos.subList(1, videos.size())}" var="video">
-            <iframe width="280" src="https://www.youtube.com/embed/${video.youtubeVideoCode}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-        </g:each>
-    </div>
+    <g:each in="${videos}" var="video" status="index">
+        <div class="d-flex flex-column flex-md-row pt-3 pb-3">
+            <div class="video-container">
+                <iframe width="100%" class="box-shadow-light" src="https://www.youtube.com/embed/${video.youtubeVideoCode}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="ml-0 ml-md-5 mt-3 mb-3 video-description">
+                <h6 class="video-title">${video.title}</h6>
+                <p class="font-italic">${video.description}</p>
+            </div>
+        </div>
+    </g:each>
 </div>

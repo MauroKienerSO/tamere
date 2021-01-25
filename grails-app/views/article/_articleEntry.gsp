@@ -6,7 +6,7 @@
                     <li data-target="#article-carousel-${article.id}" data-slide-to="${index}" class="${index == 0? 'active':''}"></li>
                 </g:each>
             </ol>
-            <div class="carousel-inner album-cover">
+            <div class="carousel-inner box-shadow">
                 <g:each in="${article.images}" var="image" status="index">
                     <div class="carousel-item height-equal-to-width ${index == 0? 'active':''}">
                         <g:imageDisplay image="${image}" class="shop-image" width="100%"></g:imageDisplay>

@@ -22,8 +22,11 @@
     box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
 }
 
-.album-cover {
+.box-shadow {
     box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
+}
+.box-shadow-light {
+    box-shadow: 1px 1px 2px rgb(232,232,232), -1px -1px 2px rgb(232,232,232), -1px 1px 2px rgb(232,232,232), 1px -1px 2px rgb(232,232,232);
 }
 .album-teaser-content {
     margin: 2rem;
@@ -464,7 +467,7 @@ a:hover {
     border-top: 0.5px solid rgb(232,232,232);
     border-bottom: 0.5px solid rgb(232,232,232);
 }
-.liveShowEntry.last-Element {
+.liveShowEntry.last-Element, .last-Element {
     border-bottom: 0.5px solid rgb(232,232,232);
 }
 #imagesContainer .image-display-field {
@@ -486,11 +489,15 @@ a:hover {
 .article-list .article-entry{
     width: calc(33% - 4rem);
 }
-.article-title{
+.article-title, .video-title{
     font-size: large;
     text-transform: uppercase;
     margin-top: 15px;
     margin-bottom: 0 !important;
+}
+.video-title {
+    letter-spacing: 8px;
+    margin-top: 0 !important;
 }
 .article-description {
     font-style: italic;
@@ -499,11 +506,6 @@ a:hover {
 .article-price {
     font-weight: bold;
     font-size: large;
-}
-.page-info {
-    letter-spacing: 4px;
-    font-style: italic;
-    font-weight: bold;
 }
 .response {
     font-size: 1rem !important;
@@ -559,6 +561,9 @@ a:hover {
 }
 .admin-page .btn-primary {
     min-width: calc(100% * 0.2);
+}
+.video-description {
+    width: calc((100% * 0.5) - 3rem);
 }
 /*xl*/
 @media (max-width: 1399px) {
@@ -621,6 +626,9 @@ a:hover {
         width: 100% !important;
     }
     .video-container {
+        width: 100%;
+    }
+    .video-description {
         width: 100%;
     }
 }
