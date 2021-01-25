@@ -20,12 +20,32 @@
         </g:link>
     </div>
 
-    <g:each in="${videos}" var="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${video.youtubeVideoCode}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
+    <g:each in="${videos}" var="video" status="index">
+        <div class="d-flex flex-column flex-md-row pt-3 pb-3 ${index % 2 == 0? 'borderClass':''}">
+            <div class="video-container">
+                <iframe width="100%" src="https://www.youtube.com/embed/${video.youtubeVideoCode}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <div class="ml-0 ml-md-5 mt-3 mb-3">
+                <p>${video.title}</p>
+                <p>${video.youtubeVideoCode}</p>
+                <div class="d-flex flex-row">
+                    <g:link controller="video" action="editVideo" params="[id: video.id]" title="edit">
+                        <span class="material-icons">
+                            create
+                        </span>
+                    </g:link>
+                    <g:link controller="video" action="deleteVideo" params="[id: video.id]" title="delete">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </g:link>
+                </div>
+            </div>
+        </div>
     </g:each>
 </div>
 

@@ -57,7 +57,7 @@
     box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
 }
 
-.inside-page-container, #loginForm {
+.inside-page-container, #loginForm, #login .inner .login_message {
     padding: 3rem !important;
 }
 
@@ -208,6 +208,9 @@
 .inner {
     margin: 0 !important;
     width: 100% !important;
+}
+#login .inner .login_message {
+    color: rgb(198, 127, 175) !important;
 }
 #login .inner .cssform p {
     display: flex;
@@ -457,8 +460,11 @@ a:hover {
 .liveShowEntry {
     padding: 1rem 0;
 }
-.liveShowEntry.borderClass {
+.liveShowEntry.borderClass, .borderClass {
     border-top: 0.5px solid rgb(232,232,232);
+    border-bottom: 0.5px solid rgb(232,232,232);
+}
+.liveShowEntry.last-Element {
     border-bottom: 0.5px solid rgb(232,232,232);
 }
 #imagesContainer .image-display-field {
@@ -467,6 +473,9 @@ a:hover {
 }
 #imagesContainer {
     flex-basis: 80%;
+}
+.video-container {
+    width: calc(100% * 0.5);
 }
 
 .remove-link:focus, .remove-link:hover {
@@ -611,6 +620,9 @@ a:hover {
     #login .inner .cssform input {
         width: 100% !important;
     }
+    .video-container {
+        width: 100%;
+    }
 }
 /*xs*/
 @media (max-width: 575px) {
@@ -622,7 +634,7 @@ a:hover {
         max-width: 125px;
         min-width: 125px;
     }
-    .inside-page-container, #loginForm, .fheader {
+    .inside-page-container, #loginForm, .fheader, #login .inner .login_message {
         padding: 2rem !important;
     }
     .article-entry {

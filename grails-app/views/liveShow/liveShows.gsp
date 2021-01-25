@@ -20,18 +20,19 @@
         </g:link>
     </div>
     <div class="d-flex justify-content-center align-items-center subtitle">Upcoming</div>
+    <g:set var="evenNumberOfFutureLiveShows" value="${futureLiveShows.size() % 2}"/>
     <g:each in="${futureLiveShows}" var="liveShow" status="index">
-        <div class="d-flex flex-column flex-md-row justify-content-center align-items-start liveShowEntry ${index % 2 == 0? 'borderClass':''}">
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-start liveShowEntry ${index % 2 == 0? 'borderClass':''} ${((futureLiveShows.size() == index + 1) && (index % 2 != 0))? 'last-Element':''}">
             <div class="liveShow-date"><g:formatDate date="${liveShow.date}" format="dd.MMMM.yyyy"/></div>
             <div class="liveShow-venue">${liveShow.venue}</div>
             <div class="liveShow-city d-flex justify-content-between">${liveShow.city}
                 <div class="d-flex flex-row">
-                    <g:link controller="liveShow" action="editShow" params="[id: liveShow.id]" title="edit">
+                    <g:link controller="liveShow" action="editLiveShow" params="[id: liveShow.id]" title="edit">
                         <span class="material-icons">
                             create
                         </span>
                     </g:link>
-                    <g:link controller="liveShow" action="deleteShow" params="[id: liveShow.id]" title="delete">
+                    <g:link controller="liveShow" action="deleteLiveShow" params="[id: liveShow.id]" title="delete">
                         <span class="material-icons">
                             delete
                         </span>
@@ -43,7 +44,7 @@
 
     <div class="d-flex justify-content-center align-items-center subtitle">Past</div>
     <g:each in="${pastLiveShows}" var="liveShow" status="index">
-        <div class="d-flex flex-column flex-md-row justify-content-center align-items-start liveShowEntry ${index % 2 == 0? 'borderClass':''}">
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-start liveShowEntry ${index % 2 == 0? 'borderClass':''} ${((pastLiveShows.size() == index + 1) && (index % 2 != 0))? 'last-Element':''}">
             <div class="liveShow-date"><g:formatDate date="${liveShow.date}" format="dd.MMMM.yyyy"/></div>
             <div class="liveShow-venue">${liveShow.venue}</div>
             <div class="liveShow-city d-flex justify-content-between">${liveShow.city}

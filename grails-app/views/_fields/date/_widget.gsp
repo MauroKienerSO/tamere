@@ -1,1 +1,1 @@
-<input type="text" class="form-control smaller-width" id="${property}" name="${property}" value="${value}" required="${required}" autocomplete="off">
+<input type="text" class="form-control smaller-width" id="${property}" name="${property}" value="${g.formatDate(format: "dd.MM.yyyy", date: value)}" required="${required}" autocomplete="off">

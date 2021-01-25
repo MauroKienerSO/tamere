@@ -58,13 +58,14 @@ class LiveShowController {
             return
         }
 
-        [liveShow: new LiveShow()]
+        [liveShow: liveShow]
     }
 
     @Secured(Role.ROLE_ADMIN)
-    def updateLiveShow(LiveShow liveShow){
+    def updateLiveShow(){
         log.debug "$actionName -> $params"
 
+        LiveShow liveShow = LiveShow.get(params.long('id'))
         if(!liveShow){
             log.error "No found liveShow"
             redirect action: 'liveShows'
@@ -79,7 +80,7 @@ class LiveShowController {
         liveShow.date = liveShowDate
 
         if(!liveShow.save(flush: true)){
-            log.error "Couldn't save liveShows"
+            log.error "Couldn't update liveShows"
             log.debug "${liveShow.errors}"
             redirect action: 'liveShows'
             return
@@ -118,7 +119,17 @@ class LiveShowController {
     @Secured(Role.ROLE_ADMIN)
     def deleteLiveShow(){
         log.debug "$actionName -> $params"
-        [liveShow: new LiveShow()]
+
+        LiveShow liveShow = LiveShow.get(params.long('id'))
+        if(!liveShow){
+            log.error "No found liveShow"
+            redirect action: 'liveShows'
+            return
+        }
+
+        liveShow.delete(flush:true)
+
+        redirect action: 'liveShows'
     }
 
 
