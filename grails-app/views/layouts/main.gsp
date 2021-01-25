@@ -24,9 +24,7 @@
     <div class="wrapper" id="page-content-wrapper">
 
         %{--Header--}%
-        <div class="header">
-            <g:render template="/navbar/header" />
-        </div>
+        <g:render template="/navbar/header" />
 
         %{--Page Content--}%
         <div class="container content-wrapper">

@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-custom bg-custom" id="myHeader">
-    <a data-url="${g.createLink(controller: 'home', action: 'body')}" data-pushstate="home" class="ml-5 home-image clickableHeader" title="Home">
-%{--        <asset:image src="default_weiss.png" title="Homepage Ta Mère" alt="Logo der Band Ta Mère" width="75"/>--}%
+    <a data-url="${g.createLink(controller: 'home', action: 'body')}" data-pushstate="home" class="home-image clickableHeader" title="Home">
         tamere
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
