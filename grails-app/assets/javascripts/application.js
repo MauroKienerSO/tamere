@@ -153,6 +153,15 @@ $(document).ready(function(){
     $('#plexianAccordian').on('mouseout', function (event) {
         window.addEventListener('scroll',checkScroll);
     });
+
+    $('input[name="date"]').datepicker({
+        format: 'dd.mm.yyyy',
+        orientation: "bottom right",
+        // not working
+        buttonImage: '../images/icons/calendar.svg',
+        todayHighlight: true,
+        autoclose: true
+    });
 });
 
 /**

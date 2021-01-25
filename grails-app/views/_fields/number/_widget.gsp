@@ -1,1 +1,1 @@
-<input type="number" class="form-control smaller-width" id="${property}" name="${property}" value="${value}" required="${required}" min="${min}" max="${max}">
+<input type="number" class="form-control smaller-width" id="${property}" name="${property}" value="${value}" required="${required}" min="${min}" max="${max}" autocomplete="off">

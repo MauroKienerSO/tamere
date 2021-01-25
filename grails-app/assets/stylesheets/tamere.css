@@ -603,6 +603,7 @@ a:hover {
     }
     .liveShow-date, .liveShow-venue, .liveShow-city {
         padding: 0 !important;
+        width: 100%;
     }
     #login .inner .cssform p {
         flex-direction: column;

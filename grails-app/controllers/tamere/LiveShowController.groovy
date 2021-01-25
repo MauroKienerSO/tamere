@@ -12,7 +12,7 @@ class LiveShowController {
 
     LiveShowService liveShowService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", createShow: "GET"]
+    static allowedMethods = [saveLiveShow: ['PUT', 'POST'], updateLiveShow: ['PUT']]
 
     def index() {
         log.debug "$actionName -> $params"
@@ -47,6 +47,48 @@ class LiveShowController {
     }
 
     @Secured(Role.ROLE_ADMIN)
+    def editLiveShow(){
+        log.debug "$actionName -> $params"
+
+        LiveShow liveShow = LiveShow.get(params.long('id'))
+
+        if(!liveShow){
+            log.debug "No live Show has been provided"
+            redirect action: 'liveShows'
+            return
+        }
+
+        [liveShow: new LiveShow()]
+    }
+
+    @Secured(Role.ROLE_ADMIN)
+    def updateLiveShow(LiveShow liveShow){
+        log.debug "$actionName -> $params"
+
+        if(!liveShow){
+            log.error "No found liveShow"
+            redirect action: 'liveShows'
+            return
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy")
+        Date liveShowDate = sdf.parse(params.date)
+
+        bindData(liveShow, params, ['exclude': ['date']])
+
+        liveShow.date = liveShowDate
+
+        if(!liveShow.save(flush: true)){
+            log.error "Couldn't save liveShows"
+            log.debug "${liveShow.errors}"
+            redirect action: 'liveShows'
+            return
+        }
+
+        redirect action: 'liveShows'
+    }
+
+    @Secured(Role.ROLE_ADMIN)
     def saveLiveShow(LiveShow liveShow){
         log.debug "$actionName -> $params"
 
@@ -56,13 +98,27 @@ class LiveShowController {
             return
         }
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy")
+        Date liveShowDate = sdf.parse(params.date)
+
+        bindData(liveShow, params, ['exclude': ['date']])
+
+        liveShow.date = liveShowDate
+
         if(!liveShow.save(flush: true)){
             log.error "Couldn't save liveShows"
+            log.debug "${liveShow.errors}"
             redirect action: 'liveShows'
             return
         }
 
         redirect action: 'liveShows'
+    }
+
+    @Secured(Role.ROLE_ADMIN)
+    def deleteLiveShow(){
+        log.debug "$actionName -> $params"
+        [liveShow: new LiveShow()]
     }
 
 

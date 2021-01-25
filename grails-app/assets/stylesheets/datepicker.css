@@ -4,7 +4,9 @@
  * Copyright 2012 Stefan Petre
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * color: rgba(236, 155, 208, 1); (pink)
+ rgb(94, 132, 155) blue
+ rgb(232,232,232) white
  */
 .datepicker {
   top: 0;
@@ -15,10 +17,8 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
   background-color: black;
-  border: 2px solid #b3b3b3;
-  /*.dow {
-    border-top: 1px solid #ddd !important;
-  }*/
+  border: 1px solid rgb(232,232,232);
+  box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
 
 }
 .datepicker:before {
@@ -26,8 +26,8 @@
   display: inline-block;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 7px solid rgb(232,232,232);
+  border-bottom-color: rgb(232,232,232);
   position: absolute;
   top: -7px;
   left: 6px;
@@ -37,7 +37,7 @@
   display: inline-block;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-bottom: 6px solid #ffffff;
+  border-bottom: 6px solid rgb(232,232,232);
   position: absolute;
   top: -6px;
   left: 7px;
@@ -61,8 +61,9 @@
   padding: 1px;
 }
 .datepicker td.day:hover {
-  background: rgb(208, 190, 0);
+  background: rgba(236, 155, 208, 1);
   color: black;
+  font-style: italic;
   cursor: pointer;
 }
 .datepicker td.day.disabled {
@@ -74,18 +75,11 @@
 }
 .datepicker td.active,
 .datepicker td.active:hover {
-  color: #ffffff;
-  background-color: #fa007f;
-  background-image: -moz-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgb(208, 190, 0)), to(#fa007f));
-  background-image: -webkit-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: -o-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: linear-gradient(to bottom, rgb(208, 190, 0), #fa007f);
+  color: rgb(94, 132, 155);
+  background-color: rgb(232,232,232);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-  border-color: #fa007f #fa007f white;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #fa007f;
+  border-color: rgba(236, 155, 208, 1) rgba(236, 155, 208, 1) white;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -105,14 +99,14 @@
 .datepicker td.active[disabled],
 .datepicker td.active:hover[disabled] {
   color: #ffffff;
-  background-color: #fa007f;
-  *background-color: #fa007f;
+  background-color: rgba(236, 155, 208, 1);
+  *background-color: rgba(236, 155, 208, 1);
 }
 .datepicker td.active:active,
 .datepicker td.active:hover:active,
 .datepicker td.active.active,
 .datepicker td.active:hover.active {
-  background-color: #fa007f \9;
+  background-color: rgba(236, 155, 208, 1) \9;
 }
 .datepicker td span {
   display: block;
@@ -127,22 +121,17 @@
   border-radius: 4px;
 }
 .datepicker td span:hover {
-  background: rgb(208, 190, 0);
+  background: rgb(94, 132, 155);
   color: black;
 }
 .datepicker td span.active {
   color: #ffffff;
-  background-color: #fa007f;
-  background-image: -moz-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgb(208, 190, 0)), to(#fa007f));
-  background-image: -webkit-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: -o-linear-gradient(top, rgb(208, 190, 0), #fa007f);
-  background-image: linear-gradient(to bottom, rgb(208, 190, 0), #fa007f);
+  background-color: rgba(236, 155, 208, 1);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-  border-color: #fa007f #fa007f white;
+  border-color: rgba(236, 155, 208, 1) rgba(236, 155, 208, 1) white;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #fa007f;
+  *background-color: rgba(236, 155, 208, 1);
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -156,12 +145,12 @@
 .datepicker td span.active.disabled,
 .datepicker td span.active[disabled] {
   color: #ffffff;
-  background-color: #fa007f;
-  *background-color: #fa007f;
+  background-color: rgba(236, 155, 208, 1);
+  *background-color: rgba(236, 155, 208, 1);
 }
 .datepicker td span.active:active,
 .datepicker td span.active.active {
-  background-color: white; \9;
+  /*background-color: white; \9;*/
 }
 .datepicker td span.old {
   color: #999999;
@@ -177,7 +166,7 @@
   cursor: pointer;
 }
 .datepicker thead tr:first-child th:hover {
-  background: rgb(208, 190, 0);
+  background: rgb(94, 132, 155);
   color: black;
 }
 .input-append.date .add-on i,
@@ -189,5 +178,5 @@
 }
 
 .datepicker thead tr {
-  border-bottom: 1px solid #fa007f;
+  border-bottom: 1px solid rgba(236, 155, 208, 1);
 }
