@@ -162,6 +162,14 @@ $(document).ready(function(){
         todayHighlight: true,
         autoclose: true
     });
+
+    $('#navbarSupportedContent').on('shown.bs.collapse', function (event) {
+        $('.content-wrapper').addClass('loading-spinner');
+    })
+
+    $('#navbarSupportedContent').on('hidden.bs.collapse', function (event) {
+        $('.content-wrapper').removeClass('loading-spinner');
+    })
 });
 
 /**
@@ -184,6 +192,7 @@ function initDatePicker(){
  * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
  */
 function changePage(jQueryElement, popState){
+    $('#navbarSupportedContent').collapse('hide');
     var url = jQueryElement.data('url');
 
     // which state should be pushed

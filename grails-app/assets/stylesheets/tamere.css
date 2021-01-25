@@ -56,7 +56,6 @@
 /* Container for all templates to be shown (inside content-wrapper)*/
 #page-container {
     background-color: black;
-    /*margin-top: 10rem;*/
     margin-top: 8rem;
     box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
 }
@@ -102,6 +101,30 @@
     position: fixed;
     top: 0;
     z-index: 1035;
+}
+.navbar-toggler {
+    color: rgb(198, 127, 175);
+    background-color: rgb(232,232,232) !important;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    border: 1px solid transparent;
+    border-radius: unset !important;
+}
+.navbar-toggler:hover {
+    text-decoration: none;
+    box-shadow: 1px 1px 2px rgb(232,232,232), -1px -1px 2px rgb(232,232,232), -1px 1px 2px rgb(232,232,232), 1px -1px 2px rgb(232,232,232);
+    border: 1px solid rgb(198, 127, 175) !important;
+    outline: none;
+}
+.navbar-toggler:focus {
+    color: rgb(198, 127, 175);
+    background-color: black !important;
+    box-shadow: 1px 1px 2px rgb(232,232,232), -1px -1px 2px rgb(232,232,232), -1px 1px 2px rgb(232,232,232), 1px -1px 2px rgb(232,232,232);
+    border: unset !important;
+}
+.navbar-container {
+
 }
 
 /* Image to select start page of Home Page*/
@@ -602,6 +625,37 @@ a:hover {
     .home-image {
         margin-left: calc(((100vw - 690px) / 2) - 1rem);
     }
+    .navbar-toggler {
+        margin-right: calc(((100vw - 690px) / 2) - 1rem);
+    }
+    .navbar-container {
+        /*background-image: linear-gradient(to bottom right, rgb(169, 44, 125), rgb(169, 44, 125));*/
+        background-color: black !important;
+        box-shadow: 0px 3px 5px rgb(232,232,232), 0px -3px 5px rgb(232,232,232);
+        width: calc(100% + 2rem);
+        max-width: calc(100% + 2rem) !important;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+    #navbarSupportedContent .navbar-nav .nav-item {
+        min-height: 3rem;
+    }
+    #navbarSupportedContent, #navbarSupportedContent .navbar-nav {
+        height: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 1rem 0;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 3rem;
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(198, 127, 175) !important;
+    }
 }
 /*sm*/
 @media (max-width: 767px) {
@@ -643,6 +697,13 @@ a:hover {
     .home-image {
         margin-left: calc(((100vw - 510px) / 2) - 1rem);
     }
+    .navbar-toggler {
+        margin-right: calc(((100vw - 510px) / 2) - 1rem);
+    }
+    .navbar-container {
+        /*margin-left: calc(((100vw - 510px) / 2) - 1rem);*/
+        /*margin-right: calc(((100vw - 510px) / 2) - 1rem);*/
+    }
 }
 /*xs*/
 @media (max-width: 575px) {
@@ -675,6 +736,9 @@ a:hover {
     }
     .home-image {
         margin: 0;
+    }
+    .navbar-toggler {
+        margin-right: unset;
     }
 }
 
