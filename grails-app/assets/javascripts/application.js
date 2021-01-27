@@ -44,7 +44,7 @@ $(document).ready(function(){
     /**
      * opens the new template (liveShow, band, music etc.)
      */
-    $('a.clickableHeader').on( 'click', function (e) {
+    $(document).on('click', 'a.clickableHeader', function (e) {
         var that = $(this);
         changePage(that, false);
     });
@@ -146,14 +146,6 @@ $(document).ready(function(){
         $(this).datepicker('hide');
     });
 
-    $('#plexianAccordian').on('click', function (event) {
-        window.removeEventListener('scroll',checkScroll);
-    });
-
-    $('#plexianAccordian').on('mouseout', function (event) {
-        window.addEventListener('scroll',checkScroll);
-    });
-
     $('input[name="date"]').datepicker({
         format: 'dd.mm.yyyy',
         orientation: "bottom right",
@@ -163,28 +155,22 @@ $(document).ready(function(){
         autoclose: true
     });
 
-    $('#navbarSupportedContent').on('shown.bs.collapse', function (event) {
+    $('#navbarSupportedContent').on('show.bs.collapse', function (event) {
         $('.content-wrapper').addClass('loading-spinner');
     })
 
     $('#navbarSupportedContent').on('hidden.bs.collapse', function (event) {
         $('.content-wrapper').removeClass('loading-spinner');
+        $('.navbar-toggler').blur();
+    })
+
+    // To keep track of the styling for the navbar toggler
+    $(document).on('focusout', '.navbar-toggler', function () {
+        if(!$(this).hasClass('collapsed')){
+            $(this).focus();
+        };
     })
 });
-
-/**
- * initializes Datepicker
- */
-function initDatePicker(){
-    $('input[name="date"]').datepicker({
-        format: 'dd.mm.yyyy',
-        orientation: "bottom right",
-        // not working
-        buttonImage: '../images/icons/calendar.svg',
-        todayHighlight: true,
-        autoclose: true
-    });
-};
 
 /**
  * changes the url
@@ -205,13 +191,13 @@ function changePage(jQueryElement, popState){
             $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
             jQueryElement.parent( '.nav-item').addClass( 'active' );
 
-            $('#page-container').fadeOut(400,function(){
+            $('#page-container').fadeOut(300,function(){
                 window.scrollTo(0, 0);
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, pushState);
                 }
-                $('#page-container').fadeIn(400);
+                $('#page-container').fadeIn(300);
             });
         }
     });
