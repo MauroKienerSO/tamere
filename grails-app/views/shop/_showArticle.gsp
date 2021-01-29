@@ -34,6 +34,35 @@
             <h6 class="article-title">${article.title}</h6>
             <p class="article-description">${article.description}</p>
             <div class="article-price"><g:formatNumber number="${article.price}" format="##.##"/> CHF</div>
+
+            <g:form controller="shop" action="addToCartAjax" name="addToCartForm">
+                <g:hiddenField name="id" value="${article.id}" />
+                <div class="d-flex flex-row mb-5 mt-3 justify-content-between shop-article-input-fields align-items-center">
+                    <g:if test="${article.sizes}">
+                        <select aria-label="Select Sizes" class="form-control select-sizes" name="size">
+                            <g:each in="${article.sizes}" var="size" status="index">
+                                <option ${size.size == 'M' ? 'selected':''}>${size.size}</option>
+                            </g:each>
+                        </select>
+                    </g:if>
+                    <div class="amount-calculator d-flex flex-row justify-content-end">
+                        <button class="btn-primary amount-indicator amout-minus">
+                            -
+                        </button>
+                        <input name="amount" id="amount" value="0" class="disabled-input-field" disabled required>
+
+                        <button class="btn-primary amount-indicator amout-plus">
+                            +
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center w-100">
+                    <span class="material-icons pr-2">
+                        shopping_bag
+                    </span>
+                    Add to cart
+                </button>
+            </g:form>
         </div>
     </div>
 

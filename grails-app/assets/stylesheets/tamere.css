@@ -329,6 +329,13 @@ div.form-group label:not(.container-checkbox) {
     box-shadow: 0 0 0 0.15rem rgba(103, 147, 173, 0.73);
     background-color: black;
 }
+.select-sizes:focus {
+    color: white !important;
+    border-color: rgb(232,232,232);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgb(232,232,232);
+    background-color: black;
+}
 
 /* BUTTON PRIMARY */
 .btn {
@@ -621,10 +628,32 @@ a.go-to-article:hover {
 
 }
 .show-article-data .article-price {
-    font-size: larger;
+    font-size: x-large;
+    font-weight: unset;
 }
 .show-article-carousel-inner {
     width: 400px;
+}
+.amount-calculator {
+    width: 50%;
+}
+.shop-article-input-fields {
+    height: 2rem;
+}
+.amount-indicator {
+    width: 2rem;
+}
+.disabled-input-field {
+    max-width: 20px;
+    color: unset !important;
+    cursor: default;
+    background-color: unset !important;
+    border-color: black !important;
+    border-width: unset !important;
+    margin: 0 0.75rem;
+}
+.select-sizes {
+    max-width: 40%;
 }
 /*xl*/
 @media (max-width: 1399px) {
@@ -766,7 +795,7 @@ a.go-to-article:hover {
     }
     .show-article-data {
         width: 100%;
-        margin: 1rem;
+        margin: 0 !important;
     }
     .show-article-carousel-indicators {
         margin: 0 !important;
