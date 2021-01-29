@@ -37,6 +37,8 @@
         %{--Footer--}%
         <g:render template="/footer/footer"/>
 
+        <g:render template="/templates/modalWrapper"/>
+
     </div>
 
     <div class="d-none spinner">

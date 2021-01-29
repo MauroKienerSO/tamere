@@ -362,6 +362,25 @@ div.form-group label:not(.container-checkbox) {
     font-style: italic;
     outline: unset !important;
 }
+.btn-secondary {
+    border: 2px solid black  !important;
+    background-color: transparent !important;
+    color: black  !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    -o-transition: background-color 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -ms-transition: background-color 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -moz-transition: background-color 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+    -webkit-transition: background-color 0.2s ease-in, border 0.2s ease-in, color 0.2s ease-in;
+}
+.btn-secondary:hover, .btn-secondary:focus {
+    border: 2px solid rgb(94, 132, 155) !important;
+    color: rgb(94, 132, 155) !important;
+    background-color: rgba(201, 201, 201, 0.3) !important;
+    box-shadow: none !important;
+    font-style: italic;
+    outline: unset !important;
+}
 
 /* Links */
 a {
@@ -655,6 +674,9 @@ a.go-to-article:hover {
     padding: 0 !important;
     text-align: center;
 }
+.disabled-input-field:focus {
+    outline: none !important;
+}
 .select-sizes {
     max-width: 45%;
 }
@@ -662,6 +684,30 @@ a.go-to-article:hover {
     width: 100%;
     text-align: end;
     color: rgb(94, 132, 155);
+}
+
+/* MODAL CSS */
+.modal-dialog {
+    top: 15%;
+    width: 60vw;
+    max-width: unset !important;
+}
+.modal-content {
+    background-color: rgb(232,232,232);
+    color: black;
+    border: 1px solid black !important;
+    border-radius: unset !important;
+}
+.modal-header {
+    border-bottom: 1px solid black;
+    border-radius: unset !important;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 8px;
+}
+.modal-footer {
+    border-top: 1px solid black;
+    border-radius: unset !important;
 }
 /*xl*/
 @media (max-width: 1399px) {
@@ -744,6 +790,10 @@ a.go-to-article:hover {
 
     .show-article-carousel-inner {
         width: 300px;
+    }
+
+    .modal-dialog {
+        width: 80vw;
     }
 }
 /*sm*/
@@ -847,6 +897,9 @@ a.go-to-article:hover {
     }
     .navbar-toggler {
         margin-right: unset;
+    }
+    .modal-dialog {
+        width: unset !important;
     }
 }
 

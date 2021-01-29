@@ -20,6 +20,7 @@ class UrlMappings {
         "/video"(controller: 'video', action: 'index')
         "/shop"(controller: 'shop', action: 'index')
         "/shop/body"(controller: 'shop', action: 'body')
+        "/shop/addToCartAjax"(controller: 'shop', action: 'addToCartAjax')
         "/shop/$alias"(controller: 'shop', action: 'showArticleAjax', params: [alias: alias])
         "/contact"(controller: 'contact', action: 'index')
     }

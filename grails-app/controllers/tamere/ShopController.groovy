@@ -36,7 +36,10 @@ class ShopController {
     def addToCartAjax(){
         log.debug "$actionName -> $params"
 
+        log.debug "${params.id}"
+        log.debug "${params.size}"
+        log.debug "${params.amount}"
 
-
+        render template: '/shop/cartModal'
     }
 }

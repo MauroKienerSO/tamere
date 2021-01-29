@@ -123,7 +123,6 @@ $(document).ready(function(){
             //scrolled down
             direction = 1;
             if(w.scrollY < 70){
-                console.log('scrolled to the top');
                 header.classList.remove('opacity-and-background');
             }
         }
@@ -238,7 +237,19 @@ $(document).ready(function(){
             $('.error-message').removeClass('d-none');
             $('.shop-article-input-fields').css('height', '3rem');
             $('.add-to-cart-button').blur();
-        }
+            return;
+        };
+
+        $.ajax({
+            url: form.attr('action'),
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data, result) {
+                console.log('success');
+                $('#modal-wrapper-content').html(data);
+                $('#modal-wrapper').modal('show');
+            }
+        });
+
     });
 });
 

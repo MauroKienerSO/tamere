@@ -50,7 +50,7 @@
                         <button class="btn-primary amount-indicator amount-minus">
                             -
                         </button>
-                        <input name="amount" id="amount" value="0" class="disabled-input-field" disabled required>
+                        <input name="amount" id="amount" value="0" class="disabled-input-field" readonly="readonly" required>
                         <button class="btn-primary amount-indicator amount-plus">
                             +
                         </button>
