@@ -8,9 +8,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('permitAll')
-class LiveShowController {
-
-    LiveShowService liveShowService
+class LiveController {
 
     static allowedMethods = [saveLiveShow: ['PUT', 'POST'], updateLiveShow: ['PUT']]
 

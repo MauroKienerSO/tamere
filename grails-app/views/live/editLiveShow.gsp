@@ -21,7 +21,7 @@
         </g:link>
     </div>
 
-    <g:form id="liveShowEditForm" name="liveShowEditForm" url="[controller: 'liveShow', action: 'updateLiveShow']" method="put">
+    <g:form id="liveShowEditForm" name="liveShowEditForm" url="[controller: 'live', action: 'updateLiveShow']" method="put">
         <g:hiddenField name="id" value="${liveShow.id}" />
         <f:all bean="${liveShow}"/>
         <button type="submit" class="btn btn-primary">Submit</button>

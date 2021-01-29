@@ -21,7 +21,7 @@
         </g:link>
     </div>
 
-    <g:form id="liveShowForm" name="liveShowForm" url="[controller: 'liveShow', action: 'saveLiveShow']" method="post">
+    <g:form id="liveShowForm" name="liveShowForm" url="[controller: 'live', action: 'saveLiveShow']" method="post">
         <f:all bean="liveShow"/>
         <button type="submit" class="btn btn-primary">Submit</button>
     </g:form>

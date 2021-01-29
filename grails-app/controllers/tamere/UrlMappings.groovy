@@ -14,7 +14,7 @@ class UrlMappings {
         "500"(view:'/error')
         "404"(view:'/notFound')
 
-        "/live"(controller: 'liveShow', action: 'index')
+        "/live"(controller: 'live', action: 'index')
         "/band"(controller: 'band', action: 'index')
         "/music"(controller: 'music', action: 'index')
         "/videos"(controller: 'video', action: 'index')

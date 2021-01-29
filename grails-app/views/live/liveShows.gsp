@@ -27,12 +27,12 @@
             <div class="liveShow-venue">${liveShow.venue}</div>
             <div class="liveShow-city d-flex justify-content-between">${liveShow.city}
                 <div class="d-flex flex-row">
-                    <g:link controller="liveShow" action="editLiveShow" params="[id: liveShow.id]" title="edit">
+                    <g:link controller="live" action="editLiveShow" params="[id: liveShow.id]" title="edit">
                         <span class="material-icons">
                             create
                         </span>
                     </g:link>
-                    <g:link controller="liveShow" action="deleteLiveShow" params="[id: liveShow.id]" title="delete">
+                    <g:link controller="live" action="deleteLiveShow" params="[id: liveShow.id]" title="delete">
                         <span class="material-icons">
                             delete
                         </span>
@@ -49,12 +49,12 @@
             <div class="liveShow-venue">${liveShow.venue}</div>
             <div class="liveShow-city d-flex justify-content-between">${liveShow.city}
                 <div class="d-flex flex-row">
-                    <g:link controller="liveShow" action="editLiveShow" params="[id: liveShow.id]" title="edit">
+                    <g:link controller="live" action="editLiveShow" params="[id: liveShow.id]" title="edit">
                         <span class="material-icons">
                             create
                         </span>
                     </g:link>
-                    <g:link controller="liveShow" action="deleteLiveShow" params="[id: liveShow.id]" title="delete">
+                    <g:link controller="live" action="deleteLiveShow" params="[id: liveShow.id]" title="delete">
                         <span class="material-icons">
                             delete
                         </span>
@@ -65,7 +65,7 @@
 </div>
 
 <div class="inside-page-container">
-    <g:link controller="liveShow" action="createLiveShow" class="btn btn-primary">
+    <g:link controller="live" action="createLiveShow" class="btn btn-primary">
         <g:message code="liveShow.create.label"/>
     </g:link>
 </div>

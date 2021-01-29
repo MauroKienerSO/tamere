@@ -59,6 +59,8 @@ class StoreController {
             }
         }
 
+        article.alias = article.title.toLowerCase().replaceAll(' ', '-')
+
         if(!article.save(flush: true)){
             log.error "Couldn't store Article"
             redirect action: 'index'
@@ -92,6 +94,8 @@ class StoreController {
         article.download = params.boolean('download')?:false
         article.active = params.boolean('active')?:false
         article.title = params.title
+
+        article.alias = article.title.toLowerCase().replaceAll(' ', '-')
         article.description = params.description
 
         List<Integer> sizesToAdd = params.collect { key, value ->
