@@ -360,6 +360,7 @@ div.form-group label:not(.container-checkbox) {
     background-color: rgba(201, 201, 201, 0.3) !important;
     box-shadow: none !important;
     font-style: italic;
+    outline: unset !important;
 }
 
 /* Links */
@@ -653,7 +654,7 @@ a.go-to-article:hover {
     margin: 0 0.75rem;
 }
 .select-sizes {
-    max-width: 40%;
+    max-width: 45%;
 }
 /*xl*/
 @media (max-width: 1399px) {

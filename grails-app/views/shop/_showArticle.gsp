@@ -35,23 +35,23 @@
             <p class="article-description">${article.description}</p>
             <div class="article-price"><g:formatNumber number="${article.price}" format="##.##"/> CHF</div>
 
-            <g:form controller="shop" action="addToCartAjax" name="addToCartForm">
+            <form action="${createLink(controller: 'shop', action: 'addToCartAjax')}" name="addToCartForm" id="addToCartForm">
                 <g:hiddenField name="id" value="${article.id}" />
-                <div class="d-flex flex-row mb-5 mt-3 justify-content-between shop-article-input-fields align-items-center">
+                <div class="d-flex flex-row mb-3 mb-md-5 mt-3 justify-content-between shop-article-input-fields align-items-center">
                     <g:if test="${article.sizes}">
-                        <select aria-label="Select Sizes" class="form-control select-sizes" name="size">
+                        <select aria-label="Select Sizes" class="form-control select-sizes" name="size" id="size-select" required>
+                            <option value="" disabled selected>Size</option>
                             <g:each in="${article.sizes}" var="size" status="index">
-                                <option ${size.size == 'M' ? 'selected':''}>${size.size}</option>
+                                <option>${size.size}</option>
                             </g:each>
                         </select>
                     </g:if>
                     <div class="amount-calculator d-flex flex-row justify-content-end">
-                        <button class="btn-primary amount-indicator amout-minus">
+                        <button class="btn-primary amount-indicator amount-minus">
                             -
                         </button>
                         <input name="amount" id="amount" value="0" class="disabled-input-field" disabled required>
-
-                        <button class="btn-primary amount-indicator amout-plus">
+                        <button class="btn-primary amount-indicator amount-plus">
                             +
                         </button>
                     </div>
@@ -62,7 +62,7 @@
                     </span>
                     Add to cart
                 </button>
-            </g:form>
+            </form>
         </div>
     </div>
 

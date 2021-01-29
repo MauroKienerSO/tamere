@@ -185,6 +185,43 @@ $(document).ready(function(){
         if(!$(this).hasClass('collapsed')){
             $(this).focus();
         };
+    });
+
+    // Amount Minus and Amount Plus
+    $(document).on('click', '.amount-indicator', function (e) {
+        e.preventDefault();
+
+        // element that got clicked on
+        var that = $(this);
+        var inputElement = $('#amount');
+
+        var currentValue = inputElement.val();
+
+        // Update the value of the input field
+        if(that.hasClass('amount-plus')){
+            currentValue++;
+        }
+        if (that.hasClass('amount-minus') && currentValue > 0){
+            currentValue--;
+        }
+
+        inputElement.val(currentValue);
+
+        that.blur();
+    });
+
+    /**
+     * Styling when select Value Changed
+     */
+    $(document).on('change', '#size-select', function (e) {
+        var inputElement = $('#amount');
+        var currentValue = inputElement.val();
+
+        if(currentValue == 0){
+            currentValue++;
+        }
+        inputElement.val(currentValue);
+        $('.amount-plus').focus();
     })
 });
 
