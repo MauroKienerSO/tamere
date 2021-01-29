@@ -363,6 +363,11 @@ a:hover {
     color: rgb(198, 127, 175);
     text-decoration: underline;
 }
+a.go-to-article:hover {
+    color: rgb(232,232,232);
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /* CUSTOM CHECKBOX */
 /* Customize the label (the container) */

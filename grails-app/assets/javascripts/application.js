@@ -46,7 +46,7 @@ $(document).ready(function(){
      */
     $(document).on('click', 'a.clickableHeader', function (e) {
         var that = $(this);
-        changePage(that, false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));
+        changePage(that.data('url'), that.data('pushstate'), false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));
     });
 
     /**
@@ -55,10 +55,26 @@ $(document).ready(function(){
      */
     window.addEventListener('popstate', event => {
         const { state } = event;
-        if(state !== null && state['stateValue'] !== undefined){
-            var domElement = $('[data-pushstate="'+ state['stateValue'] +'"]');
-            changePage(domElement, true, state['stateValue'], domElement.data('url').replaceAll('/body', ''));
+        // State Change for Article Entry
+        if(state !== null && state['stateValue'].indexOf('/shop/') !== -1){
+            changePage(state['stateValue'], state['stateValue'], true, 'shop', state['stateValue']);
+        } else {
+            if(state !== null && state['stateValue'] !== undefined){
+                // Change State for Header Entry
+                var domElement = $('[data-pushstate="'+ state['stateValue'] +'"]');
+                changePage(domElement.data('url'), domElement.data('pushstate'), true, state['stateValue'], domElement.data('url').replaceAll('/body', ''));
+            }
         }
+    });
+
+    // Listener if you click on an article
+    $(document).on('click', 'a.go-to-article', function (e) {
+        e.preventDefault();
+        var that = $(this);
+        var headerValue = $(this).data('headervalue');
+        var url = $(this).data('url')
+
+        changePage(that.data('url'), that.data('pushstate'),  false, headerValue, url);
     });
 
     /**
@@ -177,15 +193,12 @@ $(document).ready(function(){
  * important, we only want to push the state if we don't use the back button
  * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
  */
-function changePage(jQueryElement, popState, headerValue, stateToPush){
+function changePage(url, pushState, popState, headerValue, stateToPush){
     $('#navbarSupportedContent').collapse('hide');
-    var url = jQueryElement.data('url');
-
-    // which state should be pushed
-    var pushState = jQueryElement.data('pushstate');
 
     $.ajax({
         url: url,
+        data: {ajax: 'true'},
         success: function(data, result){
 
             $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );

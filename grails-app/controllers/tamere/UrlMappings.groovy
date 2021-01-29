@@ -19,6 +19,8 @@ class UrlMappings {
         "/music"(controller: 'music', action: 'index')
         "/video"(controller: 'video', action: 'index')
         "/shop"(controller: 'shop', action: 'index')
+        "/shop/body"(controller: 'shop', action: 'body')
+        "/shop/$alias"(controller: 'shop', action: 'showArticleAjax', params: [alias: alias])
         "/contact"(controller: 'contact', action: 'index')
     }
 }
