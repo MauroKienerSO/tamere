@@ -589,6 +589,43 @@ a.go-to-article:hover {
 .video-description {
     width: calc((100% * 0.5) - 3rem);
 }
+.show-article-carousel {
+    min-width: 50%;
+}
+.show-article-carousel-indicators {
+    position: unset !important;
+    left: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    margin-top: 1rem;
+}
+.show-article-carousel-list {
+    text-indent: unset !important;
+    width: 50px !important;
+    height: unset !important;
+    padding: 0.5rem !important;
+    background-color: unset !important;
+    border: 0.2rem solid transparent !important;
+}
+.show-article-carousel-list.active {
+    border: 0.2rem solid rgba(236, 155, 208, 1) !important;
+}
+.show-article-data {
+    width: calc(50% - 4rem);
+    margin: 2rem;
+}
+.show-article-data .article-title {
+    font-size: x-large;
+}
+.show-article-data .article-description {
+
+}
+.show-article-data .article-price {
+    font-size: larger;
+}
+.show-article-carousel-inner {
+    width: 400px;
+}
 /*xl*/
 @media (max-width: 1399px) {
 
@@ -601,6 +638,13 @@ a.go-to-article:hover {
     .article-entry {
         margin: 1.5rem !important;
         width: calc(33% - 3rem) !important;
+    }
+    .show-article-data {
+        width: calc(45% - 4rem);
+        margin: 2rem;
+    }
+    .show-article-carousel {
+        min-width: 55%;
     }
 }
 @media (max-width: 1060px) {
@@ -660,6 +704,10 @@ a.go-to-article:hover {
     .navbar-custom .navbar-nav .nav-link:active {
         color: rgba(236, 155, 208, 1)
     }
+
+    .show-article-carousel-inner {
+        width: 300px;
+    }
 }
 /*sm*/
 @media (max-width: 767px) {
@@ -704,9 +752,28 @@ a.go-to-article:hover {
     .navbar-toggler {
         margin-right: calc(((100vw - 510px) / 2) - 1rem);
     }
-    .navbar-container {
-        /*margin-left: calc(((100vw - 510px) / 2) - 1rem);*/
-        /*margin-right: calc(((100vw - 510px) / 2) - 1rem);*/
+
+    .show-article-data {
+        width: calc(45% - 4rem);
+        margin: 2rem;
+    }
+    .show-article-carousel {
+        min-width: 55%;
+    }
+
+    .show-article-carousel-inner {
+        width: 300px;
+    }
+    .show-article-data {
+        width: 100%;
+        margin: 1rem;
+    }
+    .show-article-carousel-indicators {
+        margin: 0 !important;
+    }
+    .show-article-carousel-list {
+        width: 30px !important;
+        margin: 1rem;
     }
 }
 /*xs*/
@@ -767,6 +834,9 @@ a.go-to-article:hover {
     }
     .inside-page-container {
         padding: 1.5rem !important;
+    }
+    .show-article-carousel-inner {
+        width: 70vw;
     }
 }
 

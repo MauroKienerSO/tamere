@@ -32,4 +32,11 @@ class ShopController {
 
         render view: '/home/index', model: [templateLocation: '/shop/showArticle', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: article.alias]), article: article]
     }
+
+    def addToCartAjax(){
+        log.debug "$actionName -> $params"
+
+
+
+    }
 }
