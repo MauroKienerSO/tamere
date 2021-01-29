@@ -61,16 +61,35 @@ class ShopController {
             return
         }
 
-        Double cartItemPrice = (double) amount * article.price
-        CartItem cartItem = new CartItem(amount: amount, article: article, size: size, price: cartItemPrice)
-        shoppingCart.addToCartItems(cartItem)
+        CartItem cartItem = shoppingCart.cartItems.find { cartItem ->
+            if(cartItem.article.id == article.id){
+                if(cartItem.size){
+                    if(cartItem.size.id == size.id){
+                        return cartItem
+                    }
+                } else {
+                    return cartItem
+                }
+            }
+        }
 
-        if(!cartItem.save(flush: true)){
-            log.info "Couldn't Save cartItem"
-            log.info "${cartItem.errors}"
-            response.status = 400
-            render 'not ok'
-            return
+        if(cartItem){
+            cartItem.amount += amount
+            cartItem.price = (double) cartItem.amount * article.price
+            cartItem.save(flush: true)
+        } else {
+            log.debug "Creating a new CartItem"
+            Double cartItemPrice = (double) amount * article.price
+            cartItem = new CartItem(amount: amount, article: article, size: size, price: cartItemPrice)
+            shoppingCart.addToCartItems(cartItem)
+
+            if(!cartItem.save(flush: true)){
+                log.info "Couldn't Save cartItem"
+                log.info "${cartItem.errors}"
+                response.status = 400
+                render 'not ok'
+                return
+            }
         }
 
         shoppingCart.price = shoppingCart.calculatePrice()
@@ -82,6 +101,6 @@ class ShopController {
             return
         }
 
-        render template: '/shop/cartModal'
+        render template: '/shop/cartModal', model: [shoppingCart: shoppingCart]
     }
 }
