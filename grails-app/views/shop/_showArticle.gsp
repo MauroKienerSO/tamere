@@ -37,7 +37,7 @@
 
             <form action="${createLink(controller: 'shop', action: 'addToCartAjax')}" name="addToCartForm" id="addToCartForm">
                 <g:hiddenField name="id" value="${article.id}" />
-                <div class="d-flex flex-row mb-3 mb-md-5 mt-3 justify-content-between shop-article-input-fields align-items-center">
+                <div class="d-flex flex-row mb-3 mb-md-5 mt-3 justify-content-between shop-article-input-fields align-items-center flex-wrap">
                     <g:if test="${article.sizes}">
                         <select aria-label="Select Sizes" class="form-control select-sizes" name="size" id="size-select" required>
                             <option value="" disabled selected>Size</option>
@@ -55,8 +55,9 @@
                             +
                         </button>
                     </div>
+                    <div class="error-message d-none"></div>
                 </div>
-                <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center w-100">
+                <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center w-100 add-to-cart-button">
                     <span class="material-icons pr-2">
                         shopping_bag
                     </span>

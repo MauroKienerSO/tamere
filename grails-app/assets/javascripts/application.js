@@ -200,6 +200,10 @@ $(document).ready(function(){
         // Update the value of the input field
         if(that.hasClass('amount-plus')){
             currentValue++;
+            if(!$('.error-message').hasClass('d-none')){
+                $('.error-message').addClass('d-none');
+                $('.shop-article-input-fields').css('height', '2rem');
+            }
         }
         if (that.hasClass('amount-minus') && currentValue > 0){
             currentValue--;
@@ -223,6 +227,19 @@ $(document).ready(function(){
         inputElement.val(currentValue);
         $('.amount-plus').focus();
     })
+
+    $(document).on('submit', '#addToCartForm', function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+
+        if($('#amount').val() == 0){
+            $('.error-message').html('add Amount')
+            $('.error-message').removeClass('d-none');
+            $('.shop-article-input-fields').css('height', '3rem');
+            $('.add-to-cart-button').blur();
+        }
+    });
 });
 
 /**

@@ -652,9 +652,16 @@ a.go-to-article:hover {
     border-color: black !important;
     border-width: unset !important;
     margin: 0 0.75rem;
+    padding: 0 !important;
+    text-align: center;
 }
 .select-sizes {
     max-width: 45%;
+}
+.error-message {
+    width: 100%;
+    text-align: end;
+    color: rgb(94, 132, 155);
 }
 /*xl*/
 @media (max-width: 1399px) {
