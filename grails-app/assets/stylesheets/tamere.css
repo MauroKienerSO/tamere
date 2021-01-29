@@ -688,8 +688,10 @@ a.go-to-article:hover {
 }
 .error-message {
     width: 100%;
-    text-align: end;
     color: rgb(94, 132, 155);
+}
+.text-align-right {
+    text-align: right;
 }
 
 /* MODAL CSS */

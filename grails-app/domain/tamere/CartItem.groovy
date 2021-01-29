@@ -10,5 +10,7 @@ class CartItem {
     static constraints = {
         amount      nullable: false
         price       nullable: false
+        size        nullable: true
+        article     nullable: false
     }
 }
