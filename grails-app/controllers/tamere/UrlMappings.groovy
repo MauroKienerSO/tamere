@@ -17,7 +17,7 @@ class UrlMappings {
         "/live"(controller: 'live', action: 'index')
         "/band"(controller: 'band', action: 'index')
         "/music"(controller: 'music', action: 'index')
-        "/videos"(controller: 'video', action: 'index')
+        "/video"(controller: 'video', action: 'index')
         "/shop"(controller: 'shop', action: 'index')
         "/contact"(controller: 'contact', action: 'index')
     }

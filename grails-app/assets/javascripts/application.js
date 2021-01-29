@@ -46,7 +46,7 @@ $(document).ready(function(){
      */
     $(document).on('click', 'a.clickableHeader', function (e) {
         var that = $(this);
-        changePage(that, false);
+        changePage(that, false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));
     });
 
     /**
@@ -57,7 +57,7 @@ $(document).ready(function(){
         const { state } = event;
         if(state !== null && state['stateValue'] !== undefined){
             var domElement = $('[data-pushstate="'+ state['stateValue'] +'"]');
-            changePage(domElement, true);
+            changePage(domElement, true, state['stateValue'], domElement.data('url').replaceAll('/body', ''));
         }
     });
 
@@ -177,7 +177,7 @@ $(document).ready(function(){
  * important, we only want to push the state if we don't use the back button
  * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
  */
-function changePage(jQueryElement, popState){
+function changePage(jQueryElement, popState, headerValue, stateToPush){
     $('#navbarSupportedContent').collapse('hide');
     var url = jQueryElement.data('url');
 
@@ -189,13 +189,15 @@ function changePage(jQueryElement, popState){
         success: function(data, result){
 
             $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
-            jQueryElement.parent( '.nav-item').addClass( 'active' );
+
+            // Set the active Header
+            $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
 
             $('#page-container').fadeOut(300,function(){
                 window.scrollTo(0, 0);
                 $('#page-container').html(data);
                 if(popState == false){
-                    history.pushState({stateValue: pushState}, pushState, pushState);
+                    history.pushState({stateValue: pushState}, pushState, stateToPush);
                 }
                 $('#page-container').fadeIn(300);
             });
