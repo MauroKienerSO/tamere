@@ -244,9 +244,19 @@ $(document).ready(function(){
             url: form.attr('action'),
             data: form.serialize(), // serializes the form's elements.
             success: function(data, result) {
-                console.log('success');
+                $('.add-to-cart-button').blur();
                 $('#modal-wrapper-content').html(data);
                 $('#modal-wrapper').modal('show');
+            },
+            error: function(XMLHttpRequest,textStatus,errorThrown){
+                $('.add-to-cart-button').blur();
+                $('#article-not-stored').removeClass('d-none');
+                setTimeout(function(){
+                    $('#article-not-stored').fadeOut(1000,function(){
+                        $('#article-not-stored').addClass('d-none');
+                        $('#article-not-stored').fadeIn();
+                    });
+                }, 7000);
             }
         });
 

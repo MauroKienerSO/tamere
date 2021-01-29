@@ -3,6 +3,9 @@
 </h1>
 
 <div class="inside-page-container">
+    <div class="subtitle-3 response d-none" id="article-not-stored">
+        Sorry! Unfortunately we couldn't store the article in the cart. Please try again!
+    </div>
     <div class="d-flex flex-column flex-md-row align-items-center show-article justify-content-between">
         <div id="article-carousel-${article.id}" class="carousel slide article-carousel d-flex flex-column-reverse align-items-center show-article-carousel" data-ride="carousel">
             <g:if test="${article.images}">

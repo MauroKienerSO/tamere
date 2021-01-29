@@ -5,6 +5,8 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('permitAll')
 class ShopController {
 
+    StoreService storeService
+
     def index() {
         log.debug "$actionName -> $params"
         render view: '/home/index', model: [templateLocation: '/shop/shopTemplate', headerActive: 'shop']
@@ -33,12 +35,52 @@ class ShopController {
         render view: '/home/index', model: [templateLocation: '/shop/showArticle', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: article.alias]), article: article]
     }
 
+    /**
+     * adds a cartItem to the ShoppingCart
+     */
     def addToCartAjax(){
         log.debug "$actionName -> $params"
 
-        log.debug "${params.id}"
-        log.debug "${params.size}"
-        log.debug "${params.amount}"
+        ShoppingCart shoppingCart = storeService.loadShoppingCart(session)
+
+        Article article = Article.get(params.long('id'))
+        if(!article){
+            response.status = 400
+            render 'not ok'
+            return
+        }
+        Size size = null
+        if(params.size){
+            size = Size.findBySize(params.size)
+        }
+
+        Integer amount = params.int('amount')
+        if(!amount){
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        Double cartItemPrice = (double) amount * article.price
+        CartItem cartItem = new CartItem(amount: amount, article: article, size: size, price: cartItemPrice)
+        shoppingCart.addToCartItems(cartItem)
+
+        if(!cartItem.save(flush: true)){
+            log.info "Couldn't Save cartItem"
+            log.info "${cartItem.errors}"
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        shoppingCart.price = shoppingCart.calculatePrice()
+        if(!shoppingCart.save(flush: true)){
+            log.info "Couldn't Save shoppingCart"
+            log.info "${shoppingCart.errors}"
+            response.status = 400
+            render 'not ok'
+            return
+        }
 
         render template: '/shop/cartModal'
     }
