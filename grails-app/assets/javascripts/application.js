@@ -227,6 +227,9 @@ $(document).ready(function(){
         $('.amount-plus').focus();
     })
 
+    /**
+     * add to Cart Form
+     */
     $(document).on('submit', '#addToCartForm', function (e) {
         e.preventDefault();
 
@@ -312,6 +315,55 @@ function deleteImage(element) {
             $(remove).fadeOut(200,function(){});
         }
     });
+}
+
+function addCartItemAmountEventListener(domClass, domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, articleId) {
+    var domElement = $(domClass);
+
+    $(document).on('click', domClass, function (e) {
+
+        var that = $(this);
+        if(that.hasClass('amount-minus')){
+            changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, -1, articleId);
+        } else {
+            if(that.hasClass('amount-plus')){
+                changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, 1, articleId);
+            }
+        }
+    });
+}
+
+function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, increment, articleId) {
+    var currentAmount = $(document).find('span.' + domClassAmountTarget).first().html();
+
+    var currentAmountFloat = parseFloat(currentAmount);
+    var priceOfArticleFloat = parseFloat(priceOfArticle);
+
+    currentAmountFloat += increment;
+
+    if(currentAmountFloat == 0){
+        console.log('article should be removed');
+        deleteArticleAjax(articleId)
+    }
+
+    var newTotalPrice = currentAmountFloat * priceOfArticleFloat;
+
+    $(document).find('span.' + domClassAmountTarget).each(function () {
+        $(this).html(currentAmountFloat);
+    });
+
+    $(document).find('span.' + domClassTotalPriceTarget).each(function () {
+        $(this).html(newTotalPrice);
+    });
+
+    // TODO: write changes to total amount of shopping cart
+    // TODO: write changes to the dataBase
+}
+
+function deleteArticleAjax(articleId) {
+
+    // TODO: make dom Selector and remove the whole article
+
 }
 
 function showSpinner(){
