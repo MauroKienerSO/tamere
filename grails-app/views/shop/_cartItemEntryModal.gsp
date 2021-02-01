@@ -17,10 +17,10 @@
                     <span class="pr-2"><span class="cartItem-amount cartItem_amount_${cartItem.id}">${cartItem.amount}</span> × <g:formatNumber number="${cartItem.article?.price}" format="##.##"/> CHF </span>
                 </div>
                 <div class="pt-2">
-                    <button class="btn-primary amount-indicator cartItem-amount-indicator-${cartItem.id} amount-minus">
+                    <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-minus">
                         -
                     </button>
-                    <button class="btn-primary amount-indicator cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -13px;">
+                    <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -13px;">
                         +
                     </button>
                 </div>
