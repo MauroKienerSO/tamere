@@ -317,47 +317,64 @@ function deleteImage(element) {
     });
 }
 
-function addCartItemAmountEventListener(domClass, domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, articleId) {
+/**
+ * EventListener for + / - Sign on ShoppingCart Modal for updating the Price
+ */
+function addCartItemAmountEventListener(domClass, domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, cartItemId, url) {
     var domElement = $(domClass);
 
     $(document).on('click', domClass, function (e) {
 
         var that = $(this);
         if(that.hasClass('amount-minus')){
-            changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, -1, articleId);
+            changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, -1, cartItemId, url);
         } else {
             if(that.hasClass('amount-plus')){
-                changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, 1, articleId);
+                changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, 1, cartItemId, url);
             }
         }
     });
 }
 
-function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, increment, articleId) {
+function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, increment, cartItemId, url) {
     var currentAmount = $(document).find('span.' + domClassAmountTarget).first().html();
+    $(':button').prop('disabled', true); // Disable all the buttons
 
-    var currentAmountFloat = parseFloat(currentAmount);
-    var priceOfArticleFloat = parseFloat(priceOfArticle);
+    $.ajax({
+        url: url,
+        data: {
+            id: cartItemId,
+            changeAmount: increment
+        }, // serializes the form's elements.
+        success: function(data, result) {
 
-    currentAmountFloat += increment;
+            if(data.cartItemAmount <= 0){
+                if(data.totalPrice <= 0){
+                    $('#modal-wrapper').modal('hide');
+                } else {
+                    $('#cartItem_modal_' + cartItemId).fadeOut(200,function(){
+                        $('#cartItem_modal_' + cartItemId).remove();
+                        $('#shopping-cart-total-price').html(data.totalPrice);
+                    });
+                }
+            } else {
+                $(document).find('span.' + domClassAmountTarget).each(function () {
+                    $(this).html(data.cartItemAmount);
+                });
 
-    if(currentAmountFloat == 0){
-        console.log('article should be removed');
-        deleteArticleAjax(articleId)
-    }
+                $(document).find('span.' + domClassTotalPriceTarget).each(function () {
+                    $(this).html(data.cartItemPrice);
+                });
 
-    var newTotalPrice = currentAmountFloat * priceOfArticleFloat;
+                $('#shopping-cart-total-price').html(data.totalPrice);
+            }
 
-    $(document).find('span.' + domClassAmountTarget).each(function () {
-        $(this).html(currentAmountFloat);
+            $(':button').prop('disabled', false);
+        },
+        error: function(XMLHttpRequest,textStatus,errorThrown){
+            console.log('error')
+        }
     });
-
-    $(document).find('span.' + domClassTotalPriceTarget).each(function () {
-        $(this).html(newTotalPrice);
-    });
-
-    // TODO: write changes to total amount of shopping cart
-    // TODO: write changes to the dataBase
 }
 
 function deleteArticleAjax(articleId) {

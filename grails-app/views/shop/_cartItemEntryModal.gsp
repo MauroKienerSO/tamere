@@ -36,5 +36,5 @@
 </div>
 <script>
     %{--addDataBinding('#cartItem_amount_${cartItem.id}');--}%
-    addCartItemAmountEventListener('.cartItem-amount-indicator-${cartItem.id}', 'cartItem_amount_${cartItem.id}', 'cartItem_total_price_${cartItem.id}', '${cartItem.article?.price}', '${cartItem.id}');
+    addCartItemAmountEventListener('.cartItem-amount-indicator-${cartItem.id}', 'cartItem_amount_${cartItem.id}', 'cartItem_total_price_${cartItem.id}', '${cartItem.article?.price}', '${cartItem.id}', '${createLink(controller: 'shop', action: 'changeArticleAmountAjax', params: [shoppingCartId: shoppingCart.id])}');
 </script>

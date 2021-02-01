@@ -7,7 +7,7 @@
 <div class="modal-body">
     <div class="d-flex flex-column">
         <g:each in="${shoppingCart.cartItems}" var="cartItem" status="index">
-            <g:render template="cartItemEntryModal" model="[cartItem: cartItem, index: index]"/>
+            <g:render template="cartItemEntryModal" model="[cartItem: cartItem, index: index, shoppingCart: shoppingCart]"/>
         </g:each>
         <div class="cartItem-entry d-flex align-items-center justify-content-end last-Element">
             <span class="font-weight-bold">=

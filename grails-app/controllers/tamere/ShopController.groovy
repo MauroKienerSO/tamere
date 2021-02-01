@@ -1,5 +1,6 @@
 package tamere
 
+import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('permitAll')
@@ -102,5 +103,59 @@ class ShopController {
         }
 
         render template: '/shop/cartModal', model: [shoppingCart: shoppingCart]
+    }
+
+    /**
+     * increments or decrements the amount of the cartItem and ths also the price and the shoppingCart Total Price
+     * @return
+     */
+    def changeArticleAmountAjax() {
+        log.debug "$actionName -> $params"
+
+        CartItem cartItem = CartItem.get(params.long('id'))
+        if(!cartItem){
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        ShoppingCart shoppingCart = ShoppingCart.get(params.long('shoppingCartId'))
+        if(!shoppingCart){
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        Integer changeAmount = params.int('changeAmount')
+        cartItem.amount += changeAmount
+
+        if(cartItem.amount == 0){
+            shoppingCart.removeFromCartItems(cartItem)
+            cartItem.delete(flush: true)
+        } else {
+            cartItem.price = (double) cartItem.amount * cartItem.article.price
+            cartItem.save(flush: true)
+        }
+
+        shoppingCart.price = shoppingCart.calculatePrice()
+        if(!shoppingCart.save(flush: true)){
+            log.info "Couldn't Save shoppingCart"
+            log.info "${shoppingCart.errors}"
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        def cartItemAmount = cartItem?.amount?:0
+        def cartItemPrice = cartItem?.price?:0
+        def totalPrice = shoppingCart.price
+
+        def responseData = [
+                'cartItemAmount': cartItem.amount,
+                'cartItemPrice': cartItem.price,
+                'totalPrice': shoppingCart.price
+        ]
+
+        render responseData as JSON
     }
 }
