@@ -42,6 +42,23 @@ class ShopController {
     }
 
     /**
+     * Loads the shopping cart
+     */
+    def loadShoppingCartAjax() {
+        log.debug "$actionName -> $params"
+
+        ShoppingCart shoppingCart = storeService.loadShoppingCart(session, false)
+        if(!shoppingCart){
+            log.info "Couldn't load Shopping Cart"
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        render template: '/shop/cartModal', model: [shoppingCart: shoppingCart]
+    }
+
+    /**
      * adds a cartItem to the ShoppingCart
      */
     def addToCartAjax(){

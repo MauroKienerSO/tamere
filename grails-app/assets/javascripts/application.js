@@ -265,6 +265,23 @@ $(document).ready(function(){
                 }, 7000);
             }
         });
+    });
+
+    /**
+     * Loads the shopping Cart Modal
+     */
+    $(document).on('click', '#loadCartbutton', function (e) {
+       var that = $(this);
+
+        $.ajax({
+            url: that.data('url'),
+            success: function(data, result){
+
+                $('#loadCartbutton').blur();
+                $('#modal-wrapper-content').html(data);
+                $('#modal-wrapper').modal('show');
+            }
+        });
 
     });
 });
