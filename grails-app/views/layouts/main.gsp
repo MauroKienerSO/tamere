@@ -34,6 +34,14 @@
             </div>
         </div>
 
+        <div id="shoppingCart-indicator" class="box-shadow ${amountOfItemsInShoppingCart? '':'d-none'}">
+            <button type="button" class="btn btn-secondary width-under-sm-100 d-flex align-items-center justify-content-center justify-content-sm-end" data-toggle="modal" data-target="#modal-wrapper">
+                <span class="material-icons pr-2">
+                shopping_cart
+                </span>
+                (<span id="amountOfCartItemsInShoppingCart">${amountOfItemsInShoppingCart}</span>) Checkout</button>
+        </div>
+
         %{--Footer--}%
         <g:render template="/footer/footer"/>
 

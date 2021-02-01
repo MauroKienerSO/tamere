@@ -381,8 +381,16 @@ div.form-group label:not(.container-checkbox) {
     font-style: italic;
     outline: unset !important;
 }
+#shoppingCart-indicator .btn-secondary:hover, #shoppingCart-indicator .btn-secondary:focus {
+    border: 2px solid rgb(232,232,232) !important;
+    color: rgb(232,232,232) !important;
+    background-color: rgba(201, 201, 201, 0.3) !important;
+    box-shadow: none !important;
+    font-style: italic;
+    outline: unset !important;
+}
 
-/* Links */
+    /* Links */
 a {
     color: rgb(232,232,232);
 }
@@ -750,6 +758,20 @@ a.go-to-article:hover {
 .cartItem-size {
     font-style: italic;
     padding-top: 0.2rem;
+}
+
+/* SHOPPING CART INDICATOR */
+#shoppingCart-indicator {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    text-align: end;
+    padding: 1rem 2rem;
+    background-color: rgb(94, 132, 155);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 16;
 }
 
 /*xl*/

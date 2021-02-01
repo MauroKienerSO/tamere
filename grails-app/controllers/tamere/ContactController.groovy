@@ -6,6 +6,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('permitAll')
 class ContactController {
 
+    def storeService
     MailHelperService mailHelperService
 
     def body(){
@@ -39,8 +40,11 @@ class ContactController {
 
     def index() {
         log.debug "$actionName -> $params"
+
+        Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
+
         Contact contact = new Contact()
-        render view: '/home/index', model: [templateLocation: '/contact/contactTemplate', headerActive: 'contact', contact: contact]
+        render view: '/home/index', model: [templateLocation: '/contact/contactTemplate', headerActive: 'contact', contact: contact, amountOfItemsInShoppingCart: amountOfItemsInShoppingCart]
     }
 
     def messages(){

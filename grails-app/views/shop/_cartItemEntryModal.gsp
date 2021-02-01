@@ -21,7 +21,7 @@
                         <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-minus">
                             -
                         </button>
-                        <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -13px;">
+                        <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -12px;">
                             +
                         </button>
                     </div>

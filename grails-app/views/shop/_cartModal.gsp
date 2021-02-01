@@ -19,7 +19,12 @@
 </div>
 <div class="modal-footer">
     <div class="d-flex flex-column flex-sm-row width-under-sm-100">
-        <button type="button" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100" data-dismiss="modal">Continue shopping</button>
-        <button type="button" class="btn btn-primary width-under-sm-100">Checkout</button>
+        <a data-url="${g.createLink(controller: 'shop', action: 'body')}" data-pushstate="shop" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100 clickableHeader">
+            Continue shopping
+        </a>
+%{--        <button type="button" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100" data-dismiss="modal">Continue shopping</button>--}%
+        <button type="button" class="btn btn-primary width-under-sm-100">
+            (<span id="amountOfCartItemsInShoppingCartModal">${shoppingCart.amountOfItems()}</span>) Checkout
+        </button>
     </div>
 </div>

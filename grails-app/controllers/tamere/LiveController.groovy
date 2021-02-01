@@ -10,13 +10,17 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('permitAll')
 class LiveController {
 
+    def storeService
+
     static allowedMethods = [saveLiveShow: ['PUT', 'POST'], updateLiveShow: ['PUT']]
 
     def index() {
         log.debug "$actionName -> $params"
         List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
         List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
-        render view: '/home/index', model: [templateLocation: '/liveShow/liveShowTemplate', headerActive: 'live', futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
+
+        Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
+        render view: '/home/index', model: [templateLocation: '/live/liveShowTemplate', headerActive: 'live', futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows, amountOfItemsInShoppingCart: amountOfItemsInShoppingCart]
     }
 
     /**

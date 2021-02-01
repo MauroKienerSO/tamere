@@ -12,4 +12,8 @@ class ShoppingCart {
     Double calculatePrice(){
         return this.cartItems ? this.cartItems*.price.sum() : 0
     }
+
+    Integer amountOfItems(){
+        return this.cartItems ? this.cartItems*.amount.sum() : 0
+    }
 }

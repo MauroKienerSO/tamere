@@ -249,7 +249,10 @@ $(document).ready(function(){
             success: function(data, result) {
                 $('.add-to-cart-button').blur();
                 $('#modal-wrapper-content').html(data);
+                var amountOfItemsInShoppingCart = $('#amountOfCartItemsInShoppingCartModal').html();
                 $('#modal-wrapper').modal('show');
+                $('#shoppingCart-indicator').removeClass('d-none');
+                $('#amountOfCartItemsInShoppingCart').html(amountOfItemsInShoppingCart);
             },
             error: function(XMLHttpRequest,textStatus,errorThrown){
                 $('.add-to-cart-button').blur();
@@ -283,6 +286,8 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
 
             // Set the active Header
             $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
+
+            $('#modal-wrapper').modal('hide');
 
             $('#page-container').fadeOut(300,function(){
                 window.scrollTo(0, 0);
@@ -351,10 +356,14 @@ function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, 
             if(data.cartItemAmount <= 0){
                 if(data.totalPrice <= 0){
                     $('#modal-wrapper').modal('hide');
+                    $('#shoppingCart-indicator').addClass('d-none');
+                    $('#amountOfCartItemsInShoppingCart').html('');
                 } else {
                     $('#cartItem_modal_' + cartItemId).fadeOut(200,function(){
                         $('#cartItem_modal_' + cartItemId).remove();
                         $('#shopping-cart-total-price').html(data.totalPrice);
+                        $('#amountOfCartItemsInShoppingCartModal').html(data.amountOfItems);
+                        $('#amountOfCartItemsInShoppingCart').html(data.amountOfItems);
                     });
                 }
             } else {
@@ -367,6 +376,9 @@ function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, 
                 });
 
                 $('#shopping-cart-total-price').html(data.totalPrice);
+
+                $('#amountOfCartItemsInShoppingCartModal').html(data.amountOfItems);
+                $('#amountOfCartItemsInShoppingCart').html(data.amountOfItems);
             }
 
             $(':button').prop('disabled', false);
@@ -375,12 +387,6 @@ function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, 
             console.log('error')
         }
     });
-}
-
-function deleteArticleAjax(articleId) {
-
-    // TODO: make dom Selector and remove the whole article
-
 }
 
 function showSpinner(){

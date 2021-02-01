@@ -7,13 +7,16 @@ import java.text.SimpleDateFormat
 @Secured('permitAll')
 class VideoController {
 
+    def storeService
     static allowedMethods = [saveVideo: ['PUT', 'POST'], updateVideo: ['PUT']]
 
     def index() {
         log.debug "$actionName -> $params"
         List<Video> videos = Video.list([sort: "dateCreated", order: "desc"])
 
-        render view: '/home/index', model: [templateLocation: '/video/videoTemplate', headerActive: 'video', videos: videos]
+        Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
+
+        render view: '/home/index', model: [templateLocation: '/video/videoTemplate', headerActive: 'video', videos: videos, amountOfItemsInShoppingCart: amountOfItemsInShoppingCart]
     }
 
     def body(){

@@ -10,7 +10,10 @@ class ShopController {
 
     def index() {
         log.debug "$actionName -> $params"
-        render view: '/home/index', model: [templateLocation: '/shop/shopTemplate', headerActive: 'shop']
+
+        Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
+
+        render view: '/home/index', model: [templateLocation: '/shop/shopTemplate', headerActive: 'shop', amountOfItemsInShoppingCart: amountOfItemsInShoppingCart]
     }
 
     def body() {
@@ -33,7 +36,9 @@ class ShopController {
             return
         }
 
-        render view: '/home/index', model: [templateLocation: '/shop/showArticle', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: article.alias]), article: article]
+        Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
+
+        render view: '/home/index', model: [templateLocation: '/shop/showArticle', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: article.alias]), article: article, amountOfItemsInShoppingCart: amountOfItemsInShoppingCart]
     }
 
     /**
@@ -149,11 +154,13 @@ class ShopController {
         def cartItemAmount = cartItem?.amount?:0
         def cartItemPrice = cartItem?.price?:0
         def totalPrice = shoppingCart.price
+        def amountOfItems = shoppingCart.amountOfItems()
 
         def responseData = [
-                'cartItemAmount': cartItem.amount,
-                'cartItemPrice': cartItem.price,
-                'totalPrice': shoppingCart.price
+                'cartItemAmount': cartItemAmount,
+                'cartItemPrice': cartItemPrice,
+                'totalPrice': totalPrice,
+                'amountOfItems': amountOfItems
         ]
 
         render responseData as JSON
