@@ -6,6 +6,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('permitAll')
 class ShopController {
 
+    MailHelperService mailHelperService
     StoreService storeService
 
     def index() {
@@ -206,6 +207,46 @@ class ShopController {
             return
         }
 
-        render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new Order()]
+        render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new ShopOrder()]
+    }
+
+    def createOrderAjax(){
+        log.debug "$actionName -> $params"
+
+        ShoppingCart shoppingCart = storeService.loadShoppingCart(session, false)
+        if(!shoppingCart){
+            log.info "No ShoppingCart is present"
+            redirect action: 'index'
+            return
+        }
+
+        ShopOrder order = new ShopOrder()
+        bindData(order, params,  ['exclude': ['plz']])
+        order.plz = params.int('plz')
+        order.shoppingCart = shoppingCart
+
+        try {
+            order.save(flush: true)
+        } catch(Exception e){
+            log.debug "Couldn't save order"
+            log.debug "${e.message}"
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        try {
+            mailHelperService.sendOrderConfirmationMailToUser(order)
+        } catch(Exception e){
+            log.info "There was an exception"
+            log.info "${e.message}"
+            response.status = 400
+            render 'not ok'
+            return
+        }
+
+        storeService.removeShoppingCartFromSession(session)
+
+        render template: 'orderDone'
     }
 }

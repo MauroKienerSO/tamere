@@ -1,6 +1,6 @@
 package tamere
 
-class Order {
+class ShopOrder {
 
     ShoppingCart shoppingCart
     String name

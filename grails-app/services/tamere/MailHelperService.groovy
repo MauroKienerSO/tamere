@@ -11,8 +11,40 @@ class MailHelperService {
     MailService mailService
     GrailsApplication grailsApplication
 
+    def sendOrderConfirmationMailToUser(ShopOrder order){
+        log.debug "Send Order mail to User"
+
+        String htmlTemplate = "/emails/orderConfirmationMail"
+        String textTemplate = "/emails/plain/orderConfirmationMail"
+
+        Map model = [
+                order: order
+        ]
+
+        String subject = "Order received Confirmation"
+        sendMailTemplate(order.email, subject, htmlTemplate, textTemplate, model)
+
+        sendOrderMailAdmin(order)
+    }
+
+    def sendOrderMailAdmin(ShopOrder order){
+        log.debug "Send order mail to Admin"
+
+        String htmlTemplate = "/emails/orderMessage"
+        String textTemplate = "/emails/plain/orderMessage"
+
+        Map model = [
+                order: order
+        ]
+
+        String adminEmail = grailsApplication.config.grails.mail.default.to
+
+        String subject = "Order received Confirmation"
+        sendMailTemplate(adminEmail, subject, htmlTemplate, textTemplate, model)
+    }
+
     def sendContactConfirmationMailToUser(Contact contact){
-        log.debug "Send contact mail to Admin"
+        log.debug "Send contact mail to User"
 
         String htmlTemplate = "/emails/contactConfirmationMail"
         String textTemplate = "/emails/plain/contactConfirmationMail"
@@ -37,7 +69,9 @@ class MailHelperService {
                 contact: contact
         ]
 
-        sendMailTemplate(contact.email, contact.title, htmlTemplate, textTemplate, model)
+        String adminEmail = grailsApplication.config.grails.mail.default.to
+
+        sendMailTemplate(adminEmail, contact.title, htmlTemplate, textTemplate, model)
     }
 
     def sendMailTemplate(String toEmail, String subjectText, String htmlTemplate, String textTemplate, Map model){

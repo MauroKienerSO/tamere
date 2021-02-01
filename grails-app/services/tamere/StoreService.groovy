@@ -38,5 +38,9 @@ class StoreService {
         return amountOfItemsInShoppingCart
     }
 
+    void removeShoppingCartFromSession(HttpSession session){
+        session.shoppingCart = null
+    }
+
 
 }

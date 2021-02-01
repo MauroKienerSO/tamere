@@ -268,6 +268,34 @@ $(document).ready(function(){
     });
 
     /**
+     * complete order Form
+     */
+    $(document).on('submit', '#createOrder', function (e) {
+        e.preventDefault();
+
+        var form = $(this);
+
+        showSpinner();
+
+        $.ajax({
+            url: form.attr('action'),
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data, result) {
+                hideSpinner();
+                $('#page-container').fadeOut(300,function(){
+                    window.scrollTo(0, 0);
+                    $('#page-container').html(data);
+                    $('#page-container').fadeIn(300);
+                });
+            },
+            error: function(XMLHttpRequest,textStatus,errorThrown){
+                hideSpinner();
+                $('#errorMessageOrderConfirmation').removeClass('d-none')
+            }
+        });
+    });
+
+    /**
      * for changing the amount in the ShoppingCart Modal
      */
     $(document).on('click', '.cartItem-amount-indicator', function (e) {
