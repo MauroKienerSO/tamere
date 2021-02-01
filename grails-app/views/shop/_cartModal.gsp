@@ -5,11 +5,11 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column cartItemList">
         <g:each in="${shoppingCart.cartItems}" var="cartItem" status="index">
             <g:render template="cartItemEntryModal" model="[cartItem: cartItem, index: index, shoppingCart: shoppingCart]"/>
         </g:each>
-        <div class="cartItem-entry d-flex align-items-center justify-content-end last-Element">
+        <div class="cartItem-entry d-flex align-items-center justify-content-end">
             <span class="font-weight-bold">=
                 <span id="shopping-cart-total-price">
                     <g:formatNumber number="${shoppingCart.price}" format="##.##"/>
@@ -18,6 +18,8 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue shopping</button>
-    <button type="button" class="btn btn-primary">Checkout</button>
+    <div class="d-flex flex-column flex-sm-row width-under-sm-100">
+        <button type="button" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100" data-dismiss="modal">Continue shopping</button>
+        <button type="button" class="btn btn-primary width-under-sm-100">Checkout</button>
+    </div>
 </div>
