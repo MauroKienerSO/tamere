@@ -22,9 +22,8 @@
         <a data-url="${g.createLink(controller: 'shop', action: 'body')}" data-pushstate="shop" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100 clickableHeader">
             Continue shopping
         </a>
-%{--        <button type="button" class="btn btn-secondary mb-2 mb-sm-0 mr-sm-2 width-under-sm-100" data-dismiss="modal">Continue shopping</button>--}%
-        <button type="button" class="btn btn-primary width-under-sm-100">
+        <a type="button" class="btn btn-primary width-under-sm-100" href="${createLink(controller: 'shop', action: 'checkout')}">
             (<span id="amountOfCartItemsInShoppingCartModal">${shoppingCart.amountOfItems()}</span>) Checkout
-        </button>
+        </a>
     </div>
 </div>

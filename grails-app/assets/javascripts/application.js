@@ -268,6 +268,27 @@ $(document).ready(function(){
     });
 
     /**
+     * for changing the amount in the ShoppingCart Modal
+     */
+    $(document).on('click', '.cartItem-amount-indicator', function (e) {
+
+        var that = $(this);
+
+        var cartItemId = that.data('cart')
+        var domClassAmountTarget = that.data('targetamount')
+        var domClassTotalPriceTarget = that.data('cartprice')
+        var url = that.data('url')
+        
+        if(that.hasClass('amount-minus')){
+            changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, -1, cartItemId, url);
+        } else {
+            if(that.hasClass('amount-plus')){
+                changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, 1, cartItemId, url);
+            }
+        }
+    });
+
+    /**
      * Loads the shopping Cart Modal
      */
     $(document).on('click', '#loadCartbutton', function (e) {
@@ -282,9 +303,9 @@ $(document).ready(function(){
                 $('#modal-wrapper').modal('show');
             }
         });
-
     });
 });
+// doc ready
 
 /**
  * changes the url
@@ -342,23 +363,7 @@ function deleteImage(element) {
 /**
  * EventListener for + / - Sign on ShoppingCart Modal for updating the Price
  */
-function addCartItemAmountEventListener(domClass, domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, cartItemId, url) {
-    var domElement = $(domClass);
-
-    $(document).on('click', domClass, function (e) {
-
-        var that = $(this);
-        if(that.hasClass('amount-minus')){
-            changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, -1, cartItemId, url);
-        } else {
-            if(that.hasClass('amount-plus')){
-                changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, 1, cartItemId, url);
-            }
-        }
-    });
-}
-
-function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, priceOfArticle, increment, cartItemId, url) {
+function changeAmountOfCartItem(domClassAmountTarget, domClassTotalPriceTarget, increment, cartItemId, url) {
     var currentAmount = $(document).find('span.' + domClassAmountTarget).first().html();
     $(':button').prop('disabled', true); // Disable all the buttons
 

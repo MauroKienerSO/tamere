@@ -23,6 +23,8 @@ class UrlMappings {
         "/shop/addToCartAjax"(controller: 'shop', action: 'addToCartAjax')
         "/shop/changeArticleAmountAjax"(controller: 'shop', action: 'changeArticleAmountAjax')
         "/shop/loadShoppingCartAjax"(controller: 'shop', action: 'loadShoppingCartAjax')
+        "/shop/checkout"(controller: 'shop', action: 'checkout')
+        "/shop/createOrderAjax"(controller: 'shop', action: 'createOrderAjax')
         "/shop/$alias"(controller: 'shop', action: 'showArticleAjax', params: [alias: alias])
         "/contact"(controller: 'contact', action: 'index')
     }

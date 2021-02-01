@@ -506,6 +506,11 @@ a.go-to-article:hover {
     color: rgba(236, 155, 208, 1);
     font-weight: bold;
 }
+.subtitle-4 {
+    color: rgba(236, 155, 208, 1);
+    font-style: italic;
+    font-size: 1.5rem;
+}
 
 .liveShow-date {
     text-align: end;
@@ -738,6 +743,17 @@ a.go-to-article:hover {
     border-top: 0.5px solid black;
     border-bottom: 0.5px solid black;
 }
+.cartItemList.checkout {
+    border-top: 0.5px solid rgb(232,232,232);
+    border-bottom: 0.5px solid rgb(232,232,232);
+}
+.cartItem-entry.checkout {
+    background: black !important;
+}
+.cartItem-entry.checkout.borderClass {
+    border-bottom: 0.5px solid rgb(232,232,232);
+    border-top: none !important;
+}
 .cartItem-image {
     position: relative;
     width: 100px;
@@ -768,10 +784,14 @@ a.go-to-article:hover {
     width: 100vw;
     text-align: end;
     padding: 1rem 2rem;
-    background-color: rgb(94, 132, 155);
+    background-color: rgb(198,114,168);
     display: flex;
     justify-content: flex-end;
     z-index: 16;
+}
+.total-price-cart {
+    text-decoration-line: underline;
+    text-decoration-style: double;
 }
 
 /*xl*/

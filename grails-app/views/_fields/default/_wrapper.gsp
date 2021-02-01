@@ -1,4 +1,4 @@
-<div class="form-group d-flex ${invalid ? 'has-error' : ''}">
+<div class="form-group d-flex flex-column flex-sm-row ${invalid ? 'has-error' : ''}">
     <label for="${property}">${label} ${required ? '*' : ''}</label>
     <f:widget property="${property}"/>
 </div>

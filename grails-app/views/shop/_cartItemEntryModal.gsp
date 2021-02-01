@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start cartItem-entry borderClass" id="cartItem_modal_${cartItem.id}">
+<div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start cartItem-entry ${checkout?'checkout':''} borderClass" id="cartItem_modal_${cartItem.id}">
     <div class="cartItem-image">
         <g:imageDisplay image="${cartItem.article?.images?.first()}" class="shop-image" width="100%"></g:imageDisplay>
     </div>
@@ -18,10 +18,18 @@
                         <span class="pr-2"><span class="cartItem-amount cartItem_amount_${cartItem.id}">${cartItem.amount}</span> × <g:formatNumber number="${cartItem.article?.price}" format="##.##"/> CHF </span>
                     </div>
                     <div class="pt-2">
-                        <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-minus">
+                        <button class="btn-primary cartItem-amount-indicator cartItem-amount-indicator-${cartItem.id} amount-minus"
+                                data-cart="${cartItem.id}"
+                                data-targetamount="cartItem_amount_${cartItem.id}"
+                                data-cartprice="cartItem_total_price_${cartItem.id}"
+                                data-url="${createLink(controller: 'shop', action: 'changeArticleAmountAjax', params: [shoppingCartId: shoppingCart.id])}">
                             -
                         </button>
-                        <button class="btn-primary cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -12px;">
+                        <button class="btn-primary cartItem-amount-indicator cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -12px;"
+                                data-cart="${cartItem.id}"
+                                data-targetamount="cartItem_amount_${cartItem.id}"
+                                data-cartprice="cartItem_total_price_${cartItem.id}"
+                                data-url="${createLink(controller: 'shop', action: 'changeArticleAmountAjax', params: [shoppingCartId: shoppingCart.id])}">
                             +
                         </button>
                     </div>
@@ -36,7 +44,3 @@
         </div>
     </div>
 </div>
-<script>
-    %{--addDataBinding('#cartItem_amount_${cartItem.id}');--}%
-    addCartItemAmountEventListener('.cartItem-amount-indicator-${cartItem.id}', 'cartItem_amount_${cartItem.id}', 'cartItem_total_price_${cartItem.id}', '${cartItem.article?.price}', '${cartItem.id}', '${createLink(controller: 'shop', action: 'changeArticleAmountAjax', params: [shoppingCartId: shoppingCart.id])}');
-</script>

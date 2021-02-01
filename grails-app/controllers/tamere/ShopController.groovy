@@ -153,10 +153,20 @@ class ShopController {
 
         if(cartItem.amount == 0){
             shoppingCart.removeFromCartItems(cartItem)
-            cartItem.delete(flush: true)
+            try {
+                cartItem.delete(flush: true)
+            } catch(Exception e){
+                log.info "couldn't delete cartItem"
+                log.info "${e.message}"
+            }
         } else {
             cartItem.price = (double) cartItem.amount * cartItem.article.price
-            cartItem.save(flush: true)
+            try {
+                cartItem.save(flush: true)
+            } catch(Exception e){
+                log.info "couldn't save cartItem"
+                log.info "${e.message}"
+            }
         }
 
         shoppingCart.price = shoppingCart.calculatePrice()
@@ -181,5 +191,21 @@ class ShopController {
         ]
 
         render responseData as JSON
+    }
+
+    /**
+     * Loads the ckeckout View
+     */
+    def checkout(){
+        log.debug "$actionName -> $params"
+
+        ShoppingCart shoppingCart = storeService.loadShoppingCart(session, false)
+        if(!shoppingCart){
+            log.info "No ShoppingCart is present"
+            redirect action: 'index'
+            return
+        }
+
+        render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new Order()]
     }
 }
