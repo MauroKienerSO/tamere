@@ -15,9 +15,8 @@
     Best regards, <br>
     <span style="font-weight: bold;">Ta Mère</span> <br>
     tamereband@hotmail.com<br>
-    <br>
     <p style="font-style: italic; font-weight: bold;">
-        <a href="${createLink(controller: 'home', action: 'index', absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">www.tamereband.com</a>
+        <a href="${createLink(controller: 'home', action: 'index', absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">www.tamereband.com</a> <br>
         <a href="https://www.facebook.com/bandtamere" style="color: rgb(198, 127, 175);text-decoration: underline;">www.facebook.com/bandtamere</a>  <br>
         <a href="https://www.instagram.com/tamereband" style="color: rgb(198, 127, 175);text-decoration: underline;">www.instagram.com/tamereband/</a>
     </p>

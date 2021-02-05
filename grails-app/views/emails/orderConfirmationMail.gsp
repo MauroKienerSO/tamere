@@ -5,7 +5,7 @@
 
 <div style="font-weight: bold; padding: 1rem 0;">Your order:</div>
 
-<table style="padding-bottom: 0.5rem; width: 70%; border-collapse: collapse;">
+<table style="padding-bottom: 0.5rem; width: 70%; border-collapse: collapse;margin: 0 0 1rem 0;">
     <tr>
         <th style="border: 1px solid black;text-align: left;padding: 5px;">Article</th>
         <th style="border: 1px solid black;text-align: left;padding: 5px;">Price</th>
@@ -77,9 +77,8 @@
     Best regards, <br>
     <span style="font-weight: bold;">Ta Mère</span> <br>
     tamereband@hotmail.com<br>
-    <br>
     <p style="font-style: italic; font-weight: bold;">
-        <a href="${createLink(controller: 'home', action: 'index', absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">www.tamereband.com</a>
+        <a href="${createLink(controller: 'home', action: 'index', absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">www.tamereband.com</a> <br>
         <a href="https://www.facebook.com/bandtamere" style="color: rgb(198, 127, 175);text-decoration: underline;">www.facebook.com/bandtamere</a>  <br>
         <a href="https://www.instagram.com/tamereband" style="color: rgb(198, 127, 175);text-decoration: underline;">www.instagram.com/tamereband/</a>
     </p>
