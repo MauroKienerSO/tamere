@@ -1,3 +1,4 @@
+<body style="font-family: Consolas !important;">
 <div style="margin: 20px 0; font-weight: bold;">
     Hello ${contact.name}
 </div>
@@ -12,11 +13,13 @@
 </div>
 <div style="margin: 20px 0;">
     Best regards, <br>
-    Ta Mère <br>
+    <span style="font-weight: bold;">Ta Mère</span> <br>
+    tamereband@hotmail.com<br>
     <br>
     <p style="font-style: italic; font-weight: bold;">
-        tamereband@hotmail.com<br>
-        <a href="https://www.facebook.com/bandtamere">www.facebook.com/bandtamere</a>  <br>
-        <a href="https://www.instagram.com/tamereband">www.instagram.com/tamereband/</a>
+        <a href="${createLink(controller: 'home', action: 'index', absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">www.tamereband.com</a>
+        <a href="https://www.facebook.com/bandtamere" style="color: rgb(198, 127, 175);text-decoration: underline;">www.facebook.com/bandtamere</a>  <br>
+        <a href="https://www.instagram.com/tamereband" style="color: rgb(198, 127, 175);text-decoration: underline;">www.instagram.com/tamereband/</a>
     </p>
 </div>
+</body>

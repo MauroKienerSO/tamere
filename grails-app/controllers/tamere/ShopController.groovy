@@ -265,21 +265,42 @@ class ShopController {
     def downloadPlexian(){
         log.debug "$actionName -> $params"
 
-//        AccessToken accessToken = AccessToken.findAllBy
+        AccessToken accessToken = AccessToken.findByToken(params.token)
+        if(!accessToken){
+            redirect controller: 'home', action: 'index'
+            return
+        }
+        if(accessToken && !accessToken.valid){
+            render view: '/shop/downloadPlexian', model: [hideNavbar: true, alreadyDownloaded: true]
+            return
+        }
 
-        [hideNavbar: true]
+        [hideNavbar: true, accessToken: accessToken]
     }
 
     def donwloadZipFilePlexian(){
+        log.debug "$actionName -> $params"
+
+        AccessToken accessToken = AccessToken.findByToken(params.token)
+        if(!accessToken){
+            redirect controller: 'home', action: 'index'
+            return
+        }
+        if(accessToken && !accessToken.valid){
+            render view: '/shop/downloadPlexian', model: [hideNavbar: true, alreadyDownloaded: true]
+            return
+        }
 
         String filePath = grailsApplication.config.grails.album.basepath
         File file = new File(filePath)
 
         if(!file.exists()){
-            log.debug "file does not exist"
-            // TODO: error handling
+            log.info "Plexian Zip File could not be found"
+            render view: '/shop/downloadPlexian', model: [hideNavbar: true, problemFindingFile: true]
             return
         } else {
+            accessToken.valid = false
+            accessToken.save(flush: true)
             response.setContentType("application/octet-stream")
             response.setHeader("Content-disposition", "filename=${file.name}")
             file.withInputStream { response.outputStream << it }

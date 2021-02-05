@@ -135,6 +135,7 @@ environments{
         server.contextPath = "/tamere"
         grails.image.basepath = "C:/dev/workspace/tamere-data"
         grails.album.basepath = "C:/dev/workspace/tamere-data/plexian/Plexian.zip"
+        grails.serverURL = "http://localhost:8080/tamere"
     }
     test{
         dataSource{

@@ -21,7 +21,7 @@ class MailHelperService {
                 order: order
         ]
 
-        String subject = "Order received Confirmation"
+        String subject = "Order tamere"
         sendMailTemplate(order.email, subject, htmlTemplate, textTemplate, model)
 
         sendOrderMailAdmin(order)
