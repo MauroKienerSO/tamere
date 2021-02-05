@@ -50,6 +50,15 @@ $(document).ready(function(){
     });
 
     /**
+     * opens the new template (liveShow, band, music etc.)
+     */
+    $(document).on('click', '#showPlexian', function (e) {
+        e.preventDefault();
+        var that = $(this);
+        changePage(that.data('url'), that.data('pushstate'), false, that.data('headervalue'), that.data('url'));
+    });
+
+    /**
      * listens to popstate event (on the back button)
      * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
      */

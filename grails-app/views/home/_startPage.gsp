@@ -7,12 +7,12 @@
                 New album out now
             </p>
             <div class="d-flex album-buttons">
-                <button class="btn btn-primary album-button album-button-first">
+                <a href="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" class="btn btn-primary album-button album-button-first" id="showPlexian" data-url="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" data-pushstate="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" data-headervalue="shop" title="Buy Plexian">
                     Buy
-                </button>
-                <button class="btn btn-primary album-button">
+                </a>
+                <a href="https://soundcloud.com/tamereband" class="btn btn-primary album-button" target="_blank" title="Listen on Soundcloud">
                     Listen
-                </button>
+                </a>
             </div>
         </div>
     </div>
