@@ -45,7 +45,7 @@
         </div>
 
         %{--Footer--}%
-        <g:render template="/footer/footer"/>
+%{--        <g:render template="/footer/footer"/>--}%
 
         <g:render template="/templates/modalWrapper"/>
 

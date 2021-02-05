@@ -57,6 +57,7 @@
 #page-container {
     background-color: black;
     margin-top: 8rem;
+    margin-bottom: 2rem;
     box-shadow: 2px 2px 3px rgb(232,232,232), -2px -2px 3px rgb(232,232,232), -2px 2px 3px rgb(232,232,232), 2px -2px 3px rgb(232,232,232);
 }
 
