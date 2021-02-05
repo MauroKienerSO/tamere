@@ -1,11 +1,13 @@
 package tamere
 
 import grails.converters.JSON
+import grails.core.GrailsApplication
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('permitAll')
 class ShopController {
 
+    GrailsApplication grailsApplication
     MailHelperService mailHelperService
     StoreService storeService
 
@@ -248,5 +250,29 @@ class ShopController {
         storeService.removeShoppingCartFromSession(session)
 
         render template: 'orderDone'
+    }
+
+    def downloadPlexian(){
+        log.debug "$actionName -> $params"
+
+        [hideNavbar: true]
+    }
+
+    def donwloadZipFilePlexian(){
+
+        String filePath = grailsApplication.config.grails.album.basepath
+        File file = new File(filePath)
+
+        if(!file.exists()){
+            log.debug "file does not exist"
+            // TODO: error handling
+            return
+        } else {
+            response.setContentType("application/octet-stream")
+            response.setHeader("Content-disposition", "filename=${file.name}")
+            file.withInputStream { response.outputStream << it }
+            return
+        }
+
     }
 }

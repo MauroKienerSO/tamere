@@ -24,7 +24,9 @@
     <div class="wrapper" id="page-content-wrapper">
 
         %{--Header--}%
-        <g:render template="/navbar/header" />
+        <g:if test="${hideNavbar? false: true}">
+            <g:render template="/navbar/header" />
+        </g:if>
 
         %{--Page Content--}%
         <div class="container content-wrapper">
