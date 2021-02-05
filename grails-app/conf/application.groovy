@@ -99,6 +99,12 @@ grails {
         props = ["mail.smtp.starttls.enable":"true",
                  "mail.smtp.port":"587"]
     }
+    plugin {
+        databasemigration {
+            updateOnStart: true
+            updateOnStartFileName: changelog.groovy
+        }
+    }
 }
 grails.mail.default.from = "tamereband@hotmail.com"
 grails.mail.default.to = "tamereband@hotmail.com"

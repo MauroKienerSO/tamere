@@ -55,6 +55,24 @@ class StoreController {
         if(imagesToAdd){
             List<Image> images = Image.findAllByIdInList(imagesToAdd)
             images.each { imageDomain ->
+                String orderEntry = params.find { key, value ->
+                    if(key.startsWith('order-image-')){
+                        if(Integer.parseInt(key.split('-')[2]) == imageDomain.id && value){
+                            return Integer.parseInt(value)
+                        }
+                    }
+                }?.value
+
+                if(orderEntry){
+                    imageDomain.orderEntry = Integer.parseInt(orderEntry)
+                }
+
+                try {
+                    imageDomain.save(flush: true)
+                } catch(Exception e){
+                    log.debug "Exception -> ${e.message}"
+                }
+
                 article.addToImages(imageDomain)
             }
         }
@@ -121,6 +139,24 @@ class StoreController {
         if(imagesToAdd){
             List<Image> images = Image.findAllByIdInList(imagesToAdd)
             images.each { imageDomain ->
+                String orderEntry = params.find { key, value ->
+                    if(key.startsWith('order-image-')){
+                        if(Integer.parseInt(key.split('-')[2]) == imageDomain.id && value){
+                            return Integer.parseInt(value)
+                        }
+                    }
+                }?.value
+
+                if(orderEntry){
+                    imageDomain.orderEntry = Integer.parseInt(orderEntry)
+                }
+
+                try {
+                    imageDomain.save(flush: true)
+                } catch(Exception e){
+                    log.debug "Exception -> ${e.message}"
+                }
+
                 article.addToImages(imageDomain)
             }
         }
@@ -143,7 +179,7 @@ class StoreController {
         List<Image> images = []
 
         params.file.each { file ->
-            Image image = new Image()
+            Image image = new Image(orderEntry: 0)
 
             // Save the image on the file System
             Map result = fileService.saveImage(file, image)

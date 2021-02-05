@@ -3,8 +3,10 @@ package tamere
 class Image {
 
     String fileName
+    Integer orderEntry
 
     static constraints = {
-        fileName nullable: false
+        fileName         nullable: false
+        orderEntry       nullable: true
     }
 }

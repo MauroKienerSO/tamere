@@ -343,15 +343,15 @@ $(document).ready(function(){
 function changePage(url, pushState, popState, headerValue, stateToPush){
     $('#navbarSupportedContent').collapse('hide');
 
+    $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
+
+    // Set the active Header
+    $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
+
     $.ajax({
         url: url,
         data: {ajax: 'true'},
         success: function(data, result){
-
-            $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
-
-            // Set the active Header
-            $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
 
             $('#modal-wrapper').modal('hide');
 
