@@ -27,6 +27,9 @@
         <g:if test="${hideNavbar? false: true}">
             <g:render template="/navbar/header" />
         </g:if>
+        <g:else>
+            <g:render template="/navbar/reduced"/>
+        </g:else>
 
         %{--Page Content--}%
         <div class="container content-wrapper">

@@ -131,7 +131,8 @@ $(document).ready(function(){
         else if (curScroll < prevScroll) {
             //scrolled down
             direction = 1;
-            if(w.scrollY < 70){
+            console.log(w.scrollY)
+            if(w.scrollY < 10){
                 header.classList.remove('opacity-and-background');
             }
         }
@@ -144,7 +145,7 @@ $(document).ready(function(){
     };
 
     var toggleHeader = function(direction, curScroll) {
-        if (direction === 2 && curScroll > 70) {
+        if (direction === 2 && curScroll > 25) {
 
             //replace 52 with the height of your header in px
 

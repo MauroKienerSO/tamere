@@ -209,7 +209,7 @@ class ShopController {
             return
         }
 
-        render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new ShopOrder()]
+        render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new ShopOrder(), hideNavbar: true]
     }
 
     /**
