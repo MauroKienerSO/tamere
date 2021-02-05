@@ -147,6 +147,10 @@ environments{
         server.contextPath = "/tamere"
     }
     production{
+        server.contextPath = "/"
+        grails.image.basepath = "/opt/tomcat-tm/tamere-data"
+        grails.album.basepath = "/opt/tomcat-tm/tamere-data/plexian/Plexian.zip"
+        grails.serverURL = "http://tamereband.com"
         dataSource{
             dbCreate = "update"
             url = "jdbc:mysql://localhost/tamere"
