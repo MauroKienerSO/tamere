@@ -11,6 +11,11 @@
     filter: blur(2.5px) !important;
 }
 
+.link-container {
+    left: 15px;
+    bottom: 10px;
+}
+
 .spinner {
     position: absolute;
     padding: 4rem;
@@ -1072,4 +1077,19 @@ a.go-to-article:hover {
     .home-image {
         letter-spacing: 14px !important;
     }
+}
+
+.link-container a {
+    color: rgb(232,232,232);
+    border: 3px solid rgb(232,232,232);
+    margin: 0 0 0.3rem 0;
+}
+.link-container a span::before {
+    margin-left: unset !important;
+    margin: 10px !important;
+}
+.link-container a:hover, .link-container a:hover {
+    color: rgb(94, 132, 155);
+    border: 3px solid rgb(94, 132, 155);
+    text-decoration: none;
 }

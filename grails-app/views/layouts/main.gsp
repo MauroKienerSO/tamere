@@ -47,6 +47,8 @@
                 (<span id="amountOfCartItemsInShoppingCart">${amountOfItemsInShoppingCart}</span>) Checkout</button>
         </div>
 
+        <g:render template="/templates/links"/>
+
         %{--Footer--}%
 %{--        <g:render template="/footer/footer"/>--}%
 
