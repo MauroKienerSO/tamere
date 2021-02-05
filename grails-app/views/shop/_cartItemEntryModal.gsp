@@ -1,6 +1,8 @@
+<%@ page import="tamere.*" %>
+
 <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-start cartItem-entry ${checkout?'checkout':''} borderClass" id="cartItem_modal_${cartItem.id}">
     <div class="cartItem-image">
-        <g:imageDisplay image="${cartItem.article?.images?.first()}" class="shop-image" width="100%"></g:imageDisplay>
+        <g:imageDisplay image="${Image.findAllByIdInList(cartItem.article?.images*.id, [sort: 'orderEntry', max: 1]).first()}" class="shop-image" width="100%"></g:imageDisplay>
     </div>
     <div class="cartItem-data d-flex flex-column flex-sm-row justify-content-between">
         <div class="cartItem-main-info d-flex flex-column mr-3">
