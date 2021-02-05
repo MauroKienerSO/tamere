@@ -26,7 +26,7 @@ class BootStrap {
         if(!tamereAdmin) {
             tamereAdmin = new User()
             tamereAdmin.username = "tamere"
-            tamereAdmin.password = "solothurn"
+            tamereAdmin.password = "Plexian2020?"
             if (!tamereAdmin.save(flush: true)) {
                 log.error "Could not create person $tamereAdmin"
                 tamereAdmin.errors.allErrors.each {

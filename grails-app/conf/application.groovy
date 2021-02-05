@@ -137,25 +137,16 @@ environments{
         grails.album.basepath = "C:/dev/workspace/tamere-data/plexian/Plexian.zip"
         grails.serverURL = "http://localhost:8080/tamere"
     }
-    test{
-        dataSource{
-            dbCreate = "update"
-            url = "jdbc:mysql://localhost/tamere"
-            username = "tamere"
-            password = "solothurn"
-        }
-        server.contextPath = "/tamere"
-    }
     production{
         server.contextPath = "/"
-        grails.image.basepath = "/opt/tomcat-tm/tamere-data"
-        grails.album.basepath = "/opt/tomcat-tm/tamere-data/plexian/Plexian.zip"
-        grails.serverURL = "http://tamereband.com"
+        grails.image.basepath = "/opt/tamere-data/tomcat-data"
+        grails.album.basepath = "/opt/tamere-data/tomcat-data/plexian/Plexian.zip"
+        grails.serverURL = "https://tamere.pillo.ch"
         dataSource{
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/tamere"
+            url = "jdbc:mysql://mysql:3306/tamere"
             username = "tamere"
-            password = "solothurn"
+            password = "Plexian2020?"
             properties {
                 jmxEnabled = "true"
                 initialSize = "5"

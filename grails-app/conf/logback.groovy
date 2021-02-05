@@ -37,4 +37,23 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     logger 'org.springframework.security', ERROR, ['STDOUT'], false
     logger 'grails.plugin.springsecurity', ERROR, ['STDOUT'], false
 }
+if (Environment.getCurrent() == Environment.PRODUCTION) {
+    targetDir = "/usr/local/tomcat/logs"
+    appender("ROLLING", RollingFileAppender) {
+        encoder(PatternLayoutEncoder) {
+            pattern = "%d{dd.MM.yyyy HH:mm:ss.SSS} - %level %logger - %msg%n"
+        }
+        rollingPolicy(TimeBasedRollingPolicy) {
+            fileNamePattern = "${targetDir}/ch.tamere-%d{yyyy-MM-dd}.log"
+            maxHistory = 180
+            totalSizeCap = "100MB"
+        }
+    }
+    logger "StackTrace", ERROR, ['ROLLING'], false
+    logger "tamere", INFO, ['ROLLING'], false
+
+    //Spring Security Plugin
+    logger 'org.springframework.security', ERROR, ['ROLLING'], false
+    logger 'grails.plugin.springsecurity', ERROR, ['ROLLING'], false
+}
 root(ERROR, ['STDOUT'])
