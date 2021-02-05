@@ -212,6 +212,9 @@ class ShopController {
         render view: '/home/index', model: [templateLocation: '/shop/checkout', headerActive: 'shop', pushState: createLink(controller: 'shop', action: 'checkout'), shoppingCart: shoppingCart, order: new ShopOrder()]
     }
 
+    /**
+     * creates an order
+     */
     def createOrderAjax(){
         log.debug "$actionName -> $params"
 
@@ -237,6 +240,13 @@ class ShopController {
             return
         }
 
+        if(order.containsAlbum()){
+            log.debug "Creating New Access Token for downloading the album"
+            AccessToken accessToken = new AccessToken(token: UUID.randomUUID().toString(), valid: true).save(flush: true)
+            order.accessToken = accessToken
+            order.save(flush: true)
+        }
+
         try {
             mailHelperService.sendOrderConfirmationMailToUser(order)
         } catch(Exception e){
@@ -254,6 +264,8 @@ class ShopController {
 
     def downloadPlexian(){
         log.debug "$actionName -> $params"
+
+//        AccessToken accessToken = AccessToken.findAllBy
 
         [hideNavbar: true]
     }

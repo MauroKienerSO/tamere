@@ -25,8 +25,8 @@ class UrlMappings {
         "/shop/loadShoppingCartAjax"(controller: 'shop', action: 'loadShoppingCartAjax')
         "/shop/checkout"(controller: 'shop', action: 'checkout')
         "/shop/createOrderAjax"(controller: 'shop', action: 'createOrderAjax')
-        "/shop/downloadPlexian"(controller: 'shop', action: 'downloadPlexian')
-        "/shop/donwloadZipFilePlexian"(controller: 'shop', action: 'donwloadZipFilePlexian')
+        "/shop/downloadPlexian/$token"(controller: 'shop', action: 'downloadPlexian', params: [token: token])
+        "/shop/donwloadZipFilePlexian/$token"(controller: 'shop', action: 'donwloadZipFilePlexian', params: [token: token])
         "/shop/$alias"(controller: 'shop', action: 'showArticleAjax', params: [alias: alias])
         "/contact"(controller: 'contact', action: 'index')
     }

@@ -284,6 +284,7 @@ $(document).ready(function(){
                 hideSpinner();
                 $('#page-container').fadeOut(300,function(){
                     window.scrollTo(0, 0);
+                    header.classList.remove('opacity-and-background');
                     $('#page-container').html(data);
                     $('#page-container').fadeIn(300);
                 });

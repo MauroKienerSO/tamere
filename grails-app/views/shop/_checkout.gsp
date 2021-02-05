@@ -18,7 +18,7 @@
         </div>
 
         <form action="${createLink(controller: 'shop', action: 'createOrderAjax')}" name="createOrder" id="createOrder">
-            <f:all bean="order" except="shoppingCart"/>
+            <f:all bean="order" except="shoppingCart, accessToken"/>
 
             <div class="mb-4 mt-5 subtitle-4">
                 Your order:
