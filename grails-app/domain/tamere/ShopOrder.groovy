@@ -10,15 +10,12 @@ class ShopOrder {
 
     String email
 
-    AccessToken accessToken
-
     static constraints = {
         name           nullable: false
         address        nullable: false
         plz            nullable: false
         city           nullable: false
         email          nullable: false
-        accessToken    nullable: true
     }
 
     /**
@@ -28,16 +25,29 @@ class ShopOrder {
         if(!this.shoppingCart){
             return false
         }
-        def articles = shoppingCart.cartItems*.article
-        Article plexian = articles.find { article ->
-            if(article.alias == 'plexian'){
-                return article
+        CartItem cartItem = shoppingCart.cartItems.find { cartItem ->
+            if(cartItem.containsAlbum()){
+                return cartItem
             }
         }
 
-        if(plexian){
+        if(cartItem){
             return true
         }
         return false
+    }
+
+    CartItem getPlexianCartItem(){
+        if(!this.shoppingCart){
+            return null
+        }
+
+        CartItem cartItem = shoppingCart.cartItems.find { cartItem ->
+            if(cartItem.containsAlbum()){
+                return cartItem
+            }
+        }
+
+        return cartItem
     }
 }

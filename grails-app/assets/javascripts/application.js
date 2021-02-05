@@ -284,6 +284,7 @@ $(document).ready(function(){
 
         var form = $(this);
 
+        window.scrollTo(0, 0);
         showSpinner();
 
         $.ajax({
@@ -291,11 +292,10 @@ $(document).ready(function(){
             data: form.serialize(), // serializes the form's elements.
             success: function(data, result) {
                 hideSpinner();
+                if($('#myHeader').hasClass('opacity-and-background')){
+                    $('#myHeader').removeClass('opacity-and-background');
+                }
                 $('#page-container').fadeOut(300,function(){
-                    window.scrollTo(0, 0);
-                    if($('#myHeader').hasClass('opacity-and-background')){
-                        $('#myHeader').removeClass('opacity-and-background');
-                    }
                     $('#page-container').html(data);
                     $('#page-container').fadeIn(300);
                 });

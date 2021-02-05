@@ -241,10 +241,14 @@ class ShopController {
         }
 
         if(order.containsAlbum()){
-            log.debug "Creating New Access Token for downloading the album"
-            AccessToken accessToken = new AccessToken(token: UUID.randomUUID().toString(), valid: true).save(flush: true)
-            order.accessToken = accessToken
-            order.save(flush: true)
+            CartItem cartItem = order.plexianCartItem
+
+            for(int i = 0; i < cartItem.amount; i++) {
+                AccessToken accessToken = new AccessToken(token: UUID.randomUUID().toString(), valid: true).save(flush: true)
+                cartItem.addToAccessTokens(accessToken)
+            }
+
+            cartItem.save(flush: true)
         }
 
         try {

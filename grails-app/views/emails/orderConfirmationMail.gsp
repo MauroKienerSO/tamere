@@ -35,14 +35,17 @@
     </tr>
 </table>
 
-<g:if test="${order.accessToken && order.accessToken.valid}">
+<g:if test="${order.plexianCartItem}">
     <div style="margin: 0 0 1rem 0;">
         <p>
             We are very pleased that you purchased the Album Plexian!<br>
             You can download the Album by clicking on the following link.
-            Make sure that you download the album on a device that is capable of downloading a ZIP file.
+            Make sure that you download the album on a device that is capable of downloading a ZIP file.<br>
+            Attention: Every link is only valid once!
         </p>
-        <a href="${createLink(controller: 'shop', action: 'downloadPlexian', params: [token: order.accessToken.token], absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">Download Plexian</a>
+        <g:each in="${order.plexianCartItem.accessTokens}" var="accessToken" status="index">
+            <a href="${createLink(controller: 'shop', action: 'downloadPlexian', params: [token: accessToken.token], absolute: true)}" style="color: rgb(198, 127, 175);text-decoration: underline;">${index + 1}) Download Plexian</a> <br>
+        </g:each>
     </div>
 </g:if>
 
