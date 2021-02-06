@@ -29,9 +29,15 @@ class ContactController {
             return
         }
 
-        log.debug "contact has been saved"
-
-        mailHelperService.sendContactConfirmationMailToUser(contact)
+        try {
+            mailHelperService.sendContactConfirmationMailToUser(contact)
+        } catch(Exception e){
+            log.error "There was an Exception during sending a mail"
+            log.error "ERROR: ${e.message}"
+            String errorMessage = "We could not send the email, did you provide a valid email-adress and a Message?"
+            render template: 'contactTemplate', model: [contact: contact, errorMessage: errorMessage]
+            return
+        }
 
         Boolean messageSent = true
 

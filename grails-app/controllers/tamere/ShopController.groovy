@@ -254,8 +254,8 @@ class ShopController {
         try {
             mailHelperService.sendOrderConfirmationMailToUser(order)
         } catch(Exception e){
-            log.info "There was an exception"
-            log.info "${e.message}"
+            log.info "There was an exception during sending the mail"
+            log.info "ERROR ${e.message}"
             response.status = 400
             render 'not ok'
             return

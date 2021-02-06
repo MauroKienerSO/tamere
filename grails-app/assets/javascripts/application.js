@@ -59,6 +59,15 @@ $(document).ready(function(){
     });
 
     /**
+     * opens the new template (liveShow, band, music etc.)
+     */
+    $(document).on('click', '#back-to-shop', function (e) {
+        e.preventDefault();
+        var that = $(this);
+        changePage(that.data('url'), that.data('url'), false, that.data('headervalue'), that.data('url').replaceAll('/body', ''));
+    });
+
+    /**
      * listens to popstate event (on the back button)
      * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
      */

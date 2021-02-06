@@ -8,6 +8,14 @@
     <div class="subtitle-3 response d-none" id="article-not-stored">
         Sorry! Unfortunately we couldn't store the article in the cart. Please try again!
     </div>
+    <div class="d-flex mb-3">
+        <a id="back-to-shop" href="${createLink(controller: 'shop', action: 'body')}" data-url="${createLink(controller: 'shop', action: 'body')}" data-headervalue="live" href="${createLink(controller: 'shop', action: 'body')}" class="d-flex align-items-center btn btn-primary">
+            <span class="material-icons pr-1">
+                keyboard_backspace
+            </span>
+            Shop
+        </a>
+    </div>
     <div class="d-flex flex-column flex-md-row align-items-center show-article justify-content-between">
         <div id="article-carousel-${article.id}" class="carousel slide article-carousel d-flex flex-column-reverse align-items-center show-article-carousel" data-ride="carousel">
             <g:if test="${article.images}">
