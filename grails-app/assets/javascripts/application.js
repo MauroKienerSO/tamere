@@ -22,6 +22,8 @@ var lastScrollTop = 0;
 
 $(document).ready(function(){
 
+    $('link').removeAttr('disabled');
+
     var doc = document.documentElement;
     var w = window;
 
@@ -45,6 +47,7 @@ $(document).ready(function(){
      * opens the new template (liveShow, band, music etc.)
      */
     $(document).on('click', 'a.clickableHeader', function (e) {
+        e.preventDefault();
         $('#navbarSupportedContent').collapse('hide');
         var that = $(this);
         changePage(that.data('url'), that.data('pushstate'), false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));

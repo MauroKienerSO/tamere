@@ -27,7 +27,7 @@
                                 data-url="${createLink(controller: 'shop', action: 'changeArticleAmountAjax', params: [shoppingCartId: shoppingCart.id])}">
                             -
                         </button>
-                        <button class="btn-primary cartItem-amount-indicator cartItem-amount-indicator-${cartItem.id} amount-plus" style="margin-left: -12px;"
+                        <button class="btn-primary cartItem-amount-indicator cartItem-amount-indicator-${cartItem.id} amount-plus"
                                 data-cart="${cartItem.id}"
                                 data-targetamount="cartItem_amount_${cartItem.id}"
                                 data-cartprice="cartItem_total_price_${cartItem.id}"
