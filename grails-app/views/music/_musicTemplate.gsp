@@ -4,7 +4,7 @@
 
 <div class="inside-page-container">
     <div class="d-flex flex-column flex-lg-row align-items-center">
-        <asset:image src="tamere/AlbumCover.png" class="box-shadow album-artwork" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère"/>
+        <asset:image src="tamere/AlbumCover2.png" class="box-shadow album-artwork" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère"/>
         <div class="album-teaser-content d-flex flex-column align-items-center flex-grow-1">
             <h2 class="album-teaser-title">Plexian</h2>
             <p class="grand-paragraph">
@@ -40,7 +40,7 @@
 
             <div id="contentSpacecity" class="collapse" aria-labelledby="headingSpacecity" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/spacecity.PNG" class="box-shadow song-artwork" title="Spacecity 2 Song Artwork Ta Mère" alt="Spacecity 2 Song Artwork Ta Mère"/>
+                    <asset:image src="tamere/spacecity2.png" class="box-shadow song-artwork" title="Spacecity 2 Song Artwork Ta Mère" alt="Spacecity 2 Song Artwork Ta Mère"/>
                     <p class="song-lyrics">
                     Left alone <br>
                     Found a new home <br>
@@ -109,7 +109,7 @@
 
             <div id="contentCircus" class="collapse" aria-labelledby="headingCircus" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/circus.PNG" class="box-shadow song-artwork " title="Circus Song Artwork Ta Mère" alt="Circus Song Artwork Ta Mère" />
+                    <asset:image src="tamere/circus2.png" class="box-shadow song-artwork " title="Circus Song Artwork Ta Mère" alt="Circus Song Artwork Ta Mère" />
                     <p class="song-lyrics">
                     Stacks of checks on my desk <br>
                     Heartbeat beating through my chest <br>
@@ -153,7 +153,7 @@
 
             <div id="contentLights" class="collapse" aria-labelledby="headingLights" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/lights.PNG" class="box-shadow song-artwork " title="Lights Song Artwork Ta Mère" alt="Lights Song Artwork Ta Mère" />
+                    <asset:image src="tamere/lights2.png" class="box-shadow song-artwork " title="Lights Song Artwork Ta Mère" alt="Lights Song Artwork Ta Mère" />
                     <p class="song-lyrics">
                     They see me dancing on planet disco (planet disco) <br>
                     the moon so bright it makes the world glow (makes the world glow) <br>
@@ -211,7 +211,7 @@
 
             <div id="contentLove" class="collapse" aria-labelledby="headingLove" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/love.PNG" class="box-shadow song-artwork" title="Love Song Artwork Ta Mère" alt="Love Song Artwork Ta Mère" />
+                    <asset:image src="tamere/love2.png" class="box-shadow song-artwork" title="Love Song Artwork Ta Mère" alt="Love Song Artwork Ta Mère" />
                     <p class="song-lyrics">
                     We got our shirts from Hawaii <br>
                     destination suits my style <br>
@@ -265,11 +265,11 @@
 
             <div id="contentStars" class="collapse" aria-labelledby="headingStars" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/stars.PNG" class="box-shadow song-artwork " title="Stars Song Artwork Ta Mère" alt="Stars Song Artwork Ta Mère" />
+                    <asset:image src="tamere/stars2.png" class="box-shadow song-artwork " title="Stars Song Artwork Ta Mère" alt="Stars Song Artwork Ta Mère" />
                     <p class="song-lyrics">
                     We are blessed we have it all <br>
                     van gogh pictures on the wall <br>
-                    famous people in hall <br>
+                    famous people in my hall <br>
                     <br>
                     all the smiles we have to fake <br>
                     all the drugs we have to take <br>
@@ -324,7 +324,7 @@
 
             <div id="contentHigher" class="collapse" aria-labelledby="headingHigher" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/higher.PNG" class="box-shadow song-artwork " title="Higher Song Artwork Ta Mère" alt="Higher Song Artwork Ta Mère" />
+                    <asset:image src="tamere/higher2.png" class="box-shadow song-artwork " title="Higher Song Artwork Ta Mère" alt="Higher Song Artwork Ta Mère" />
                     <p class="song-lyrics">
                     Expose myself, escape reality <br>
                     hiding failures of my history<br>
@@ -382,7 +382,7 @@
 
             <div id="contentAlone" class="collapse" aria-labelledby="headingAlone" data-parent="#plexianAccordian">
                 <div class="card-body d-flex align-items-center align-items-md-start flex-md-row-reverse flex-column justify-content-between">
-                    <asset:image src="tamere/alone.PNG" class="box-shadow song-artwork " title="Alone Song Artwork Ta Mère" alt="Alone Song Artwork Ta Mère"/>
+                    <asset:image src="tamere/alone2.png" class="box-shadow song-artwork " title="Alone Song Artwork Ta Mère" alt="Alone Song Artwork Ta Mère"/>
                     <p class="song-lyrics">
                     They seek to become lost <br>
                     striving after pathless woods <br>

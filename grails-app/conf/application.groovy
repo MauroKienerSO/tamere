@@ -92,7 +92,7 @@ hibernate{
 }
 grails {
     mail {
-        host = "smtp.live.com"
+        host = "smtp.office365.com"
         port = 587
         username = "tamereband@hotmail.com"
         password = "Plexian2020?"
@@ -118,17 +118,18 @@ grails.web.disable.multipart=true
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "com.mysql.jdbc.Driver"
+    driverClassName = "com.mysql.cj.jdbc.Driver"
     dbCreate = "update"
     username = "tamere"
     password = "solothurn"
+    dialect = "org.hibernate.dialect.MySQL8Dialect"
 }
 
 environments{
     development{
         dataSource{
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/tamere"
+            url = "jdbc:mysql://localhost/tamere?autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Europe/Zurich"
             username = "tamere"
             password = "solothurn"
         }

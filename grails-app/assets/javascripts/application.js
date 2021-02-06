@@ -62,8 +62,8 @@ $(document).ready(function(){
      * listens to popstate event (on the back button)
      * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
      */
-    window.addEventListener('popstate', event => {
-        const { state } = event;
+    window.addEventListener('popstate', function(event) {
+        var state = event.state;
         // State Change for Article Entry
         if(state !== null && state['stateValue'].indexOf('/shop/') !== -1){
             changePage(state['stateValue'], state['stateValue'], true, 'shop', state['stateValue']);

@@ -1,6 +1,6 @@
 <div class="inside-page-container">
     <div class="d-flex flex-column flex-lg-row align-items-center">
-        <asset:image src="tamere/AlbumCover.png" class="box-shadow album-artwork" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère"/>
+        <asset:image src="tamere/AlbumCover2.png" class="box-shadow album-artwork" title="Album Plexian Ta Mère" alt="Album Cover Plexian Ta Mère"/>
         <div class="album-teaser-content d-flex flex-column align-items-center flex-grow-1">
             <h2 class="album-teaser-title">Plexian</h2>
             <p class="grand-paragraph">

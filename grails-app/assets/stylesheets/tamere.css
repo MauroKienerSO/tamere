@@ -1050,11 +1050,17 @@ a.go-to-article:hover {
     }
     .album-buttons {
         flex-direction: column;
+        width: 100%;
+        align-items: center;
     }
     .album-button {
         margin: 0.5rem;
-        max-width: 125px;
-        min-width: 125px;
+        max-width: unset;
+        min-width: unset;
+        width: 100%;
+    }
+    .album-button-first {
+        margin-right: 0.5rem !important;
     }
 }
 
