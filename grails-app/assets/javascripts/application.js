@@ -45,6 +45,7 @@ $(document).ready(function(){
      * opens the new template (liveShow, band, music etc.)
      */
     $(document).on('click', 'a.clickableHeader', function (e) {
+        $('#navbarSupportedContent').collapse('hide');
         var that = $(this);
         changePage(that.data('url'), that.data('pushstate'), false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));
     });
@@ -363,7 +364,6 @@ $(document).ready(function(){
  * see: https://stackoverflow.com/questions/60120434/ajax-navigation-window-history-pushstate-back-browser-button-doesnt-work
  */
 function changePage(url, pushState, popState, headerValue, stateToPush){
-    $('#navbarSupportedContent').collapse('hide');
 
     $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
 
@@ -377,13 +377,13 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
 
             $('#modal-wrapper').modal('hide');
 
-            $('#page-container').fadeOut(300,function(){
+            $('#page-container').fadeOut(200,function(){
                 window.scrollTo(0, 0);
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, stateToPush);
                 }
-                $('#page-container').fadeIn(300);
+                $('#page-container').fadeIn(200);
             });
         }
     });

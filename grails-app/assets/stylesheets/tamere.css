@@ -116,6 +116,10 @@
     line-height: 1;
     border: 1px solid transparent;
     border-radius: unset !important;
+    -o-transition: background-color 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
+    -ms-transition: background-color 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
+    -moz-transition: background-color 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
+    -webkit-transition: background-color 0.1s ease-in, border 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
 }
 .navbar-toggler:hover {
     text-decoration: none;
@@ -862,7 +866,6 @@ a.go-to-article:hover {
     #navbarSupportedContent, #navbarSupportedContent .navbar-nav {
         min-width: 100%;
         max-width: 100%;
-        padding: 1rem 0;
     }
     .navbar-custom .navbar-nav .nav-link {
         min-width: 100%;
