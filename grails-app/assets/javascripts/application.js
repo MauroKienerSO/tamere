@@ -379,7 +379,7 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
 
             $('#modal-wrapper').modal('hide');
 
-            $('#page-container').fadeOut(200,function(){
+            $('#page-container').fadeOut(100,function(){
                 window.scrollTo(0, 0);
                 if($('#myHeader').hasClass('opacity-and-background')){
                     $('#myHeader').removeClass('opacity-and-background');
@@ -388,7 +388,7 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, stateToPush);
                 }
-                $('#page-container').fadeIn(200);
+                $('#page-container').fadeIn(100);
             });
         }
     });

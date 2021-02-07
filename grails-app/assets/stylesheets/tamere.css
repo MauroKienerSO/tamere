@@ -1096,11 +1096,17 @@ a.go-to-article:hover {
         letter-spacing: 14px !important;
     }
 }
-
+.link-container-parent {
+    bottom: 10px;
+    align-self: center;
+}
 .link-container a {
     color: rgb(232,232,232);
     border: 3px solid rgb(232,232,232);
-    margin: 0 0 0.3rem 0;
+    margin: 0 0 0 0.3rem;
+    font-family: Flaticon;
+    font-size: 25px;
+    background-color: rgb(198,114,168)
 }
 .link-container a span::before {
     margin-left: unset !important;
