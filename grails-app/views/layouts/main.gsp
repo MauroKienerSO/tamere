@@ -6,15 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" disabled>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" disabled>
-    <link rel="icon" type="image/x-ico" href="/tamere/assets/favicon.ico" disabled/>
-    <link rel="stylesheet" href="/tamere/assets/css/bootstrap.css?compile=false" disabled/>
-    <link rel="stylesheet" href="/tamere/assets/mobile.css?compile=false" disabled/>
-    <link rel="stylesheet" href="/tamere/assets/datepicker.css?compile=false" disabled/>
-    <link rel="stylesheet" href="/tamere/assets/tamere.css?compile=false" disabled />
-    <link rel="stylesheet" href="/tamere/assets/flaticon.css?compile=false" disabled/>
-    <link rel="stylesheet" href="/tamere/assets/application.css?compile=false" disabled/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+
+    <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
 

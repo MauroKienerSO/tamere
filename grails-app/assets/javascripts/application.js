@@ -22,8 +22,6 @@ var lastScrollTop = 0;
 
 $(document).ready(function(){
 
-    $('link').removeAttr('disabled');
-
     var doc = document.documentElement;
     var w = window;
 
@@ -50,7 +48,7 @@ $(document).ready(function(){
         e.preventDefault();
         $('#navbarSupportedContent').collapse('hide');
         var that = $(this);
-        changePage(that.data('url'), that.data('pushstate'), false, $(this).data('pushstate'), $(this).data('url').replaceAll('/body', ''));
+        changePage(that.data('url'), that.data('pushstate'), false, $(this).data('pushstate'), $(this).data('url').replace('/body', ''));
     });
 
     /**
@@ -68,7 +66,7 @@ $(document).ready(function(){
     $(document).on('click', '#back-to-shop', function (e) {
         e.preventDefault();
         var that = $(this);
-        changePage(that.data('url'), that.data('url'), false, that.data('headervalue'), that.data('url').replaceAll('/body', ''));
+        changePage(that.data('url'), that.data('url'), false, that.data('headervalue'), that.data('url').replace('/body', ''));
     });
 
     /**
@@ -84,7 +82,7 @@ $(document).ready(function(){
             if(state !== null && state['stateValue'] !== undefined){
                 // Change State for Header Entry
                 var domElement = $('[data-pushstate="'+ state['stateValue'] +'"]');
-                changePage(domElement.data('url'), domElement.data('pushstate'), true, state['stateValue'], domElement.data('url').replaceAll('/body', ''));
+                changePage(domElement.data('url'), domElement.data('pushstate'), true, state['stateValue'], domElement.data('url').replace('/body', ''));
             }
         }
     });
