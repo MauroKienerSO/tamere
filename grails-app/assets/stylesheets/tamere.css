@@ -800,7 +800,7 @@ a.go-to-article:hover {
     background-color: rgb(198,114,168);
     display: flex;
     justify-content: flex-end;
-    z-index: 16;
+    z-index: 17;
 }
 .total-price-cart {
     text-decoration-line: underline;
@@ -1099,6 +1099,7 @@ a.go-to-article:hover {
 .link-container-parent {
     bottom: 10px;
     align-self: center;
+    z-index: 16;
 }
 .link-container a {
     color: rgb(232,232,232);
