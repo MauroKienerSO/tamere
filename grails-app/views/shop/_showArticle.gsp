@@ -9,7 +9,7 @@
         Sorry! Unfortunately we couldn't store the article in the cart. Please try again!
     </div>
     <div class="d-flex mb-3">
-        <a id="back-to-shop" href="${createLink(controller: 'shop', action: 'body')}" data-url="${createLink(controller: 'shop', action: 'body')}" data-headervalue="shop" href="${createLink(controller: 'shop', action: 'body')}" class="d-flex align-items-center btn btn-primary">
+        <a id="back-to-shop" href="${createLink(controller: 'shop', action: 'body')}" data-url="${createLink(controller: 'shop', action: 'body')}" data-headervalue="shop" href="${createLink(controller: 'shop', action: 'body')}" class="d-flex align-items-center back-to-shop-link">
             <span class="material-icons pr-1">
                 keyboard_backspace
             </span>
