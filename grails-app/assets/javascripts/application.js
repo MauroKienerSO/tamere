@@ -135,14 +135,14 @@ $(document).ready(function(){
         */
 
         curScroll = w.scrollY || doc.scrollTop;
+
         if (curScroll > prevScroll) {
-            //scrolled up
+            //scrolled down
             direction = 2;
         }
         else if (curScroll < prevScroll) {
-            //scrolled down
+            //scrolled up
             direction = 1;
-            console.log(w.scrollY)
             if(w.scrollY < 10){
                 header.classList.remove('opacity-and-background');
             }
@@ -157,15 +157,14 @@ $(document).ready(function(){
 
     var toggleHeader = function(direction, curScroll) {
         if (direction === 2 && curScroll > 25) {
-
-            //replace 52 with the height of your header in px
-
             header.classList.add('d-none');
             prevDirection = direction;
         }
         else if (direction === 1) {
             header.classList.remove('d-none');
-            header.classList.add('opacity-and-background');
+            if(curScroll > 10){
+                header.classList.add('opacity-and-background');
+            }
             prevDirection = direction;
         }
     };
@@ -373,11 +372,6 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
     // Set the active Header
     $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
 
-    window.scrollTo(0, 0);
-    if($('#myHeader').hasClass('opacity-and-background')){
-        $('#myHeader').removeClass('opacity-and-background');
-    }
-
     $.ajax({
         url: url,
         data: {ajax: 'true'},
@@ -386,6 +380,10 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
             $('#modal-wrapper').modal('hide');
 
             $('#page-container').fadeOut(200,function(){
+                window.scrollTo(0, 0);
+                if($('#myHeader').hasClass('opacity-and-background')){
+                    $('#myHeader').removeClass('opacity-and-background');
+                }
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, stateToPush);

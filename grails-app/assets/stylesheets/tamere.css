@@ -785,6 +785,9 @@ a.go-to-article:hover {
     font-style: italic;
     padding-top: 0.2rem;
 }
+.collapsing {
+    transition: height 0.1s ease;
+}
 
 /* SHOPPING CART INDICATOR */
 #shoppingCart-indicator {
@@ -832,6 +835,9 @@ a.go-to-article:hover {
     .show-article-carousel {
         min-width: 55%;
     }
+    #page-container {
+        margin-top: 6rem;
+    }
 }
 @media (max-width: 1060px) {
     .navbar-custom .navbar-nav .nav-link {
@@ -853,9 +859,6 @@ a.go-to-article:hover {
     }
     .admin-page .btn-primary {
         min-width: 100%;
-    }
-    #page-container {
-        margin-top: 7rem;
     }
     .home-image {
         margin-left: calc(((100vw - 690px) / 2) - 1rem);
@@ -897,6 +900,9 @@ a.go-to-article:hover {
     .modal-dialog {
         width: 80vw;
     }
+    #page-container {
+        margin-top: 5rem;
+    }
 }
 /*sm*/
 @media (max-width: 767px) {
@@ -931,9 +937,6 @@ a.go-to-article:hover {
     }
     .video-description {
         width: 100%;
-    }
-    #page-container {
-        margin-top: 6rem;
     }
     .home-image {
         margin-left: calc(((100vw - 510px) / 2) - 1rem);
@@ -993,9 +996,6 @@ a.go-to-article:hover {
         margin: 0 1rem;
         min-width: 80%;
         max-width: 80%;
-    }
-    #page-container {
-        margin-top: 5rem;
     }
     .home-image {
         margin: 0;
