@@ -366,6 +366,8 @@ $(document).ready(function(){
  */
 function changePage(url, pushState, popState, headerValue, stateToPush){
 
+    // Blur the active Element
+    document.activeElement.blur();
     $( '#myHeader .navbar-nav' ).find( '.nav-item.active' ).removeClass( 'active' );
 
     // Set the active Header
