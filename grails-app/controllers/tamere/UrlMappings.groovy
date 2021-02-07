@@ -29,5 +29,6 @@ class UrlMappings {
         "/shop/donwloadZipFilePlexian/$token"(controller: 'shop', action: 'donwloadZipFilePlexian', params: [token: token])
         "/shop/$alias"(controller: 'shop', action: 'showArticleAjax', params: [alias: alias])
         "/contact"(controller: 'contact', action: 'index')
+        "/robots.txt"(view: "/robots")
     }
 }
