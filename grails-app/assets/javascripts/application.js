@@ -297,6 +297,9 @@ $(document).ready(function(){
         var form = $(this);
 
         window.scrollTo(0, 0);
+        if($('#myHeader').hasClass('opacity-and-background')){
+            $('#myHeader').removeClass('opacity-and-background');
+        }
         showSpinner();
 
         $.ajax({
@@ -304,9 +307,6 @@ $(document).ready(function(){
             data: form.serialize(), // serializes the form's elements.
             success: function(data, result) {
                 hideSpinner();
-                if($('#myHeader').hasClass('opacity-and-background')){
-                    $('#myHeader').removeClass('opacity-and-background');
-                }
                 $('#page-container').fadeOut(300,function(){
                     $('#page-container').html(data);
                     $('#page-container').fadeIn(300);
@@ -373,6 +373,11 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
     // Set the active Header
     $('.clickableHeader[data-pushstate='+ headerValue +']').parent('.nav-item').addClass('active');
 
+    window.scrollTo(0, 0);
+    if($('#myHeader').hasClass('opacity-and-background')){
+        $('#myHeader').removeClass('opacity-and-background');
+    }
+
     $.ajax({
         url: url,
         data: {ajax: 'true'},
@@ -381,7 +386,6 @@ function changePage(url, pushState, popState, headerValue, stateToPush){
             $('#modal-wrapper').modal('hide');
 
             $('#page-container').fadeOut(200,function(){
-                window.scrollTo(0, 0);
                 $('#page-container').html(data);
                 if(popState == false){
                     history.pushState({stateValue: pushState}, pushState, stateToPush);
