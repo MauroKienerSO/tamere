@@ -2,19 +2,23 @@
     Contact
 </h1>
 
-<g:if test="${messageSent}">
-    <div class="inside-page-container subtitle response">
-        We have received your message, thank you very much!
-    </div>
-</g:if>
-
-<g:if test="${errorMessage}">
-    <div class="inside-page-container subtitle response">
-        ${errorMessage}
-    </div>
-</g:if>
-
 <div class="inside-page-container">
+
+    <g:if test="${messageSent}">
+        <div class="mb-3">
+            <div class="subtitle response">
+                We have received your message, thank you very much!
+            </div>
+            <div class="error-message">
+                Please check your Spam folder if you didn't receive any confirmation!
+            </div>
+        </div>
+    </g:if>
+    <g:if test="${errorMessage}">
+        <div class="subtitle response mb-3">
+            ${errorMessage}
+        </div>
+    </g:if>
     <g:formRemote id="contactForm" name="contactForm" url="[controller: 'contact', action: 'sendMessage']" update="page-container" onLoading="showSpinner()" onComplete="hideSpinner()">
         <div class="form-group d-flex align-items-stretch flex-column flex-md-row">
             <label for="name">Your Name</label>

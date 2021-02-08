@@ -7,7 +7,7 @@
 <div style="margin: 20px; font-style: italic;">
     Subject: ${contact.title} <br>
     <br>
-    Message: {contact.message}
+    Message: ${contact.message}
 </div>
 <div style="margin: 20px 0;">
     Best regards, <br>

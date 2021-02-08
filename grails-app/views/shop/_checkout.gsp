@@ -8,13 +8,13 @@
 
     <div class="d-flex flex-column">
 
-        <div class="mb-3 subtitle-4 d-none" id="errorMessageOrderConfirmation">
-            Unfortunately we couldn't process your order. Did you enter a valid Mail Adress?
-            Thank you for trying again!
-        </div>
-
         <div class="mb-3 subtitle-4">
             Please enter the shipping adress.
+        </div>
+
+        <div class="mb-3 error-message d-none" id="errorMessageOrderConfirmation">
+            Unfortunately we couldn't process your order. Did you enter a valid Mail Adress?
+            Thank you for trying again!
         </div>
 
         <form action="${createLink(controller: 'shop', action: 'createOrderAjax')}" name="createOrder" id="createOrder">

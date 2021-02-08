@@ -5,9 +5,14 @@
 </h1>
 
 <div class="inside-page-container">
-    Thank you very much for purchasing in our Store!
+    <div>
+        Thank you very much for purchasing in our Store!
+        We are already looking forward to see you at our next concert!
+    </div>
 
-    We are already looking forward to see you at our next concert!
+    <div class="error-message mt-2">
+        Please check your Spam folder if you didn't receive any confirmation!
+    </div>
 
     <div class="d-flex mt-5">
         <g:link controller="home" action="index" class="d-flex align-items-center btn btn-primary width-under-sm-100">
