@@ -5,5 +5,9 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(Role.ROLE_ADMIN)
 class OrderController {
 
-    def index() { }
+    def index() {
+        log.debug "$actionName -> $params"
+
+        // TODO:
+    }
 }

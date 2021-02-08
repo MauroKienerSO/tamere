@@ -14,7 +14,7 @@
                 <a href="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" class="btn btn-primary album-button album-button-first" id="showPlexian" data-url="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" data-pushstate="${createLink(controller: 'shop', action: 'showArticleAjax', params: [alias: 'plexian'])}" data-headervalue="shop" title="Buy Plexian">
                     Buy
                 </a>
-                <a href="https://soundcloud.com/tamereband" class="btn btn-primary album-button" target="_blank">
+                <a href="https://open.spotify.com/artist/0kraMbyG24vBNc7X2WWUWb" class="btn btn-primary album-button" target="_blank">
                     Listen
                 </a>
             </div>
