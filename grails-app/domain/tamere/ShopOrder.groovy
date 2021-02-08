@@ -10,12 +10,19 @@ class ShopOrder {
 
     String email
 
+    Date date
+    Boolean shipped = false
+    Boolean paymentReceived = false
+
     static constraints = {
-        name           nullable: false
-        address        nullable: false
-        plz            nullable: false
-        city           nullable: false
-        email          nullable: false
+        name            nullable: false
+        address         nullable: false
+        plz             nullable: false
+        city            nullable: false
+        email           nullable: false
+        date            nullable: false
+        shipped         nullable: false
+        paymentReceived nullable: false
     }
 
     /**

@@ -8,6 +8,42 @@ class OrderController {
     def index() {
         log.debug "$actionName -> $params"
 
-        // TODO:
+        List<ShopOrder> orders = ShopOrder.list([sort: 'date', order: 'desc'])
+
+        [orders: orders]
+    }
+
+    def shipOrder() {
+        log.debug "$actionName -> $params"
+
+        ShopOrder order = ShopOrder.get(params.long('id'))
+        if(!order){
+            redirect action: 'index'
+            return
+        }
+
+        order.shipped = true
+        order.save(flush: true)
+
+        List<ShopOrder> orders = ShopOrder.list([sort: 'date', order: 'desc'])
+
+        render view: '/order/index', model: [orders: orders]
+    }
+
+    def paymentReceived() {
+        log.debug "$actionName -> $params"
+
+        ShopOrder order = ShopOrder.get(params.long('id'))
+        if(!order){
+            redirect action: 'index'
+            return
+        }
+
+        order.paymentReceived = true
+        order.save(flush: true)
+
+        List<ShopOrder> orders = ShopOrder.list([sort: 'date', order: 'desc'])
+
+        render view: '/order/index', model: [orders: orders]
     }
 }

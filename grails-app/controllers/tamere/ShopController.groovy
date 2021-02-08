@@ -229,6 +229,7 @@ class ShopController {
         bindData(order, params,  ['exclude': ['plz']])
         order.plz = params.int('plz')
         order.shoppingCart = shoppingCart
+        order.date = new Date()
 
         try {
             order.save(flush: true)
@@ -256,6 +257,7 @@ class ShopController {
         } catch(Exception e){
             log.info "There was an exception during sending the mail"
             log.info "ERROR ${e.message}"
+            order.delete(flush: true)
             response.status = 400
             render 'not ok'
             return

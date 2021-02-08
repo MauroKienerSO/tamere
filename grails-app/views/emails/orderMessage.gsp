@@ -56,32 +56,7 @@
 </table>
 
 <div>Please make sure to ship the required items to the user!</div>
-
 <br>
-
-<table style="padding-bottom: 0.5rem; width: 70%; border-collapse: collapse;">
-    <tr>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">Name:</td>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">Ta Mère Band</td>
-    </tr>
-    <tr>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">Address:</td>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">
-            Obachstrasse 2,<br>
-            4500 Solothurn
-        </td>
-    </tr>
-    <tr>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">Bank account number:</td>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">473.533.74.150</td>
-    </tr>
-    <tr>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">IBAN:</td>
-        <td style="border: 1px solid black;text-align: left;padding: 5px;">CH26 0878 5047 3553 7415 0</td>
-    </tr>
-</table>
-<br>
-<div>We are looking forward to see you at one of our upcoming shows!</div>
 <div style="margin: 20px 0;">
     Best regards, <br>
     <span style="font-weight: bold;">Ta Mère</span> <br>
