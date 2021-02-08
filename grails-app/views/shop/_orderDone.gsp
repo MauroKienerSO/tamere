@@ -6,7 +6,7 @@
 
 <div class="inside-page-container">
     <div>
-        Thank you very much for purchasing in our Store!
+        Thank you very much for purchasing from our Store!
         We are already looking forward to see you at our next concert!
     </div>
 
