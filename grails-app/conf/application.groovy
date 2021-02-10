@@ -95,7 +95,7 @@ grails {
         host = "smtp.office365.com"
         port = 587
         username = "tamereband@hotmail.com"
-        password = "Plexian2020?"
+        password = "Plexian2021?"
         props = ["mail.smtp.starttls.enable":"true",
                  "mail.smtp.port":"587"]
     }
