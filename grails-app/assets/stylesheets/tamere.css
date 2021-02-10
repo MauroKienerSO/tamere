@@ -525,14 +525,17 @@ a.go-to-article:hover {
 .color-primary {
     color: rgba(236, 155, 208, 1);
 }
-.order-list-container {
+.order-list-container, .contact-list-container {
     border-top: 0.5px solid rgb(232,232,232);
 }
-.order-entry {
+.order-entry, .contact-entry {
     border-bottom: 0.5px solid rgb(232,232,232);
 }
 .order-entry div {
     flex-basis: 25%;
+}
+.w-30 {
+    width: 30% !important;
 }
 
 .liveShow-date {

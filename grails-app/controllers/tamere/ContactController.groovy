@@ -21,6 +21,8 @@ class ContactController {
         Contact contact = new Contact()
         bindData(contact, params)
 
+        contact.date = new Date()
+
         if(!contact.save(flush: true)){
             log.debug "Couldn't save Contact"
             log.debug "${contact.errors}"
@@ -55,5 +57,20 @@ class ContactController {
 
     def messages(){
         log.debug "$actionName -> $params"
+    }
+
+    def respondToMessage(){
+        log.debug "$actionName -> $params"
+
+        Contact contact = Contact.get(params.long('id'))
+        if(!contact){
+            redirect action: 'messages'
+            return
+        }
+
+        contact.responded = true
+        contact.save(flush: true)
+
+        render view: '/contact/messages'
     }
 }

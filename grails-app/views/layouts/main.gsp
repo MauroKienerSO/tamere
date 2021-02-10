@@ -51,9 +51,6 @@
 
         <g:render template="/templates/links"/>
 
-        %{--Footer--}%
-%{--        <g:render template="/footer/footer"/>--}%
-
         <g:render template="/templates/modalWrapper"/>
 
     </div>
