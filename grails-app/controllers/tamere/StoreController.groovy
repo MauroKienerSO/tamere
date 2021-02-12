@@ -115,6 +115,7 @@ class StoreController {
 
         article.alias = article.title.toLowerCase().replaceAll(' ', '-')
         article.description = params.description
+        article.price = params.double('price')
 
         List<Integer> sizesToAdd = params.collect { key, value ->
             if(key.startsWith('size-')){
@@ -122,11 +123,14 @@ class StoreController {
             }
         }.findAll()
 
-        if(sizesToAdd){
-            List<Size> sizes = Size.findAllByIdInList(sizesToAdd)
-            sizes.each { sizeDomain ->
-                article.addToSizes(sizeDomain)
-            }
+        List<Size> sizesForDomain = Size.findAllByIdInList(sizesToAdd?:[])
+        sizesForDomain.each { sizeDomain ->
+            article.addToSizes(sizeDomain)
+        }
+
+        List<Size> sizesToRemove = Size.findAllByIdNotInList(sizesToAdd?:[])
+        sizesToRemove.each { sizeDomain ->
+            article.removeFromSizes(sizeDomain)
         }
 
         // Add article to the images

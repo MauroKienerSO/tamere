@@ -44,7 +44,7 @@ class BootStrap {
 
         if(!sizes){
 
-            ['S', 'M', 'L', 'XL'].each { sizeValue ->
+            ['S', 'M', 'L', 'XL', 'XXL'].each { sizeValue ->
                 Size sizeDomain = new Size()
                 sizeDomain.size = sizeValue
 
@@ -55,6 +55,20 @@ class BootStrap {
                     }
                 }
 
+            }
+        }
+
+        Size sizeXXL = Size.findBySize('XXL')
+
+        if(!sizeXXL){
+            sizeXXL = new Size()
+            sizeXXL.size = 'XXL'
+
+            if (!sizeXXL.save(flush: true)) {
+                log.error "Could not create size $sizeXXL"
+                sizeXXL.errors.allErrors.each {
+                    log.error it.toString()
+                }
             }
         }
     }
