@@ -599,6 +599,10 @@ a.go-to-article:hover {
     font-style: italic;
     font-size: small;
 }
+.article-additional-info {
+    font-style: italic;
+    font-size: small;
+}
 .article-price {
     font-weight: bold;
     font-size: large;

@@ -115,6 +115,7 @@ class StoreController {
 
         article.alias = article.title.toLowerCase().replaceAll(' ', '-')
         article.description = params.description
+        article.additionalInfo = params.additionalInfo
         article.price = params.double('price')
 
         List<Integer> sizesToAdd = params.collect { key, value ->
@@ -123,12 +124,12 @@ class StoreController {
             }
         }.findAll()
 
-        List<Size> sizesForDomain = Size.findAllByIdInList(sizesToAdd?:[])
+        List<Size> sizesForDomain = sizesToAdd ? Size.findAllByIdInList(sizesToAdd) : []
         sizesForDomain.each { sizeDomain ->
             article.addToSizes(sizeDomain)
         }
 
-        List<Size> sizesToRemove = Size.findAllByIdNotInList(sizesToAdd?:[])
+        List<Size> sizesToRemove = sizesToAdd ? Size.findAllByIdNotInList(sizesToAdd) : Size.list()
         sizesToRemove.each { sizeDomain ->
             article.removeFromSizes(sizeDomain)
         }

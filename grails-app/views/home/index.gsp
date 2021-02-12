@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>tamere</title>
+    <title>tamere | The official website of Ta Mère</title>
 </head>
 <body>
     <g:render template="${templateLocation}"></g:render>

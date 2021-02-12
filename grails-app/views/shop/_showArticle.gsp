@@ -38,6 +38,7 @@
         <div class="show-article-data align-self-start">
             <h6 class="article-title">${article.title}</h6>
             <p class="article-description">${article.description}</p>
+            <p class="article-additional-info">${article.additionalInfo}</p>
             <div class="article-price"><g:formatNumber number="${article.price}" format="##.##"/> CHF</div>
 
             <form action="${createLink(controller: 'shop', action: 'addToCartAjax')}" name="addToCartForm" id="addToCartForm">

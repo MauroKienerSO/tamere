@@ -16,9 +16,9 @@
     <g:layoutHead/>
 
     <title>
-        <g:layoutTitle default="tamere [Official Webpage Ta Mère Band]"/>
+        <g:layoutTitle default="tamere | The official website of Ta Mère"/>
     </title>
-    <meta name="description" content="Official Webpage of the Band tamere. The Band Ta Mère from Solothurn Switzerland."/>
+    <meta name="description" content="tamere | The official website of Ta Mère. The Band Ta Mère from Solothurn Switzerland."/>
 </head>
 <body>
 

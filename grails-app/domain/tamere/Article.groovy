@@ -4,6 +4,7 @@ class Article {
 
     String title
     String description
+    String additionalInfo
     Double price
 
     String alias
@@ -16,6 +17,7 @@ class Article {
     static constraints = {
         title           nullable: false
         description     nullable: false
+        additionalInfo  nullable: true, widget: 'textarea'
         alias           nullable: false
         price           nullable: false
         download        nullable: false

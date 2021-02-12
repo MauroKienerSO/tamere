@@ -50,6 +50,7 @@
 </g:if>
 
 <div>We kindly ask you to transfer the required amount to the following bank adress: </div>
+<div>If you want to donate an additional amount, feel free to do so, you rockstar! ;)</div>
 
 <br>
 
