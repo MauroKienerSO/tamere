@@ -16,7 +16,7 @@ class LiveController {
 
     def index() {
         log.debug "$actionName -> $params"
-        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "asc"])
         List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
 
         Integer amountOfItemsInShoppingCart = storeService.getNumberOfItemsInShoppingCart(session)
@@ -29,7 +29,7 @@ class LiveController {
      */
     def body(){
         log.debug "$actionName -> $params"
-        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "asc"])
         List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
         render template: 'liveShowTemplate', model: [futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
     }
@@ -37,7 +37,7 @@ class LiveController {
     @Secured(Role.ROLE_ADMIN)
     def liveShows() {
         log.debug "$actionName -> $params"
-        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "desc"])
+        List<LiveShow> futureLiveShows = LiveShow.findAllByDateGreaterThan(new Date(), [sort: "date", order: "asc"])
         List<LiveShow> pastLiveShows = LiveShow.findAllByDateLessThanEquals(new Date(), [sort: "date", order: "desc"])
         [futureLiveShows: futureLiveShows, pastLiveShows: pastLiveShows]
     }
