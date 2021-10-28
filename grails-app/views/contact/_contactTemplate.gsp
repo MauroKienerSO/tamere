@@ -36,6 +36,19 @@
             <label for="message">Your Message</label>
             <textarea class="form-control" id="message" name="message" rows="3" value="${contact?.message}"  autocomplete="off" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary g-recaptcha"
+                type="submit"
+                data-sitekey="6Ldza_wcAAAAALobAKzBPhpl7WfO1aM5mBtsuNxb"
+                data-callback='onSubmitCaptcha'
+                data-action='submit'>Submit</button>
     </g:formRemote>
 </div>
+
+<script>
+    hideSpinner();
+
+    function onSubmitCaptcha(token) {
+        showSpinner();
+        document.getElementById("contactForm").submit();
+    }
+</script>
